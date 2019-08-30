@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('landing.index');
+});
+
+
+Route::get('/admin', function () {
+    return view('admin.index');
 });
