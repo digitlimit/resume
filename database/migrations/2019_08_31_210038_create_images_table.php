@@ -23,6 +23,8 @@ class CreateImagesTable extends Migration
             $table->string('name')->nullable();
             $table->string('url')->nullable();
 
+            $table->boolean('default')->default(false);
+
             $table->timestamps();
         });
     }

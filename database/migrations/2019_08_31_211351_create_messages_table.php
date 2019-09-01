@@ -15,7 +15,7 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('profile_id');
+            $table->bigInteger('user_id');
 
             $table->string('name')->nullable(); //portfolio or profile
             $table->string('email')->nullable(); //portfolio or profile
