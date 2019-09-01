@@ -1,9 +1,15 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="#">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Profile</span>
             </a>
         </li>
         <li class="nav-item">
@@ -45,6 +51,30 @@
                     </li>
                 </ul>
             </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Messages</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Images</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Users</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Settings</span>
+            </a>
         </li>
     </ul>
 </nav>

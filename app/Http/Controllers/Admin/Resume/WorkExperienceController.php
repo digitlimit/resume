@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Resume;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class workExperienceController extends Controller
+class WorkExperienceController extends Controller
 {
     /**
      * Display a listing of the resource.
