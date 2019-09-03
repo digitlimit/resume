@@ -13,237 +13,227 @@
 
 Route::group([], function()
 {
-    Route::name('admin.')->prefix('admin')->middleware([])->group(function()
+    Route::name('admin.')->prefix('admin')->middleware([])->namespace('Admin')->group(function()
     {
+        Route::get('/', 'DashboardController@index')->name('index');
+
         Route::name('profiles.')->prefix('profiles')->middleware([])->group(function ()
         {
-            Route::get('/', 'Admin\ProfileController@index')
+            Route::get('/', 'ProfileController@index')
                 ->name('index');
 
-            Route::post('/', 'Admin\ProfileController@store')
+            Route::post('/', 'ProfileController@store')
                 ->name('store');
 
-            Route::put('/', 'Admin\ProfileController@update')
+            Route::put('/', 'ProfileController@update')
                 ->name('update');
 
-            Route::delete('/', 'Admin\ProfileController@destroy')
+            Route::delete('/', 'ProfileController@destroy')
                 ->name('destroy');
         });
 
         Route::name('messages.')->prefix('messages')->middleware([])->group(function ()
         {
-            Route::get('/', 'Admin\MessageController@index')
+            Route::get('/', 'MessageController@index')
                 ->name('index');
 
-            Route::post('/', 'Admin\MessageController@store')
+            Route::post('/', 'MessageController@store')
                 ->name('store');
 
-            Route::put('/', 'Admin\MessageController@update')
+            Route::put('/', 'MessageController@update')
                 ->name('update');
 
-            Route::delete('/', 'Admin\MessageController@destroy')
+            Route::delete('/', 'MessageController@destroy')
                 ->name('destroy');
         });
 
         Route::name('images.')->prefix('images')->middleware([])->group(function ()
         {
-            Route::get('/', 'Admin\ImageController@index')
+            Route::get('/', 'ImageController@index')
                 ->name('index');
 
-            Route::post('/', 'Admin\ImageController@store')
+            Route::post('/', 'ImageController@store')
                 ->name('store');
 
-            Route::put('/', 'Admin\ImageController@update')
+            Route::put('/', 'ImageController@update')
                 ->name('update');
 
-            Route::delete('/', 'Admin\ImageController@destroy')
+            Route::delete('/', 'ImageController@destroy')
                 ->name('destroy');
         });
 
         Route::name('users.')->prefix('users')->middleware([])->group(function ()
         {
-            Route::get('/', 'Admin\UserController@index')
+            Route::get('/', 'UserController@index')
                 ->name('index');
 
-            Route::post('/', 'Admin\UserController@store')
+            Route::post('/', 'UserController@store')
                 ->name('store');
 
-            Route::put('/', 'Admin\UserController@update')
+            Route::put('/', 'UserController@update')
                 ->name('update');
 
-            Route::delete('/', 'Admin\UserController@destroy')
+            Route::delete('/', 'UserController@destroy')
                 ->name('destroy');
         });
 
         Route::name('settings.')->prefix('settings')->middleware([])->group(function ()
         {
-            Route::get('/', 'Admin\SettingController@index')
+            Route::get('/', 'SettingController@index')
                 ->name('index');
 
-            Route::post('/', 'Admin\SettingController@store')
+            Route::post('/', 'SettingController@store')
                 ->name('store');
 
-            Route::put('/', 'Admin\SettingController@update')
+            Route::put('/', 'SettingController@update')
                 ->name('update');
 
-            Route::delete('/', 'Admin\SettingController@destroy')
+            Route::delete('/', 'SettingController@destroy')
                 ->name('destroy');
         });
-
-
-
 
         Route::name('resumes.')->prefix('resumes')->middleware([])->group(function ()
         {
             Route::name('summaries.')->prefix('summaries')->middleware([])->group(function ()
             {
-                Route::get('/', 'Admin\Resume\SummaryController@index')
+                Route::get('/', 'Resume\SummaryController@index')
                     ->name('index');
 
-                Route::post('/', 'Admin\Resume\SummaryController@store')
+                Route::post('/', 'Resume\SummaryController@store')
                     ->name('store');
 
-                Route::put('/', 'Admin\Resume\SummaryController@update')
+                Route::put('/', 'Resume\SummaryController@update')
                     ->name('update');
 
-                Route::delete('/', 'Admin\Resume\SummaryController@destroy')
+                Route::delete('/', 'Resume\SummaryController@destroy')
                     ->name('destroy');
             });
 
             Route::name('portfolios.')->prefix('portfolios')->middleware([])->group(function ()
             {
-                Route::get('/', 'Admin\Resume\PortfolioController@index')
+                Route::get('/', 'Resume\PortfolioController@index')
                     ->name('index');
 
-                Route::post('/', 'Admin\Resume\PortfolioController@store')
+                Route::post('/', 'Resume\PortfolioController@store')
                     ->name('store');
 
-                Route::put('/', 'Admin\Resume\PortfolioController@update')
+                Route::put('/', 'Resume\PortfolioController@update')
                     ->name('update');
 
-                Route::delete('/', 'Admin\Resume\PortfolioController@destroy')
+                Route::delete('/', 'Resume\PortfolioController@destroy')
                     ->name('destroy');
             });
 
             Route::name('skills.')->prefix('skills')->middleware([])->group(function ()
             {
-                Route::get('/', 'Admin\Resume\SkillController@index')
+                Route::get('/', 'Resume\SkillController@index')
                     ->name('index');
 
-                Route::post('/', 'Admin\Resume\SkillController@store')
+                Route::post('/', 'Resume\SkillController@store')
                     ->name('store');
 
-                Route::put('/', 'Admin\Resume\SkillController@update')
+                Route::put('/', 'Resume\SkillController@update')
                     ->name('update');
 
-                Route::delete('/', 'Admin\Resume\SkillController@destroy')
+                Route::delete('/', 'Resume\SkillController@destroy')
                     ->name('destroy');
             });
 
             Route::name('work_experiences.')->prefix('work_experiences')->middleware([])->group(function ()
             {
-                Route::get('/', 'Admin\Resume\WorkExperienceController@index')
+                Route::get('/', 'Resume\WorkExperienceController@index')
                     ->name('index');
 
-                Route::post('/', 'Admin\Resume\WorkExperienceController@store')
+                Route::post('/', 'Resume\WorkExperienceController@store')
                     ->name('store');
 
-                Route::put('/', 'Admin\Resume\WorkExperienceController@update')
+                Route::put('/', 'Resume\WorkExperienceController@update')
                     ->name('update');
 
-                Route::delete('/', 'Admin\Resume\WorkExperienceController@destroy')
+                Route::delete('/', 'Resume\WorkExperienceController@destroy')
                     ->name('destroy');
             });
 
             Route::name('socials.')->prefix('socials')->middleware([])->group(function ()
             {
-                Route::get('/', 'Admin\Resume\SocialController@index')
+                Route::get('/', 'Resume\SocialController@index')
                     ->name('index');
 
-                Route::post('/', 'Admin\Resume\SocialController@store')
+                Route::post('/', 'Resume\SocialController@store')
                     ->name('store');
 
-                Route::put('/', 'Admin\Resume\SocialController@update')
+                Route::put('/', 'Resume\SocialController@update')
                     ->name('update');
 
-                Route::delete('/', 'Admin\Resume\SocialController@destroy')
+                Route::delete('/', 'Resume\SocialController@destroy')
                     ->name('destroy');
             });
 
             Route::name('interests.')->prefix('interests')->middleware([])->group(function ()
             {
-                Route::get('/', 'Admin\Resume\InterestController@index')
+                Route::get('/', 'Resume\InterestController@index')
                     ->name('index');
 
-                Route::post('/', 'Admin\Resume\InterestController@store')
+                Route::post('/', 'Resume\InterestController@store')
                     ->name('store');
 
-                Route::put('/', 'Admin\Resume\InterestController@update')
+                Route::put('/', 'Resume\InterestController@update')
                     ->name('update');
 
-                Route::delete('/', 'Admin\Resume\InterestController@destroy')
+                Route::delete('/', 'Resume\InterestController@destroy')
                     ->name('destroy');
             });
 
             Route::name('educations.')->prefix('educations')->middleware([])->group(function ()
             {
-                Route::get('/', 'Admin\Resume\EducationController@index')
+                Route::get('/', 'Resume\EducationController@index')
                     ->name('index');
 
-                Route::post('/', 'Admin\Resume\EducationController@store')
+                Route::post('/', 'Resume\EducationController@store')
                     ->name('store');
 
-                Route::put('/', 'Admin\Resume\EducationController@update')
+                Route::put('/', 'Resume\EducationController@update')
                     ->name('update');
 
-                Route::delete('/', 'Admin\Resume\EducationController@destroy')
+                Route::delete('/', 'Resume\EducationController@destroy')
                     ->name('destroy');
             });
 
             Route::name('contacts.')->prefix('contacts')->middleware([])->group(function ()
             {
-                Route::get('/', 'Admin\Resume\ContactController@index')
+                Route::get('/', 'Resume\ContactController@index')
                     ->name('index');
 
-                Route::post('/', 'Admin\Resume\ContactController@store')
+                Route::post('/', 'Resume\ContactController@store')
                     ->name('store');
 
-                Route::put('/', 'Admin\Resume\ContactController@update')
+                Route::put('/', 'Resume\ContactController@update')
                     ->name('update');
 
-                Route::delete('/', 'Admin\Resume\ContactController@destroy')
+                Route::delete('/', 'Resume\ContactController@destroy')
                     ->name('destroy');
             });
 
             Route::name('core_values.')->prefix('core_values')->middleware([])->group(function ()
             {
-                Route::get('/', 'Admin\Resume\CoreValueController@index')
+                Route::get('/', 'Resume\CoreValueController@index')
                     ->name('index');
 
-                Route::post('/', 'Admin\Resume\CoreValueController@store')
+                Route::post('/', 'Resume\CoreValueController@store')
                     ->name('store');
 
-                Route::put('/', 'Admin\Resume\CoreValueController@update')
+                Route::put('/', 'Resume\CoreValueController@update')
                     ->name('update');
 
-                Route::delete('/', 'Admin\Resume\CoreValueController@destroy')
+                Route::delete('/', 'Resume\CoreValueController@destroy')
                     ->name('destroy');
             });
         });
     });
+
+    Route::get('/', function () {
+        return view('landing.index');
+    });
 });
 
 
-
-
-
-
-
-Route::get('/', function () {
-    return view('landing.index');
-});
-
-
-Route::get('/admin', function () {
-    return view('admin.index');
-});
