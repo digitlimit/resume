@@ -32,9 +32,7 @@
 
             <div class="content-wrapper">
 
-                @include('admin.common.partials.page_title')
-
-                @include('admin.profile.index')
+                @yield('content')
 
             </div>
 

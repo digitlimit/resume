@@ -22,6 +22,9 @@ Route::group([], function()
             Route::get('/', 'ProfileController@index')
                 ->name('index');
 
+            Route::get('/profile', 'ProfileController@profile')
+                ->name('profile');
+
             Route::post('/', 'ProfileController@store')
                 ->name('store');
 

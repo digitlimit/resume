@@ -7,7 +7,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.profiles.index')}}">
+            <a class="nav-link" href="{{route('admin.profiles.profile')}}">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Profile</span>
             </a>
