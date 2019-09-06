@@ -9,56 +9,60 @@
                 <div class="card-body">
                     {{--<h4 class="card-title">Horizontal Form</h4>--}}
 
-                    <form action="{{route('admin.profiles.profile_update')}}" method="post">
+                    <form action="{{route('resume.summary.store')}}" method="post">
 
                         @csrf
 
+                        {{--'title',--}}
+                        {{--'detail',--}}
+                        {{--'percentage',--}}
+                        {{--'years',--}}
+                        {{--'icon'--}}
+
                         <div class="form-group row">
                             <label for="title" class="col-sm-3 col-form-label">
-                                Profile Title
+                                Title (Optional)
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="title" id="title" placeholder="Enter Profile Title">
+                                <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="job_title" class="col-sm-3 col-form-label">
-                                Job Title
+                            <label for="detail" class="col-sm-3 col-form-label">
+                                Detail
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="job_title" id="job_title" placeholder="Enter Job Title">
+                                <input type="text" class="form-control" name="detail" id="detail" placeholder="Enter Detail">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="first_name" class="col-sm-3 col-form-label">
-                                First Name
+                            <label for="percentage" class="col-sm-3 col-form-label">
+                                Percentage (Optional)
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter First Name">
+                                <input type="number" class="form-control" name="percentage" id="percentage" placeholder="Enter Percentage">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="last_name" class="col-sm-3 col-form-label">
-                                Last Name
+                            <label for="years" class="col-sm-3 col-form-label">
+                                Years (Optional)
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter Last Name">
+                                <input type="number" class="form-control" name="years" id="years" placeholder="Enter Years">
                             </div>
                         </div>
-
 
                         <div class="form-group row">
-                            <label for="other_name" class="col-sm-3 col-form-label">
-                                Other Names
+                            <label for="icon" class="col-sm-3 col-form-label">
+                                Icon Class (Optional)
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="other_names" id="other_names" placeholder="Enter Other Names">
+                                <input type="text" class="form-control" name="icon" id="icon" placeholder="Enter Icon Class e.g fa fa-bandcamp">
                             </div>
                         </div>
-
 
                         <button type="submit" class="btn btn-success mr-2">Submit</button>
                         <a href="{{route('admin.index')}}" class="btn btn-light">Cancel</a>

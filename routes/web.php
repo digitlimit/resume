@@ -25,6 +25,9 @@ Route::group([], function()
             Route::get('/profile', 'ProfileController@profile')
                 ->name('profile');
 
+            Route::post('/profile', 'ProfileController@profileUpdate')
+                ->name('profile_update');
+
             Route::post('/', 'ProfileController@store')
                 ->name('store');
 
@@ -233,6 +236,91 @@ Route::group([], function()
             });
         });
     });
+
+    Route::name('resume.')->prefix('resume')->middleware([])->namespace('Resume')->group(function()
+    {
+        Route::name('summary.')->prefix('summary')->middleware([])->group(function ()
+        {
+            Route::get('/', 'SummaryController@index')
+                ->name('index');
+
+            Route::post('/', 'SummaryController@store')
+                ->name('store');
+        });
+
+        Route::name('work_experience.')->prefix('work_experience')->middleware([])->group(function ()
+        {
+            Route::get('/', 'WorkExperienceController@index')
+                ->name('index');
+
+            Route::post('/', 'WorkExperienceController@store')
+                ->name('store');
+        });
+
+        Route::name('education.')->prefix('education')->middleware([])->group(function ()
+        {
+            Route::get('/', 'EducationController@index')
+                ->name('index');
+
+            Route::post('/', 'EducationController@store')
+                ->name('store');
+        });
+
+        Route::name('skill.')->prefix('skill')->middleware([])->group(function ()
+        {
+            Route::get('/', 'SkillController@index')
+                ->name('index');
+
+            Route::post('/', 'SkillController@store')
+                ->name('store');
+        });
+
+        Route::name('core_value.')->prefix('core_value')->middleware([])->group(function ()
+        {
+            Route::get('/', 'CoreValueController@index')
+                ->name('index');
+
+            Route::post('/', 'CoreValueController@store')
+                ->name('store');
+        });
+
+        Route::name('social.')->prefix('social')->middleware([])->group(function ()
+        {
+            Route::get('/', 'SocialController@index')
+                ->name('index');
+
+            Route::post('/', 'SocialController@store')
+                ->name('store');
+        });
+
+        Route::name('portfolio.')->prefix('portfolio')->middleware([])->group(function ()
+        {
+            Route::get('/', 'PortfolioController@index')
+                ->name('index');
+
+            Route::post('/', 'PortfolioController@store')
+                ->name('store');
+        });
+
+        Route::name('interest.')->prefix('interest')->middleware([])->group(function ()
+        {
+            Route::get('/', 'InterestController@index')
+                ->name('index');
+
+            Route::post('/', 'InterestController@store')
+                ->name('store');
+        });
+
+        Route::name('contact.')->prefix('contact')->middleware([])->group(function ()
+        {
+            Route::get('/', 'ContactController@index')
+                ->name('index');
+
+            Route::post('/', 'ContactController@store')
+                ->name('store');
+        });
+    });
+
 
     Route::get('/', function () {
         return view('landing.index');

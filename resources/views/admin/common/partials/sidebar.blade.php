@@ -23,31 +23,31 @@
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.resumes.summaries.index')}}">Summary</a>
+                        <a class="nav-link" href="{{route('resume.summary.index')}}">Summary</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.resumes.work_experiences.index')}}">Work Experience</a>
+                        <a class="nav-link" href="{{route('resume.work_experience.index')}}">Work Experience</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.resumes.educations.index')}}">Education</a>
+                        <a class="nav-link" href="{{route('resume.education.index')}}">Education</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.resumes.skills.index')}}">Skills</a>
+                        <a class="nav-link" href="{{route('resume.skill.index')}}">Skills</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.resumes.core_values.index')}}">Core Values</a>
+                        <a class="nav-link" href="{{route('resume.core_value.index')}}">Core Values</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.resumes.socials.index')}}">Social</a>
+                        <a class="nav-link" href="{{route('resume.social.index')}}">Social</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.resumes.portfolios.index')}}">Portfolio</a>
+                        <a class="nav-link" href="{{route('resume.portfolio.index')}}">Portfolio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.resumes.interests.index')}}">Interest</a>
+                        <a class="nav-link" href="{{route('resume.interest.index')}}">Interest</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.resumes.contacts.index')}}">Contact</a>
+                        <a class="nav-link" href="{{route('resume.contact.index')}}">Contact</a>
                     </li>
                 </ul>
             </div>

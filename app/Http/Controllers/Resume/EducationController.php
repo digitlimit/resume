@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Resume;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ProfileController extends Controller
+class EducationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,23 +14,10 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-
-    public function profile()
-    {
-        return view('admin.profile.profile', [
-            'page_title' => 'Profile'
+        return view('resume.education.index', [
+            'page_title' => 'Education'
         ]);
     }
-
-
-    public function profileUpdate()
-    {
-        dd(request()->all());
-    }
-
 
     /**
      * Show the form for creating a new resource.
