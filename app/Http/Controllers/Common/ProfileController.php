@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Resume;
+namespace App\Http\Controllers\Common;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PortfolioController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,6 +16,21 @@ class PortfolioController extends Controller
     {
         //
     }
+
+
+    public function profile()
+    {
+        return view('admin.profile.profile', [
+            'page_title' => 'Profile'
+        ]);
+    }
+
+
+    public function profileUpdate()
+    {
+        dd(request()->all());
+    }
+
 
     /**
      * Show the form for creating a new resource.

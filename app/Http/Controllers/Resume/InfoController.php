@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Resume;
+namespace App\Http\Controllers\Resume;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ContactController extends Controller
+class InfoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,6 +16,21 @@ class ContactController extends Controller
     {
         //
     }
+
+
+    public function profile()
+    {
+        return view('admin.profile.profile', [
+            'page_title' => 'Profile'
+        ]);
+    }
+
+
+    public function profileUpdate()
+    {
+        dd(request()->all());
+    }
+
 
     /**
      * Show the form for creating a new resource.
