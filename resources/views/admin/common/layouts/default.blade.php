@@ -14,9 +14,7 @@
     <link rel="stylesheet" href="{{asset('assets/vendors/css/vendor.bundle.addons.css')}}">
 
     <link rel="stylesheet" href="{{asset('assets/css/shared/style.css')}}">
-
     <link rel="stylesheet" href="{{asset('assets/css/demo_1/style.css')}}">
-
     <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}"/>
 </head>
 <body>

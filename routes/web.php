@@ -99,6 +99,32 @@ Route::group([], function()
         });
     });
 
+    Route::name('guest.')->prefix('guest')->middleware([])->namespace('Guest')->group( function()
+    {
+        Route::get('login',    'LoginController@getLogin')
+            ->name('getLogin');
+
+        Route::post('login',   'LoginController@postLogin')
+            ->name('postLogin');
+
+        Route::post('register',   'RegisterController@postRegister')
+            ->name('postRegister');
+
+        Route::post('password/reset',   'PasswordController@sendResetLinkEmail')
+            ->name('sendResetLinkEmail');
+
+        Route::get('password/reset/{token}/{email}',   'PasswordController@showResetForm')
+            ->name('showResetForm');
+
+        Route::post('password/change',   'PasswordController@postChangePassword')
+            ->name('postChangePassword');
+
+        Route::get('verify/{code}/{email}',   'EmailController@verify')
+            ->name('email.verify');
+
+        Route::post('verification/resend',   'EmailController@resendVerificationLinkEmail')
+            ->name('email.resend');
+    });
 
     Route::name('common.')->middleware([])->namespace('Common')->group(function()
     {

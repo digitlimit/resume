@@ -46,7 +46,7 @@ class LoginController extends Controller
     public function getLogin()
     {
         return view('guest.login', [
-            'page_title' => _st('site-name') . ' - Login'
+            'page_title' => 'Emeka Mbah - Login'
         ]);
     }
 
