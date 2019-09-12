@@ -9,8 +9,6 @@ use Illuminate\Http\Request;
 use App\Models\User;
 
 use Alert;
-use App\Events\Guest\OnBeforeGuestLogin;
-use App\Events\Guest\OnAfterGuestLogin;
 
 class LoginController extends Controller
 {
@@ -66,7 +64,15 @@ class LoginController extends Controller
         ]);
 
         /*return errors to view if any*/
-        if($validator->fails()) return response()->form($validator);
+        if($validator->fails()){
+
+            Alert::form('Invalid Email/Password','Opps')
+                ->error();
+
+            return redirect()
+                ->back()
+                ->withErrors($validator);
+        }
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
@@ -77,14 +83,6 @@ class LoginController extends Controller
             return $this->sendLockoutResponse($request);
         }
 
-        //TODO check if user account is verified
-
-        //fire before login event to check if your is in blacklist
-        //some checks are done in OnBeforeGuestLogin such as
-        // - blacklist and exception is thrown
-        // - check if user account is verified
-        event(new OnBeforeGuestLogin($request));
-        
         if ($this->attemptLogin($request)) {
             return $this->sendLoginResponse($request);
         }

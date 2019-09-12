@@ -13,91 +13,91 @@
 
 Route::group([], function()
 {
-    Route::name('admin.')->prefix('admin')->middleware([])->namespace('Admin')->group(function()
-    {
-
-
-        Route::name('profiles.')->prefix('profiles')->middleware([])->group(function ()
-        {
-            Route::get('/', 'ProfileController@index')
-                ->name('index');
-
-            Route::get('/profile', 'ProfileController@profile')
-                ->name('profile');
-
-            Route::post('/profile', 'ProfileController@profileUpdate')
-                ->name('profile_update');
-
-            Route::post('/', 'ProfileController@store')
-                ->name('store');
-
-            Route::put('/', 'ProfileController@update')
-                ->name('update');
-
-            Route::delete('/', 'ProfileController@destroy')
-                ->name('destroy');
-        });
-
-        Route::name('messages.')->prefix('messages')->middleware([])->group(function ()
-        {
-            Route::get('/', 'MessageController@index')
-                ->name('index');
-
-            Route::post('/', 'MessageController@store')
-                ->name('store');
-
-            Route::put('/', 'MessageController@update')
-                ->name('update');
-
-            Route::delete('/', 'MessageController@destroy')
-                ->name('destroy');
-        });
-
-        Route::name('images.')->prefix('images')->middleware([])->group(function ()
-        {
-            Route::get('/', 'ImageController@index')
-                ->name('index');
-
-            Route::post('/', 'ImageController@store')
-                ->name('store');
-
-            Route::put('/', 'ImageController@update')
-                ->name('update');
-
-            Route::delete('/', 'ImageController@destroy')
-                ->name('destroy');
-        });
-
-        Route::name('users.')->prefix('users')->middleware([])->group(function ()
-        {
-            Route::get('/', 'UserController@index')
-                ->name('index');
-
-            Route::post('/', 'UserController@store')
-                ->name('store');
-
-            Route::put('/', 'UserController@update')
-                ->name('update');
-
-            Route::delete('/', 'UserController@destroy')
-                ->name('destroy');
-        });
-
-        Route::name('settings.')->prefix('settings')->middleware([])->group(function ()
-        {
-            Route::get('/', 'SettingController@index')
-                ->name('index');
-
-            Route::post('/', 'SettingController@store')
-                ->name('store');
-
-            Route::put('/', 'SettingController@update')
-                ->name('update');
-
-            Route::delete('/', 'SettingController@destroy')
-                ->name('destroy');
-        });
-    });
+//    Route::name('admin.')->prefix('admin')->middleware([])->namespace('Admin')->group(function()
+//    {
+//
+//
+//        Route::name('profiles.')->prefix('profiles')->middleware([])->group(function ()
+//        {
+//            Route::get('/', 'ProfileController@index')
+//                ->name('index');
+//
+//            Route::get('/profile', 'ProfileController@profile')
+//                ->name('profile');
+//
+//            Route::post('/profile', 'ProfileController@profileUpdate')
+//                ->name('profile_update');
+//
+//            Route::post('/', 'ProfileController@store')
+//                ->name('store');
+//
+//            Route::put('/', 'ProfileController@update')
+//                ->name('update');
+//
+//            Route::delete('/', 'ProfileController@destroy')
+//                ->name('destroy');
+//        });
+//
+//        Route::name('messages.')->prefix('messages')->middleware([])->group(function ()
+//        {
+//            Route::get('/', 'MessageController@index')
+//                ->name('index');
+//
+//            Route::post('/', 'MessageController@store')
+//                ->name('store');
+//
+//            Route::put('/', 'MessageController@update')
+//                ->name('update');
+//
+//            Route::delete('/', 'MessageController@destroy')
+//                ->name('destroy');
+//        });
+//
+//        Route::name('images.')->prefix('images')->middleware([])->group(function ()
+//        {
+//            Route::get('/', 'ImageController@index')
+//                ->name('index');
+//
+//            Route::post('/', 'ImageController@store')
+//                ->name('store');
+//
+//            Route::put('/', 'ImageController@update')
+//                ->name('update');
+//
+//            Route::delete('/', 'ImageController@destroy')
+//                ->name('destroy');
+//        });
+//
+//        Route::name('users.')->prefix('users')->middleware([])->group(function ()
+//        {
+//            Route::get('/', 'UserController@index')
+//                ->name('index');
+//
+//            Route::post('/', 'UserController@store')
+//                ->name('store');
+//
+//            Route::put('/', 'UserController@update')
+//                ->name('update');
+//
+//            Route::delete('/', 'UserController@destroy')
+//                ->name('destroy');
+//        });
+//
+//        Route::name('settings.')->prefix('settings')->middleware([])->group(function ()
+//        {
+//            Route::get('/', 'SettingController@index')
+//                ->name('index');
+//
+//            Route::post('/', 'SettingController@store')
+//                ->name('store');
+//
+//            Route::put('/', 'SettingController@update')
+//                ->name('update');
+//
+//            Route::delete('/', 'SettingController@destroy')
+//                ->name('destroy');
+//        });
+//    });
 
     Route::name('guest.')->prefix('guest')->middleware([])->namespace('Guest')->group( function()
     {
@@ -118,12 +118,12 @@ Route::group([], function()
 
         Route::post('password/change',   'PasswordController@postChangePassword')
             ->name('postChangePassword');
-
-        Route::get('verify/{code}/{email}',   'EmailController@verify')
-            ->name('email.verify');
-
-        Route::post('verification/resend',   'EmailController@resendVerificationLinkEmail')
-            ->name('email.resend');
+//
+//        Route::get('verify/{code}/{email}',   'EmailController@verify')
+//            ->name('email.verify');
+//
+//        Route::post('verification/resend',   'EmailController@resendVerificationLinkEmail')
+//            ->name('email.resend');
     });
 
     Route::name('common.')->middleware([])->namespace('Common')->group(function()
