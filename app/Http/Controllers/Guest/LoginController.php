@@ -63,7 +63,7 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
-        /*return errors to view if any*/
+        //return errors to view if any
         if($validator->fails()){
 
             Alert::form('Invalid Email/Password','Opps')
