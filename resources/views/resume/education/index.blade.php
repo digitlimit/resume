@@ -13,20 +13,6 @@
 
                         @csrf
 
-                        {{--'degree',--}}
-                        {{--'gpa',--}}
-
-                        {{--'start_month',--}}
-                        {{--'end_month',--}}
-                        {{--'start_year',--}}
-                        {{--'end_year',--}}
-
-                        {{--'school_name',--}}
-                        {{--'school_info',--}}
-                        {{--'school_address',--}}
-
-                        {{--'icon'--}}
-
                         <div class="form-group row">
                             <label for="degree" class="col-sm-3 col-form-label">
                                 Degree
@@ -58,7 +44,8 @@
                                 </select>
                             </div>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="start_year" id="start_year" placeholder="Year">
+                                <input type="number" maxlength="4" pattern="\d*"
+                                       class="form-control" name="start_year" id="start_year" placeholder="Year">
                             </div>
                         </div>
 
@@ -76,7 +63,8 @@
                                 </select>
                             </div>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="end_year" id="end_year" placeholder="Year">
+                                <input type="number" maxlength="4" pattern="\d*"
+                                       class="form-control" name="end_year" id="end_year" placeholder="Year">
                             </div>
                         </div>
 
