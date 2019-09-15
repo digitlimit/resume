@@ -50,7 +50,12 @@
                                 Start Date
                             </label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" name="start_month" id="start_month" placeholder="Month">
+                                <select name="start_month" id="start_month" class="form-control">
+                                    <option>Month</option>
+                                    @foreach(trans('options.months') as $name => $value)
+                                        <option value="{{$value}}">{{$name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" name="start_year" id="start_year" placeholder="Year">
@@ -63,7 +68,12 @@
                                 End Date
                             </label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" name="end_month" id="end_month" placeholder="Month">
+                                <select name="end_month" id="end_month" class="form-control">
+                                    <option>Month</option>
+                                    @foreach(trans('options.months') as $name => $value)
+                                        <option value="{{$value}}">{{$name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" name="end_year" id="end_year" placeholder="Year">
@@ -107,7 +117,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-success mr-2">Submit</button>
-                        <a href="{{route('admin.index')}}" class="btn btn-light">Cancel</a>
+{{--                        <a href="{{route('admin.index')}}" class="btn btn-light">Cancel</a>--}}
                     </form>
                 </div>
             </div>

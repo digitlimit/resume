@@ -35,7 +35,6 @@ class LoginController extends Controller
 
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
     }
 
     /**
@@ -104,7 +103,6 @@ class LoginController extends Controller
      */
     protected function sendFailedLoginResponse(Request $request)
     {
-        $errors = [$this->username() => trans('auth.failed')];
 
         if ($request->wantsJson())
         {
@@ -113,9 +111,11 @@ class LoginController extends Controller
             ]);
         }
 
+        Alert::form(trans('auth.failed'))
+            ->error();
+
         return redirect()->back()
-            ->withInput($request->only($this->username(), 'remember'))
-            ->withErrors($errors, 'login');
+            ->withInput($request->only($this->username(), 'remember'));
     }
 
 
@@ -132,28 +132,23 @@ class LoginController extends Controller
 
         $this->clearLoginAttempts($request);
 
-        $user = $request->user();
+        //TODO: determine user role, depends on Entrust Role package
 
-        //guest login
-        event(new OnAfterGuestLogin($user));
+//        $user = $request->user();
+//
+//        $route = route('profile.dashboard.getIndex');
+//
+//        if($user->isAdmins())
+//        {
+//            $route = route('admin.dashboard.getIndex');
+//        }else{
+//            $route = route('member.dashboard.getIndex');
+//        }
 
-        //TODO: stop admins from logging from landing page
-        //send user to right route
-        $route = route('profile.dashboard.getIndex');
+        Alert::form('Login was done', 'Congratulations')
+            ->success();
 
-        if($user->isAdmins())
-        {
-            $route = route('admin.dashboard.getIndex');
-        }else if($user->isStaffs()) {
-            $route = route('member.dashboard.getIndex');
-        }
-
-        notice_logger('User Logged In', $user->toArray());
-
-        return response()->success([
-            'title'     => 'Login has been done',
-            'message'   => 'Login has been done',
-            'redirect'  => intended_url($route)
-        ]);
+        //TODO: redirect to resume index
+        return redirect()->route('resume.education.index');
     }
 }

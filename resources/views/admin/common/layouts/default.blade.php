@@ -39,6 +39,7 @@
 
     </div>
 
+    @include('alert::modal')
 </div>
 
 
