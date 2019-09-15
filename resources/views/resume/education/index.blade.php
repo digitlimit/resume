@@ -9,7 +9,7 @@
                 <div class="card-body">
                     {{--<h4 class="card-title">Horizontal Form</h4>--}}
 
-                    <form action="{{route('resume.summary.store')}}" method="post">
+                    <form action="{{route('resume.education.store')}}" method="post">
 
                         @csrf
 
@@ -19,6 +19,7 @@
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="degree" id="degree" placeholder="Enter Degree">
+                                @include('common.partials.alert', ['field'=>'degree', 'tag'=>''])
                             </div>
                         </div>
 
@@ -28,6 +29,7 @@
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="gpa" id="gpa" placeholder="Enter GPA">
+                                @include('common.partials.alert', ['field'=>'gpa', 'tag'=>''])
                             </div>
                         </div>
 
@@ -42,10 +44,12 @@
                                         <option value="{{$value}}">{{$name}}</option>
                                     @endforeach
                                 </select>
+                                @include('common.partials.alert', ['field'=>'start_month', 'tag'=>''])
                             </div>
                             <div class="col-sm-4">
                                 <input type="number" maxlength="4" pattern="\d*"
                                        class="form-control" name="start_year" id="start_year" placeholder="Year">
+                                @include('common.partials.alert', ['field'=>'start_year', 'tag'=>''])
                             </div>
                         </div>
 
@@ -61,10 +65,12 @@
                                         <option value="{{$value}}">{{$name}}</option>
                                     @endforeach
                                 </select>
+                                @include('common.partials.alert', ['field'=>'end_month', 'tag'=>''])
                             </div>
                             <div class="col-sm-4">
                                 <input type="number" maxlength="4" pattern="\d*"
                                        class="form-control" name="end_year" id="end_year" placeholder="Year">
+                                @include('common.partials.alert', ['field'=>'end_year', 'tag'=>''])
                             </div>
                         </div>
 
@@ -74,6 +80,7 @@
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="school_name" id="school_name" placeholder="Enter School Name">
+                                @include('common.partials.alert', ['field'=>'school_name', 'tag'=>''])
                             </div>
                         </div>
 
@@ -83,6 +90,7 @@
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="school_info" id="school_info" placeholder="Enter School Info">
+                                @include('common.partials.alert', ['field'=>'school_info', 'tag'=>''])
                             </div>
                         </div>
 
@@ -92,6 +100,7 @@
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="school_address" id="school_address" placeholder="Enter School Address">
+                                @include('common.partials.alert', ['field'=>'school_address', 'tag'=>''])
                             </div>
                         </div>
 
@@ -101,6 +110,7 @@
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="icon" id="icon" placeholder="Enter Icon Class e.g fa fa-bandcamp">
+                                @include('common.partials.alert', ['field'=>'icon', 'tag'=>''])
                             </div>
                         </div>
 
