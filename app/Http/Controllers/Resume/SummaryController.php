@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Resume;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\SummaryRequest;
 use App\Http\Controllers\Controller;
 
 class SummaryController extends Controller
@@ -35,7 +36,7 @@ class SummaryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SummaryRequest $request)
     {
         dd($request->all());
     }

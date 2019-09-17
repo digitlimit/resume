@@ -12,11 +12,6 @@
                     <form action="{{route('resume.summary.store')}}" method="post">
 
                         @csrf
-                        {{--@method('PUT')--}}
-
-                        {{--'title',--}}
-                        {{--'icon',--}}
-                        {{--'detail'--}}
 
                         <div class="form-group row">
                             <label for="title" class="col-sm-3 col-form-label">
@@ -24,6 +19,7 @@
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title">
+                                @include('common.partials.alert', ['field'=>'title', 'tag'=>''])
                             </div>
                         </div>
 
@@ -33,6 +29,7 @@
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="icon" id="icon" placeholder="Enter Icon Class e.g fa fa-bandcamp">
+                                @include('common.partials.alert', ['field'=>'icon', 'tag'=>''])
                             </div>
                         </div>
 
@@ -41,12 +38,13 @@
                                 Detail
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="detail" id="detail" placeholder="Enter Detail">
+                                <input class="sm" name="detail" id="detail" placeholder="Enter Detail">
+                                @include('common.partials.alert', ['field'=>'detail', 'tag'=>''])
                             </div>
                         </div>
 
                         <button type="submit" class="btn btn-success mr-2">Submit</button>
-                        <a href="{{route('admin.index')}}" class="btn btn-light">Cancel</a>
+                        {{--<a href="{{route('admin.index')}}" class="btn btn-light">Cancel</a>--}}
                     </form>
                 </div>
             </div>
