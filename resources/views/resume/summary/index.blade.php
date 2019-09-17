@@ -19,7 +19,7 @@
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title">
-                                @include('common.partials.alert', ['field'=>'title', 'tag'=>''])
+                                @include('alert::field', ['field'=>'title', 'tag'=>''])
                             </div>
                         </div>
 
@@ -29,7 +29,7 @@
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="icon" id="icon" placeholder="Enter Icon Class e.g fa fa-bandcamp">
-                                @include('common.partials.alert', ['field'=>'icon', 'tag'=>''])
+                                @include('alert::field', ['field'=>'icon', 'tag'=>''])
                             </div>
                         </div>
 
@@ -38,8 +38,9 @@
                                 Detail
                             </label>
                             <div class="col-sm-9">
-                                <input class="sm" name="detail" id="detail" placeholder="Enter Detail">
-                                @include('common.partials.alert', ['field'=>'detail', 'tag'=>''])
+                                <div class="quill-textarea"></div>
+                                <textarea style="display: none" id="detail" name="detail"></textarea>
+                                @include('alert::field', ['field'=>'detail', 'tag'=>''])
                             </div>
                         </div>
 
@@ -55,3 +56,28 @@
         </div>
     </div>
 @endsection
+
+
+@push('footer')
+<script>
+    window.onload = function(){
+
+        var quill = new Quill('.quill-textarea', {
+            placeholder: 'Enter Detail',
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    [{ 'indent': '-1'}, { 'indent': '+1' }]
+                ]
+            }
+        });
+
+        quill.on('text-change', function(delta, oldDelta, source) {
+            console.log(quill.container.firstChild.innerHTML)
+            $('#detail').val(quill.container.firstChild.innerHTML);
+        });
+    }
+</script>
+@endpush

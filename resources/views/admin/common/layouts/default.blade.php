@@ -16,9 +16,12 @@
     <link rel="stylesheet" href="{{asset('assets/css/shared/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/demo_1/style.css')}}">
 
-    <link rel="stylesheet" href="{{asset('assets/vendors/summernote/dist/summernote.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/vendors/quill/quill.snow.css')}}">
 
     <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}"/>
+
+    @stack('header')
+
 </head>
 <body>
 <div class="container-scroller">
@@ -52,8 +55,10 @@
 <script src="{{asset('assets/js/shared/misc.js')}}"></script>
 <script src="{{asset('assets/js/demo_1/dashboard.js')}}"></script>
 
-<script src="{{asset('assets/vendors/summernote/dist/summernote.js')}}"></script>
+<script src="{{asset('assets/vendors/quill/quill.js')}}"></script>
 <script src="{{asset('assets/js/shared/common.js')}}"></script>
+
+@stack('footer')
 
 </body>
 </html>
