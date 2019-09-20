@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Resume;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\WorkExperienceStoreRequest;
 use App\Http\Controllers\Controller;
 
 class WorkExperienceController extends Controller
@@ -35,9 +36,9 @@ class WorkExperienceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(WorkExperienceStoreRequest $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
