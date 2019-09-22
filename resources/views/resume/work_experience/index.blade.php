@@ -36,8 +36,9 @@
                                           id="job_description"></textarea>
                                 @include('alert::field', ['field'=>'job_description', 'tag'=>''])
                             </div>
-                            <div style="clear: both;"></div>
                         </div>
+
+                        <div style="clear:left;"></div>
 
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">

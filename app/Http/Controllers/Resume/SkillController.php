@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Resume;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\Skill\StoreRequest;
 use App\Http\Controllers\Controller;
 
 class SkillController extends Controller
@@ -32,10 +33,10 @@ class SkillController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Skill\StoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
     }

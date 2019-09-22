@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Resume;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Interest\StoreRequest;
 
 class InterestController extends Controller
 {
@@ -32,12 +33,12 @@ class InterestController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Interest\StoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        dd(request()->all(), 'in controller');
     }
 
     /**

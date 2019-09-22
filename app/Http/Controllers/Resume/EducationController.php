@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Resume;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\EducationRequest;
+use App\Http\Requests\Education\StoreRequest;
 use App\Http\Controllers\Controller;
 
 class EducationController extends Controller
@@ -33,9 +33,9 @@ class EducationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param EducationRequest $request
+     * @param \App\Http\Requests\Education\StoreRequest $request
      */
-    public function store(EducationRequest $request)
+    public function store(StoreRequest $request)
     {
         //
     }

@@ -9,20 +9,18 @@
                 <div class="card-body">
                     {{--<h4 class="card-title">Horizontal Form</h4>--}}
 
-                    <form action="{{route('resume.summary.store')}}" method="post">
+                    <form action="{{route('resume.social.store')}}" method="post">
 
                         @csrf
-
-                        {{--'name',--}}
-                        {{--'icon',--}}
-                        {{--'url'--}}
 
                         <div class="form-group row">
                             <label for="name" class="col-sm-3 col-form-label">
                                 Name (Optional)
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name">
+                                <input type="text" class="form-control" name="name"
+                                       id="name" placeholder="Enter Name">
+                                @include('alert::field', ['field'=>'name', 'tag'=>''])
                             </div>
                         </div>
 
@@ -31,7 +29,9 @@
                                 URL
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="url" id="url" placeholder="Enter URL">
+                                <input type="text" class="form-control" name="url"
+                                       id="url" placeholder="Enter URL">
+                                @include('alert::field', ['field'=>'url', 'tag'=>''])
                             </div>
                         </div>
 
@@ -40,12 +40,14 @@
                                 Icon Class (Optional)
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="icon" id="icon" placeholder="Enter Icon Class e.g fa fa-bandcamp">
+                                <input type="text" class="form-control" name="icon"
+                                    id="icon" placeholder="Enter Icon Class e.g fa fa-bandcamp">
+                                @include('alert::field', ['field'=>'icon', 'tag'=>''])
                             </div>
                         </div>
 
                         <button type="submit" class="btn btn-success mr-2">Submit</button>
-                        <a href="{{route('admin.index')}}" class="btn btn-light">Cancel</a>
+                        {{--<a href="{{route('admin.index')}}" class="btn btn-light">Cancel</a>--}}
                     </form>
                 </div>
             </div>

@@ -13,6 +13,8 @@
 
                         @csrf
 
+                        @include('alert::form')
+
                         <div class="form-group row">
                             <label for="title" class="col-sm-3 col-form-label">
                                 Title (Optional)

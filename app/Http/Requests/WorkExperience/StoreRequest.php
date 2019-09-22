@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\WorkExperience;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Traits\FormRequestTrait;
 
-class WorkExperienceStoreRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
+    use FormRequestTrait;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,16 +27,16 @@ class WorkExperienceStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            "degree" => 'required|string',
-            "gpa" => 'required|string',
+            "job_title" => 'required|string',
+            "job_description" => 'required|string',
             "start_month" => 'required|string',
             "start_year" => 'required|numeric',
             "end_month" => 'required|string',
             "end_year" => 'required|numeric',
-            "school_name" => 'required|string',
-            "school_info" => 'required|string',
-            "school_address" => 'required|string',
-            "icon" => 'nullable|string'
+            "company_name" => 'required|string',
+            "company_info" => 'required|string',
+            "company_address" => 'required|string',
+            "icon" => 'required|string'
         ];
     }
 }

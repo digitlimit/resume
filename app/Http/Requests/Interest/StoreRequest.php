@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Interest;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Traits\FormRequestTrait;
 
-class SummaryRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
+    use FormRequestTrait;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -25,8 +28,8 @@ class SummaryRequest extends FormRequest
     {
         return [
             "title" => 'required|string',
-            "icon" => 'nullable|string',
-            "detail" => 'nullable|string'
+            "detail" => 'required|string',
+            "icon" => 'nullable|string'
         ];
     }
 }

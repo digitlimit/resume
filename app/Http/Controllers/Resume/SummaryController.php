@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Resume;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\SummaryRequest;
+use App\Http\Requests\Summary\StoreRequest;
 use App\Http\Controllers\Controller;
 
 class SummaryController extends Controller
@@ -33,10 +33,10 @@ class SummaryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Summary\StoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SummaryRequest $request)
+    public function store(StoreRequest $request)
     {
         dd($request->all());
     }

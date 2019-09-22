@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Guest\PostLoginRequest;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
@@ -51,27 +52,27 @@ class LoginController extends Controller
     /**
      * Handle a login request to the application.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Guest\PostLoginRequest $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
-    public function postLogin(Request $request)
+    public function postLogin(PostLoginRequest $request)
     {
-        /*run validation on request parameters*/
-        $validator = validator($request->only(['email','password']), [
-            'email' => 'required|email',
-            'password' => 'required|string',
-        ]);
-
-        //return errors to view if any
-        if($validator->fails()){
-
-            Alert::form('Invalid Email/Password','Opps')
-                ->error();
-
-            return redirect()
-                ->back()
-                ->withErrors($validator);
-        }
+//        /*run validation on request parameters*/
+//        $validator = validator($request->only(['email','password']), [
+//            'email' => 'required|email',
+//            'password' => 'required|string',
+//        ]);
+//
+//        //return errors to view if any
+//        if($validator->fails()){
+//
+//            Alert::form('Invalid Email/Password','Opps')
+//                ->error();
+//
+//            return redirect()
+//                ->back()
+//                ->withErrors($validator);
+//        }
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and

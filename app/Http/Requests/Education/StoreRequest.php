@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Education;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Traits\FormRequestTrait;
 
-class EducationPostRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
+    use FormRequestTrait;
+
     /**
      * Determine if the user is authorized to make this request.
      *

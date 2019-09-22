@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Resume;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\WorkExperienceStoreRequest;
+use App\Http\Requests\WorkExperience\StoreRequest;
 use App\Http\Controllers\Controller;
 
 class WorkExperienceController extends Controller
@@ -33,10 +33,10 @@ class WorkExperienceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\WorkExperience\StoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(WorkExperienceStoreRequest $request)
+    public function store(StoreRequest $request)
     {
         dd($request->all());
     }
