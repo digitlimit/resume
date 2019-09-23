@@ -20,7 +20,8 @@
                                 Title (Optional)
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title">
+                                <input type="text" class="form-control" name="title"
+                                       id="title" placeholder="Enter Title">
                                 @include('alert::field', ['field'=>'title', 'tag'=>''])
                             </div>
                         </div>
@@ -30,7 +31,8 @@
                                 Icon Class (Optional)
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="icon" id="icon" placeholder="Enter Icon Class e.g fa fa-bandcamp">
+                                <input type="text" class="form-control" name="icon"
+                                       id="icon" placeholder="Enter Icon Class e.g fa fa-bandcamp">
                                 @include('alert::field', ['field'=>'icon', 'tag'=>''])
                             </div>
                         </div>
