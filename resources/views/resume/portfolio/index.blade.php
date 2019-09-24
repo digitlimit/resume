@@ -7,8 +7,6 @@
         <div class="col-8 stretch-card">
             <div class="card">
                 <div class="card-body">
-                    {{--<h4 class="card-title">Horizontal Form</h4>--}}
-
                     <form action="{{route('resume.portfolio.store')}}" method="post">
 
                         @csrf

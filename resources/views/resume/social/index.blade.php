@@ -15,7 +15,7 @@
 
                         <div class="form-group row">
                             <label for="name" class="col-sm-3 col-form-label">
-                                Name (Optional)
+                                Nameemail
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="name"
@@ -37,7 +37,7 @@
 
                         <div class="form-group row">
                             <label for="icon" class="col-sm-3 col-form-label">
-                                Icon Class (Optional)
+                                Icon Classemail
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="icon"

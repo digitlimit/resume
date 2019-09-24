@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Resume;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Contact\StoreRequest;
+
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
@@ -14,7 +17,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        return view('resume.contact.index', [
+            'page_title' => 'Contact'
+        ]);
     }
 
     /**
@@ -30,10 +35,10 @@ class ContactController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Contact\StoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
     }
