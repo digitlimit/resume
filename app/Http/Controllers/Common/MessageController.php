@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Common;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,7 +14,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        return view('common.message.index', [
+            'page_title' => 'Messages'
+        ]);
     }
 
     /**

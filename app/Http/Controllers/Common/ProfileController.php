@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Common;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\Profile\StoreRequest;
 use App\Http\Controllers\Controller;
 
 class ProfileController extends Controller
@@ -14,23 +15,10 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-
-    public function profile()
-    {
-        return view('admin.profile.profile', [
+        return view('common.profile.index', [
             'page_title' => 'Profile'
         ]);
     }
-
-
-    public function profileUpdate()
-    {
-        dd(request()->all());
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -45,12 +33,12 @@ class ProfileController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Profile\StoreRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

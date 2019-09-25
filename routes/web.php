@@ -102,6 +102,9 @@ Route::group([], function()
         Route::post('login',   'LoginController@postLogin')
             ->name('postLogin');
 
+        Route::get('register',   'RegisterController@getRegister')
+            ->name('getRegister');
+
         Route::post('register',   'RegisterController@postRegister')
             ->name('postRegister');
 
@@ -124,6 +127,36 @@ Route::group([], function()
     Route::name('common.')->middleware([])->namespace('Common')->group(function()
     {
         Route::get('/', 'DashboardController@index')->name('index');
+
+        Route::name('message.')->prefix('message')->middleware([])->group(function ()
+        {
+            Route::get('/', 'MessageController@index')
+                ->name('index');
+
+            Route::post('/', 'MessageController@store')
+                ->name('store');
+
+            Route::put('/', 'MessageController@update')
+                ->name('update');
+
+            Route::delete('/', 'MessageController@destroy')
+                ->name('destroy');
+        });
+
+        Route::name('profile.')->prefix('profile')->middleware([])->group(function ()
+        {
+            Route::get('/', 'ProfileController@index')
+                ->name('index');
+
+            Route::post('/', 'ProfileController@store')
+                ->name('store');
+
+            Route::put('/', 'ProfileController@update')
+                ->name('update');
+
+            Route::delete('/', 'ProfileController@destroy')
+                ->name('destroy');
+        });
     });
 
     Route::name('resume.')->prefix('resume')->middleware([])->namespace('Resume')->group(function()
@@ -208,21 +241,6 @@ Route::group([], function()
             Route::post('/', 'ContactController@store')
                 ->name('store');
         });
-    });
-
-    Route::name('message.')->prefix('message')->middleware([])->namespace('Message')->group(function ()
-    {
-        Route::get('/', 'MessageController@index')
-            ->name('index');
-
-        Route::post('/', 'MessageController@store')
-            ->name('store');
-
-        Route::put('/', 'MessageController@update')
-            ->name('update');
-
-        Route::delete('/', 'MessageController@destroy')
-            ->name('destroy');
     });
 
     Route::name('user.')->prefix('user')->middleware([])->namespace('User')->group(function ()

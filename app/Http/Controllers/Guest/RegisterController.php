@@ -46,6 +46,11 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function getRegister()
+    {
+        return view('guest.register');
+    }
+
     /**
      * Register a guest
      *
@@ -55,30 +60,32 @@ class RegisterController extends Controller
     public function postRegister(Request $request)
     {
         //get user data from request
-        $user_data = $request->only(['first_name','last_name','email','password']);
+        $user_data = $request->only(['email','password']);
 
-        $user_data['source'] = 'frontend';
+        dd($request->all());
+
+//        $user_data['source'] = 'frontend';
 
         //attempt to register
-        $response = UserService::createFrontendUser($user_data);
+        //$response = UserService::createFrontendUser($user_data);
 
         //run validations
-        if($response instanceof Validator){
-            return response()->form($response);
-        }elseif($response instanceof User){
-
-            //user registration
-            notice_logger('User Registration', $response->toArray());
-
-            return response()->success([
-                'title'   => 'Congratulations!',
-                'message' => 'Registration was a success. An e-mail with activation link was sent to you'
-            ]);
-        }
-
-        return response()->error([
-            'title'   => 'Opps!',
-            'message' => 'Something went wrong. Unable to register new user'
-        ]);
+//        if($response instanceof Validator){
+//            return response()->form($response);
+//        }elseif($response instanceof User){
+//
+//            //user registration
+//            notice_logger('User Registration', $response->toArray());
+//
+//            return response()->success([
+//                'title'   => 'Congratulations!',
+//                'message' => 'Registration was a success. An e-mail with activation link was sent to you'
+//            ]);
+//        }
+//
+//        return response()->error([
+//            'title'   => 'Opps!',
+//            'message' => 'Something went wrong. Unable to register new user'
+//        ]);
     }
 }

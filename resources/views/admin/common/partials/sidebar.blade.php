@@ -7,7 +7,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{route('common.profile.index')}}">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Profile</span>
             </a>
@@ -55,7 +55,7 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('message.index')}}">
+            <a class="nav-link" href="{{route('common.message.index')}}">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Messages</span>
             </a>
