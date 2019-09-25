@@ -13,6 +13,14 @@
 
 Route::group([], function()
 {
+
+//    Route::domain('{account}.emekambah.test')->group(function () {
+//        Route::get('/', function ($account) {
+//            dd($account);
+//        });
+//    });
+
+
 //    Route::name('admin.')->prefix('admin')->middleware([])->namespace('Admin')->group(function()
 //    {
 //
@@ -38,20 +46,7 @@ Route::group([], function()
 //                ->name('destroy');
 //        });
 //
-//        Route::name('messages.')->prefix('messages')->middleware([])->group(function ()
-//        {
-//            Route::get('/', 'MessageController@index')
-//                ->name('index');
-//
-//            Route::post('/', 'MessageController@store')
-//                ->name('store');
-//
-//            Route::put('/', 'MessageController@update')
-//                ->name('update');
-//
-//            Route::delete('/', 'MessageController@destroy')
-//                ->name('destroy');
-//        });
+
 //
 //        Route::name('images.')->prefix('images')->middleware([])->group(function ()
 //        {
@@ -213,6 +208,36 @@ Route::group([], function()
             Route::post('/', 'ContactController@store')
                 ->name('store');
         });
+    });
+
+    Route::name('message.')->prefix('message')->middleware([])->namespace('Message')->group(function ()
+    {
+        Route::get('/', 'MessageController@index')
+            ->name('index');
+
+        Route::post('/', 'MessageController@store')
+            ->name('store');
+
+        Route::put('/', 'MessageController@update')
+            ->name('update');
+
+        Route::delete('/', 'MessageController@destroy')
+            ->name('destroy');
+    });
+
+    Route::name('user.')->prefix('user')->middleware([])->namespace('User')->group(function ()
+    {
+        Route::get('/', 'UserController@index')
+            ->name('index');
+
+        Route::post('/', 'UserController@store')
+            ->name('store');
+
+        Route::put('/', 'UserController@update')
+            ->name('update');
+
+        Route::delete('/', 'UserController@destroy')
+            ->name('destroy');
     });
 
     Route::get('/', function () {

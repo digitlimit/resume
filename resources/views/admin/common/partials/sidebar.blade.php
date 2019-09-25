@@ -23,10 +23,12 @@
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('resume.summary.index')}}">Summary</a>
+                        <a class="nav-link"
+                           href="{{route('resume.summary.index')}}">Summary</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('resume.work_experience.index')}}">Work Experience</a>
+                        <a class="nav-link"
+                           href="{{route('resume.work_experience.index')}}">Work Experience</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('resume.education.index')}}">Education</a>
@@ -53,7 +55,7 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{route('message.index')}}">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Messages</span>
             </a>
@@ -65,7 +67,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{route('user.index')}}">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Users</span>
             </a>
