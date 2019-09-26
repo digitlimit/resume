@@ -17,7 +17,7 @@
 
                         <div class="form-group row">
                             <label for="title" class="col-sm-3 col-form-label">
-                                Title (Optional)
+                                Title
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="title"
@@ -39,7 +39,7 @@
 
                         <div class="form-group row">
                             <label for="percentage" class="col-sm-3 col-form-label">
-                                Percentage (Optional)
+                                Percentage
                             </label>
                             <div class="col-sm-9">
                                 <input type="number" class="form-control" name="percentage"
@@ -50,7 +50,7 @@
 
                         <div class="form-group row">
                             <label for="years" class="col-sm-3 col-form-label">
-                                Years (Optional)
+                                Years
                             </label>
                             <div class="col-sm-9">
                                 <input type="number" class="form-control" name="years"
@@ -61,7 +61,7 @@
 
                         <div class="form-group row">
                             <label for="icon" class="col-sm-3 col-form-label">
-                                Icon Class (Optional)
+                                Icon Class
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="icon"

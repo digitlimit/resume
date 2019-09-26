@@ -20,6 +20,13 @@
 
     <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}"/>
 
+    <style>
+        .ql-container{
+            clear: right !important;
+            height: 150px;
+        }
+    </style>
+
     @stack('header')
 
 </head>

@@ -15,7 +15,7 @@
 
                         <div class="form-group row">
                             <label for="title" class="col-sm-3 col-form-label">
-                                Title (Optional)
+                                Title
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="title"
@@ -37,7 +37,7 @@
 
                         <div class="form-group row">
                             <label for="url" class="col-sm-3 col-form-label">
-                                URL (Optional)
+                                URL
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="url"
@@ -48,7 +48,7 @@
 
                         <div class="form-group row">
                             <label for="icon" class="col-sm-3 col-form-label">
-                                Icon Class (Optional)
+                                Icon Class
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="icon"

@@ -4,25 +4,19 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Online CV - Professional HTML CSS Resume Website Template</title>
-
-    <!-- favicon -->
     <link href="favicon.png" rel=icon>
-
-    <!-- web-fonts -->
     <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
-
-    <!-- font-awesome -->
     <link href="css/font-awesome.min.css" rel="stylesheet">
-
-    <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Style CSS -->
     <link href="css/style.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <style>
+        .header .profile-img {
+            background-image    : url({{asset('img/img-profile.jpg')}});
+        }
+    </style>
+
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -31,13 +25,11 @@
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar">
 <div id="main-wrapper">
-<!-- Page Preloader -->
 <div id="preloader">
     <div id="status">
         <div class="status-mes"></div>
     </div>
 </div>
-
 <div class="columns-block">
 <div class="left-col-block blocks">
     <header class="header">
@@ -57,8 +49,6 @@
     </header>
     <!-- .header-->
 </div>
-
-
 <div class="right-col-block blocks">
 <section class="intro section-wrapper">
     <div class="container-fluid">
@@ -309,15 +299,11 @@
 
                     <p>United Kingdom, London</p>
                 </div>
-                <!-- .experience-item -->
             </div>
         </div>
-        <!--.row-->
     </div>
-    <!-- .container-fluid -->
 
 </section>
-<!-- .section-education -->
 
 <section class="section-wrapper section-interest gray-bg">
     <div class="container-fluid">
@@ -377,14 +363,11 @@
                     <div class="portfolio-thumb">
                         <img src="img/portfolio-1.jpg" alt="">
                     </div>
-
                     <div class="portfolio-info">
                         <h3>Creative concepts</h3>
                         <small>domain.com</small>
                     </div>
-                    <!-- portfolio-info -->
                 </a>
-                <!-- .portfolio-item -->
             </div>
             <div class="col-md-6">
                 <a class="portfolio-item" href="#">
@@ -396,45 +379,33 @@
                         <h3>Customer focused</h3>
                         <small>domain.com</small>
                     </div>
-                    <!-- portfolio-info -->
                 </a>
-                <!-- .portfolio-item -->
             </div>
             <div class="col-md-6">
                 <a class="portfolio-item" href="#">
                     <div class="portfolio-thumb">
                         <img src="img/portfolio-3.jpg" alt="">
                     </div>
-
                     <div class="portfolio-info">
                         <h3>Management methodology</h3>
                         <small>domain.com</small>
                     </div>
-                    <!-- portfolio-info -->
                 </a>
-                <!-- .portfolio-item -->
             </div>
             <div class="col-md-6">
                 <a class="portfolio-item" href="#">
                     <div class="portfolio-thumb">
                         <img src="img/portfolio-4.jpg" alt="">
                     </div>
-
                     <div class="portfolio-info">
                         <h3>Market research</h3>
                         <small>domain.com</small>
                     </div>
-                    <!-- portfolio-info -->
                 </a>
-                <!-- .portfolio-item -->
             </div>
-
         </div>
-        <!-- /.row -->
     </div>
 </section>
-<!-- .portfolio -->
-
 <section class="section-contact section-wrapper gray-bg">
     <div class="container-fluid">
         <div class="row">
@@ -506,8 +477,6 @@
     </div>
     <!--.container-fluid-->
 </section>
-<!--.section-contact-->
-
 <footer class="footer">
     <div class="copyright-section">
         <div class="container-fluid">
@@ -523,18 +492,10 @@
     </div>
     <!-- .copyright-section -->
 </footer>
-<!-- .footer -->
 </div>
-<!-- .right-col-block -->
 </div>
-<!-- .columns-block -->
 </div>
-<!-- #main-wrapper -->
-
-<!-- jquery -->
 <script src="js/jquery-2.1.4.min.js"></script>
-
-<!-- Bootstrap -->
 <script src="js/bootstrap.min.js"></script>
 <script src="js/scripts.js"></script>
 </body>
