@@ -143,13 +143,16 @@ Route::group([], function()
                 ->name('destroy');
         });
 
-        Route::name('profile.')->prefix('profile')->middleware([])->group(function ()
+        Route::name('profile.')->prefix('profile')->middleware(['auth'])->group(function ()
         {
             Route::get('/', 'ProfileController@index')
                 ->name('index');
 
             Route::post('/', 'ProfileController@store')
                 ->name('store');
+
+            Route::get('/create', 'ProfileController@create')
+                ->name('create');
 
             Route::put('/', 'ProfileController@update')
                 ->name('update');

@@ -25,6 +25,9 @@
             clear: right !important;
             height: 150px;
         }
+        .help-block{
+            margin-bottom: 0;
+        }
     </style>
 
     @stack('header')

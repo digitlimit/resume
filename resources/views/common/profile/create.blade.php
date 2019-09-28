@@ -7,7 +7,6 @@
         <div class="col-8 stretch-card">
             <div class="card">
                 <div class="card-body">
-                    {{--<h4 class="card-title">Horizontal Form</h4>--}}
 
                     <form action="{{route('common.profile.store')}}" method="post">
 
@@ -31,7 +30,7 @@
                                 Job Title
                             </label>
                             <div class="col-sm-9">
-                                <input type="number" class="form-control" name="job_title"
+                                <input type="text" class="form-control" name="job_title"
                                        id="job_title" placeholder="Enter Job Title">
                                 @include('alert::field', ['field'=>'job_title', 'tag'=>''])
                             </div>

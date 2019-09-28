@@ -31,7 +31,7 @@ class StoreRequest extends FormRequest
             "job_title" => 'required|string',
             "first_name" => 'required|string',
             "last_name" => 'required|string',
-            "other_names" => 'required|string'
+            "other_names" => 'nullable|string'
         ];
     }
 }

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Common;
 
+use App\Service\Profile;
 use Illuminate\Http\Request;
 use App\Http\Requests\Profile\StoreRequest;
 use App\Http\Controllers\Controller;
+use Alert;
 
 class ProfileController extends Controller
 {
@@ -15,9 +17,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('common.profile.index', [
-            'page_title' => 'Profile'
-        ]);
+
     }
 
     /**
@@ -27,7 +27,9 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        //
+        return view('common.profile.create', [
+            'page_title' => 'Create Profile'
+        ]);
     }
 
     /**
@@ -38,7 +40,19 @@ class ProfileController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        dd($request->all());
+        try{
+            if(Profile::create($request->all(), $request->user()->id)) {
+                Alert::form('Profile successfully created', 'Congratulations')
+                    ->success()
+                    ->closable();
+            }
+        }catch(\Exception $e){
+            Alert::form($e->getMessage(), 'Opps')
+                ->error()
+                ->closable();
+        }
+
+        return redirect()->route('common.profile.create');
     }
 
     /**
