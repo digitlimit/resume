@@ -23,4 +23,5 @@ class Profile
         //perform other tasks like send email
         return true;
     }
+
 }

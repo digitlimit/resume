@@ -157,6 +157,9 @@ Route::group([], function()
             Route::put('/', 'ProfileController@update')
                 ->name('update');
 
+            Route::get('/edit', 'ProfileController@edit')
+                ->name('edit');
+
             Route::delete('/', 'ProfileController@destroy')
                 ->name('destroy');
         });

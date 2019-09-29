@@ -16,7 +16,7 @@ class StoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return !$this->user()->profile;
     }
 
     /**
@@ -33,5 +33,18 @@ class StoreRequest extends FormRequest
             "last_name" => 'required|string',
             "other_names" => 'nullable|string'
         ];
+    }
+
+    /**
+     * Return failed authorization response object
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function failedAuthorizationResponse()
+    {
+        Alert::form('Unauthorized Access','Opps')
+            ->error();
+        
+        return redirect()->route('common.profile.edit');
     }
 }

@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/digitlimit/alert.git",
-                "reference": "e51fa2091de6b055460411969d28ea2c27679792"
+                "reference": "29f2cd368542416e3b0f820850b197c80d686d13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/digitlimit/alert/zipball/e51fa2091de6b055460411969d28ea2c27679792",
-                "reference": "e51fa2091de6b055460411969d28ea2c27679792",
+                "url": "https://api.github.com/repos/digitlimit/alert/zipball/29f2cd368542416e3b0f820850b197c80d686d13",
+                "reference": "29f2cd368542416e3b0f820850b197c80d686d13",
                 "shasum": ""
             },
             "require": {
@@ -51,7 +51,7 @@
                 "views",
                 "withErrors"
             ],
-            "time": "2019-09-17T11:48:09+00:00"
+            "time": "2019-09-29T13:30:00+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

@@ -72,9 +72,11 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id=null)
     {
-        //
+        return view('common.profile.create', [
+            'page_title' => 'Create Profile'
+        ]);
     }
 
     /**
