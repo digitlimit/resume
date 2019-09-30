@@ -4,6 +4,7 @@ namespace App\Http\Requests\Profile;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Traits\FormRequestTrait;
+use Alert;
 
 class StoreRequest extends FormRequest
 {
@@ -44,7 +45,7 @@ class StoreRequest extends FormRequest
     {
         Alert::form('Unauthorized Access','Opps')
             ->error();
-        
+
         return redirect()->route('common.profile.edit');
     }
 }
