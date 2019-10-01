@@ -7,7 +7,8 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('common.profile.index')}}">
+            <a class="nav-link"
+               href="{{route($me->profile ? 'common.profile.edit' : 'common.profile.create')}}">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Profile</span>
             </a>

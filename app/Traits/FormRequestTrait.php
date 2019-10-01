@@ -37,6 +37,7 @@ trait FormRequestTrait
 
         $response = redirect()
             ->back()
+            ->withInput()
             ->withErrors($validator);
 
         throw (new ValidationException($validator, $response))

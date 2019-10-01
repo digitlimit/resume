@@ -1,6 +1,7 @@
 @extends('admin.common.layouts.default')
 
 @section('content')
+
     @include('admin.common.partials.page_title')
 
     <div class="row">
@@ -8,9 +9,11 @@
             <div class="card">
                 <div class="card-body">
 
-                    <form action="{{route('common.profile.store')}}" method="post">
+                    <form action="{{route('common.profile.update')}}" method="post">
 
                         @csrf
+
+                        @method('PUT')
 
                         @include('alert::form')
 

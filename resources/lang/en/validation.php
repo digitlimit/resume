@@ -117,6 +117,8 @@ return [
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
 
+    'name' => 'The :attribute contains unwanted character(s).',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

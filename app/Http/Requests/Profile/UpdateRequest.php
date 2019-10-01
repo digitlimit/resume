@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use App\Traits\FormRequestTrait;
 use Alert;
 
-class StoreRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     use FormRequestTrait;
 
@@ -17,7 +17,8 @@ class StoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return !$this->user()->profile;
+        //return true if profile exists
+        return $this->user()->profile;
     }
 
     /**
@@ -35,12 +36,6 @@ class StoreRequest extends FormRequest
             "other_names" => 'nullable|name'
         ];
     }
-
-//    public function messages(){
-//        return [
-//           'title' =>
-//        ];
-//    }
 
     /**
      * Return failed authorization response object

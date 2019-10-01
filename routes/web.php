@@ -165,7 +165,11 @@ Route::group([], function()
         });
     });
 
-    Route::name('resume.')->prefix('resume')->middleware([])->namespace('Resume')->group(function()
+    Route::name('resume.')
+        ->prefix('resume')
+        ->middleware(['auth', 'todo'])
+        ->namespace('Resume')
+        ->group(function()
     {
         Route::name('summary.')->prefix('summary')->middleware([])->group(function ()
         {
@@ -264,8 +268,10 @@ Route::group([], function()
             ->name('destroy');
     });
 
-    Route::get('/', function () {
-        return view('landing.index');
+
+    Route::name('landing.')->namespace('Landing')->middleware([])->group(function ()
+    {
+        Route::get('/', 'LandingController@index')->name('index');
     });
 });
 

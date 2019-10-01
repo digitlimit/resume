@@ -30,25 +30,28 @@
         <div class="status-mes"></div>
     </div>
 </div>
+
+
 <div class="columns-block">
+
+
 <div class="left-col-block blocks">
     <header class="header">
         <div class="content text-center">
-            <h1>Hi, I'm Amelie Ebert!</h1>
+            @if($profile)
+                <h1>{{$profile->title}}</h1>
+                <p class="lead">{{$profile->job_title}}</p>
+            @endif
 
-            <p class="lead">Marketing Consultant</p>
-            <ul class="social-icon">
-                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-slack" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-            </ul>
+            @include('landing.partials.social-icons')
         </div>
         <div class="profile-img"></div>
     </header>
-    <!-- .header-->
+
 </div>
+
+
+
 <div class="right-col-block blocks">
 <section class="intro section-wrapper">
     <div class="container-fluid">
