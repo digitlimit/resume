@@ -243,13 +243,22 @@ Route::group([], function()
                 ->name('store');
         });
 
-        Route::name('contact.')->prefix('contact')->middleware([])->group(function ()
+        Route::name('contact.')->prefix('contact')->group(function ()
         {
             Route::get('/', 'ContactController@index')
                 ->name('index');
 
             Route::post('/', 'ContactController@store')
                 ->name('store');
+
+            Route::put('/update', 'ContactController@update')
+                ->name('update');
+
+            Route::get('/create', 'ContactController@create')
+                ->name('create');
+
+            Route::get('/edit', 'ContactController@edit')
+                ->name('edit');
         });
     });
 

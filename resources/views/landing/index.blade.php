@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Online CV - Professional HTML CSS Resume Website Template</title>
+    <title>Emeka</title>
     <link href="favicon.png" rel=icon>
     <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -31,9 +31,7 @@
     </div>
 </div>
 
-
 <div class="columns-block">
-
 
 <div class="left-col-block blocks">
     <header class="header">
@@ -49,8 +47,6 @@
     </header>
 
 </div>
-
-
 
 <div class="right-col-block blocks">
 <section class="intro section-wrapper">
@@ -81,7 +77,6 @@
         </div>
     </div>
 </section>
-
 
 <section class="expertise-wrapper section-wrapper gray-bg">
     <div class="container-fluid">
@@ -411,37 +406,13 @@
 </section>
 <section class="section-contact section-wrapper gray-bg">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title">
-                    <h2>Contact</h2>
-                </div>
-            </div>
-        </div>
-        <!--.row-->
-        <div class="row">
-            <div class="col-md-12">
-                <address>
-                    <strong>Address</strong><br>
-                    1355 Market Street, Suite 900<br>
-                    San Francisco, CA 94103
-                </address>
-                <address>
-                    <strong>Phone Number</strong><br>
-                    +61 3 8376 6284
-                </address>
 
-                <address>
-                    <strong>Mobile Number</strong><br>
-                    987 654 321
-                </address>
-                <address>
-                    <strong>Email</strong><br>
-                    <a href="mailto:#">coffee@amelie.me</a>
-                </address>
-            </div>
-        </div>
-        <!--.row-->
+        @if($profile->contact)
+            @include('landing.partials.contact', [
+                'contact' => $profile->contact
+            ])
+        @endif
+
         <div class="row">
             <div class="col-md-12">
                 <div class="feedback-form">

@@ -23,7 +23,7 @@ class ProfileController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     * @param  \App\Http\Requests\Profile\Request $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)

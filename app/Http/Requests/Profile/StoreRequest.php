@@ -36,12 +36,6 @@ class StoreRequest extends FormRequest
         ];
     }
 
-//    public function messages(){
-//        return [
-//           'title' =>
-//        ];
-//    }
-
     /**
      * Return failed authorization response object
      *

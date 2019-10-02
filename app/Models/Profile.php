@@ -59,6 +59,85 @@ class Profile extends Model
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Contact
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function contact()
+    {
+        return $this->hasOne(Contact::class);
+    }
+
+    /**
+     * Education
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function educations()
+    {
+        return $this->hasMany(Education::class);
+    }
+
+    /**
+     * Interest
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function interests()
+    {
+        return $this->hasMany(Interest::class);
+    }
+
+    /**
+     * Skill
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function skills()
+    {
+        return $this->hasMany(Skill::class);
+    }
+
+    /**
+     * Social
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function socials()
+    {
+        return $this->hasMany(Social::class);
+    }
+
+    /**
+     * Portfolio
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function portfolios()
+    {
+        return $this->hasMany(Portfolio::class);
+    }
+
+    /**
+     * Work Experience
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function work_experiences()
+    {
+        return $this->hasMany(WorkExperience::class);
+    }
+
+    /**
+     * Core Value
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function core_values()
+    {
+        return $this->hasMany(CoreValue::class);
+    }
 
     /**
      * Get all of the profile images.
