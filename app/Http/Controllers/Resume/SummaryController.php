@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Resume;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\Summary\UpdateRequest;
 use App\Http\Requests\Summary\StoreRequest;
 use App\Http\Controllers\Controller;
+use App\Service\Summary;
+use Alert;
 
 class SummaryController extends Controller
 {
@@ -25,6 +27,11 @@ class SummaryController extends Controller
      */
     public function create()
     {
+        if($this->authSummary()){
+            return redirect()
+                ->route('resume.summary.edit');
+        }
+
         return view('resume.summary.create', [
             'page_title' => 'Summary',
             'summary' => ''
@@ -39,7 +46,20 @@ class SummaryController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        dd($request->all());
+        try{
+            if(Summary::create($request->all(), $this->authProfile()->id)) {
+                Alert::form('Summary successfully created', 'Congratulations')
+                    ->success()
+                    ->closable();
+            }
+        }catch(\Exception $e){
+            Alert::form($e->getMessage(), 'Opps')
+                ->error()
+                ->closable();
+        }
+
+        return redirect()
+            ->route('resume.summary.edit');
     }
 
     /**
@@ -48,23 +68,49 @@ class SummaryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id=null)
     {
-        return view('resume.summary.index', [
-            'page_title' => 'Summary'
+        //if user does not have contact
+        if(!$summary = $this->authSummary()){
+            return redirect()
+                ->route('resume.summary.create');
+        }
+
+        return view('resume.summary.edit', [
+            'page_title' => 'Summary',
+            'summary' => $summary
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Summary\UpdateRequest $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id=null)
     {
-        //
+        try{
+            $contact = $request->only([
+                "title" => 'required|string',
+                "icon" => 'nullable|string',
+                "detail" => 'required|string'
+            ]);
+
+            if(Summary::update($contact, $this->authProfile()->id)) {
+                Alert::form('Summary successfully updated', 'Congratulations')
+                    ->success()
+                    ->closable();
+            }
+        }catch(\Exception $e){
+            Alert::form($e->getMessage(), 'Opps')
+                ->error()
+                ->closable();
+        }
+
+        return redirect()
+            ->route('resume.summary.edit');
     }
 
     /**

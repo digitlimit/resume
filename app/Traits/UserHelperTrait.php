@@ -36,7 +36,20 @@ trait UserHelperTrait{
         return $profile ? $profile->contact : null;
     }
 
-//    /**
+    /**
+     * Return current authenticated user's contact
+     *
+     * @return null
+     */
+    public function authSummary()
+    {
+        $profile = $this->authProfile();
+
+        return $profile ? $profile->summary : null;
+    }
+
+
+//    /**s
 //     * Return current authenticated user's contact
 //     *
 //     * @return null

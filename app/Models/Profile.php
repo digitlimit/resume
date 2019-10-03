@@ -70,6 +70,16 @@ class Profile extends Model
     }
 
     /**
+     * Summary
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function summary()
+    {
+        return $this->hasOne(Summary::class);
+    }
+
+    /**
      * Education
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

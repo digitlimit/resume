@@ -4,7 +4,7 @@
     </label>
     <div class="col-sm-9">
         <input type="text" class="form-control" name="title"
-               {{old('title', optional($summary)->title)}}
+               value="{{old('title', optional($summary)->title)}}"
                id="title" placeholder="Enter Title">
         @include('alert::field', ['field'=>'title', 'tag'=>''])
     </div>
@@ -16,7 +16,7 @@
     </label>
     <div class="col-sm-9">
         <input type="text" class="form-control" name="icon"
-               {{old('icon', optional($summary)->icon)}}
+               value="{{old('icon', optional($summary)->icon)}}"
                id="icon" placeholder="Enter Icon Class e.g fa fa-bandcamp">
         @include('alert::field', ['field'=>'icon', 'tag'=>''])
     </div>
