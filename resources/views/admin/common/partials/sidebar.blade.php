@@ -25,7 +25,8 @@
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
                         <a class="nav-link"
-                           href="{{route('resume.summary.index')}}">Summary</a>
+                           href="{{route($me->profile && $me->profile->summary ?
+                           'resume.summary.edit' : 'resume.summary.create')}}">Summary</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link"
@@ -50,7 +51,10 @@
                         <a class="nav-link" href="{{route('resume.interest.index')}}">Interest</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('resume.contact.index')}}">Contact</a>
+                        <a class="nav-link"
+                           href="{{route($me->profile && $me->profile->contact ?
+                            'resume.contact.edit' : 'resume.contact.create')}}"
+                        >Contact</a>
                     </li>
                 </ul>
             </div>

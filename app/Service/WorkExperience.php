@@ -1,0 +1,44 @@
+<?php namespace App\Service;
+
+use App\Models\Profile;
+use Exception;
+
+class WorkExperience
+{
+    public static function create(array $work_experiences, $profile_id)
+    {
+        //ensure profile exists
+        if(! $profile = Profile::find($profile_id)){
+            //todo localize
+            throw new Exception("Profile with ID '$profile_id' not found");
+        }
+
+        //create work_experiences
+        $work_experiences = $profile->work_experiences()->create($work_experiences);
+
+        //failure
+        if(!$work_experiences) return false;
+
+        //perform other tasks like send email
+        return true;
+    }
+
+
+    public static function update(array $work_experiences, $profile_id)
+    {
+        //ensure profile exists
+        if(! $profile = Profile::find($profile_id)){
+            //todo localize
+            throw new Exception("Profile with ID '$profile_id' not found");
+        }
+
+        //create work_experiences
+        $work_experiences = $profile->work_experiences()->update($work_experiences);
+
+        //failure
+        if(!$work_experiences) return false;
+
+        //perform other tasks like send email
+        return true;
+    }
+}

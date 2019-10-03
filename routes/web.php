@@ -13,87 +13,6 @@
 
 Route::group([], function()
 {
-
-//    Route::domain('{account}.emekambah.test')->group(function () {
-//        Route::get('/', function ($account) {
-//            dd($account);
-//        });
-//    });
-
-
-//    Route::name('admin.')->prefix('admin')->middleware([])->namespace('Admin')->group(function()
-//    {
-//
-//
-//        Route::name('profiles.')->prefix('profiles')->middleware([])->group(function ()
-//        {
-//            Route::get('/', 'ProfileController@index')
-//                ->name('index');
-//
-//            Route::get('/profile', 'ProfileController@profile')
-//                ->name('profile');
-//
-//            Route::post('/profile', 'ProfileController@profileUpdate')
-//                ->name('profile_update');
-//
-//            Route::post('/', 'ProfileController@store')
-//                ->name('store');
-//
-//            Route::put('/', 'ProfileController@update')
-//                ->name('update');
-//
-//            Route::delete('/', 'ProfileController@destroy')
-//                ->name('destroy');
-//        });
-//
-
-//
-//        Route::name('images.')->prefix('images')->middleware([])->group(function ()
-//        {
-//            Route::get('/', 'ImageController@index')
-//                ->name('index');
-//
-//            Route::post('/', 'ImageController@store')
-//                ->name('store');
-//
-//            Route::put('/', 'ImageController@update')
-//                ->name('update');
-//
-//            Route::delete('/', 'ImageController@destroy')
-//                ->name('destroy');
-//        });
-//
-//        Route::name('users.')->prefix('users')->middleware([])->group(function ()
-//        {
-//            Route::get('/', 'UserController@index')
-//                ->name('index');
-//
-//            Route::post('/', 'UserController@store')
-//                ->name('store');
-//
-//            Route::put('/', 'UserController@update')
-//                ->name('update');
-//
-//            Route::delete('/', 'UserController@destroy')
-//                ->name('destroy');
-//        });
-//
-//        Route::name('settings.')->prefix('settings')->middleware([])->group(function ()
-//        {
-//            Route::get('/', 'SettingController@index')
-//                ->name('index');
-//
-//            Route::post('/', 'SettingController@store')
-//                ->name('store');
-//
-//            Route::put('/', 'SettingController@update')
-//                ->name('update');
-//
-//            Route::delete('/', 'SettingController@destroy')
-//                ->name('destroy');
-//        });
-//    });
-
     Route::name('guest.')->prefix('guest')->middleware([])->namespace('Guest')->group( function()
     {
         Route::get('login',    'LoginController@getLogin')
@@ -196,6 +115,15 @@ Route::group([], function()
 
             Route::post('/', 'WorkExperienceController@store')
                 ->name('store');
+
+            Route::put('/update', 'WorkExperienceController@update')
+                ->name('update');
+
+            Route::get('/create', 'WorkExperienceController@create')
+                ->name('create');
+
+            Route::get('/edit', 'WorkExperienceController@edit')
+                ->name('edit');
         });
 
         Route::name('education.')->prefix('education')->middleware([])->group(function ()
@@ -205,6 +133,15 @@ Route::group([], function()
 
             Route::post('/', 'EducationController@store')
                 ->name('store');
+
+            Route::put('/update', 'EducationController@update')
+                ->name('update');
+
+            Route::get('/create', 'EducationController@create')
+                ->name('create');
+
+            Route::get('/edit', 'EducationController@edit')
+                ->name('edit');
         });
 
         Route::name('skill.')->prefix('skill')->middleware([])->group(function ()
@@ -214,6 +151,15 @@ Route::group([], function()
 
             Route::post('/', 'SkillController@store')
                 ->name('store');
+
+            Route::put('/update', 'SkillController@update')
+                ->name('update');
+
+            Route::get('/create', 'SkillController@create')
+                ->name('create');
+
+            Route::get('/edit', 'SkillController@edit')
+                ->name('edit');
         });
 
         Route::name('core_value.')->prefix('core_value')->middleware([])->group(function ()
@@ -223,6 +169,15 @@ Route::group([], function()
 
             Route::post('/', 'CoreValueController@store')
                 ->name('store');
+
+            Route::put('/update', 'CoreValueController@update')
+                ->name('update');
+
+            Route::get('/create', 'CoreValueController@create')
+                ->name('create');
+
+            Route::get('/edit', 'CoreValueController@edit')
+                ->name('edit');
         });
 
         Route::name('social.')->prefix('social')->middleware([])->group(function ()
@@ -232,6 +187,15 @@ Route::group([], function()
 
             Route::post('/', 'SocialController@store')
                 ->name('store');
+
+            Route::put('/update', 'SocialController@update')
+                ->name('update');
+
+            Route::get('/create', 'SocialController@create')
+                ->name('create');
+
+            Route::get('/edit', 'SocialController@edit')
+                ->name('edit');
         });
 
         Route::name('portfolio.')->prefix('portfolio')->middleware([])->group(function ()
@@ -241,6 +205,15 @@ Route::group([], function()
 
             Route::post('/', 'PortfolioController@store')
                 ->name('store');
+
+            Route::put('/update', 'PortfolioController@update')
+                ->name('update');
+
+            Route::get('/create', 'PortfolioController@create')
+                ->name('create');
+
+            Route::get('/edit', 'PortfolioController@edit')
+                ->name('edit');
         });
 
         Route::name('interest.')->prefix('interest')->middleware([])->group(function ()
@@ -250,6 +223,15 @@ Route::group([], function()
 
             Route::post('/', 'InterestController@store')
                 ->name('store');
+
+            Route::put('/update', 'InterestController@update')
+                ->name('update');
+
+            Route::get('/create', 'InterestController@create')
+                ->name('create');
+
+            Route::get('/edit', 'InterestController@edit')
+                ->name('edit');
         });
 
         Route::name('contact.')->prefix('contact')->group(function ()
