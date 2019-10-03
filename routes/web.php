@@ -178,6 +178,15 @@ Route::group([], function()
 
             Route::post('/', 'SummaryController@store')
                 ->name('store');
+
+            Route::put('/', 'SummaryController@update')
+                ->name('update');
+
+            Route::get('/create', 'SummaryController@create')
+                ->name('create');
+
+            Route::get('/edit', 'SummaryController@edit')
+                ->name('edit');
         });
 
         Route::name('work_experience.')->prefix('work_experience')->middleware([])->group(function ()

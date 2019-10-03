@@ -15,9 +15,7 @@ class SummaryController extends Controller
      */
     public function index()
     {
-        return view('resume.summary.index', [
-            'page_title' => 'Summary'
-        ]);
+
     }
 
     /**
@@ -27,7 +25,10 @@ class SummaryController extends Controller
      */
     public function create()
     {
-        //
+        return view('resume.summary.create', [
+            'page_title' => 'Summary',
+            'summary' => ''
+        ]);
     }
 
     /**
@@ -49,7 +50,9 @@ class SummaryController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('resume.summary.index', [
+            'page_title' => 'Summary'
+        ]);
     }
 
     /**
