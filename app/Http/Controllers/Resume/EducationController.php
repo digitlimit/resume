@@ -109,15 +109,15 @@ class EducationController extends Controller
     {
         try{
             $education = $request->only([
-                'job_title',
-                'job_description',
+                'degree',
+                'gpa',
                 'start_month',
-                'start_year',
                 'end_month',
+                'start_year',
                 'end_year',
-                'company_name',
-                'company_info',
-                'company_address',
+                'school_name',
+                'school_info',
+                'school_address',
                 'icon'
             ]);
 

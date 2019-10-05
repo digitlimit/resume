@@ -93,9 +93,9 @@ class SummaryController extends Controller
     {
         try{
             $summary = $request->only([
-                "title" => 'required|string',
-                "icon" => 'nullable|string',
-                "detail" => 'required|string'
+                "title",
+                "icon",
+                "detail"
             ]);
 
             if(Summary::update($summary, $this->authProfile()->id)) {

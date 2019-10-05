@@ -109,16 +109,9 @@ class SocialController extends Controller
     {
         try{
             $social = $request->only([
-                'job_title',
-                'job_description',
-                'start_month',
-                'start_year',
-                'end_month',
-                'end_year',
-                'company_name',
-                'company_info',
-                'company_address',
-                'icon'
+                'name',
+                'icon',
+                'url'
             ]);
 
             if(Social::update($social, $this->authProfile()->id, $id)) {

@@ -109,15 +109,10 @@ class SkillController extends Controller
     {
         try{
             $skill = $request->only([
-                'job_title',
-                'job_description',
-                'start_month',
-                'start_year',
-                'end_month',
-                'end_year',
-                'company_name',
-                'company_info',
-                'company_address',
+                'title',
+                'detail',
+                'percentage',
+                'years',
                 'icon'
             ]);
 

@@ -4,54 +4,69 @@
     @include('admin.common.partials.page_title')
 
     <div class="row">
-        <div class="col-8 stretch-card">
+
+        <div class="col-lg-8 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
 
-                    <form action="{{route('resume.interest.store')}}"
-                          method="post">
+                    @include('alert::form')
 
-                        @csrf
+                    @if($interests->count())
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>
+                                    <div class="form-check form-check-flat">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input">
+                                            Title
+                                        </label>
+                                    </div>
+                                </th>
+                                <th> </th>
+                            </tr>
+                            </thead>
+                            <tbody>
 
-                        @include('alert::form')
+                            @foreach($interests as $interest)
+                                <tr>
+                                    <th>
+                                        <div class="form-check form-check-flat">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input">
+                                                {{$interest->title}}
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <td>
+                                        <a href="{{route('resume.interest.destroy', [
+                                        'interest' => $interest->id
+                                    ])}}"
+                                           class="btn btn-danger btn-sm">
+                                            <i class="ion ion-md-trash"></i>
+                                        </a>
+                                        <a href="{{route('resume.interest.edit', [
+                                        'interest' => $interest->id
+                                    ])}}"
+                                           class="btn btn-success btn-sm">
+                                            <i class="ion ion-md-paper"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
 
-                        <div class="form-group row">
-                            <label for="title" class="col-sm-3 col-form-label">
-                                Title
-                            </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="title"
-                                       id="title" placeholder="Enter Title">
-                                @include('alert::field', ['field'=>'title', 'tag'=>''])
-                            </div>
-                        </div>
+                            </tbody>
+                        </table>
+                    @else
+                        There is nothing here
+                    @endif
+                </div>
 
-                        <div class="form-group row">
-                            <label for="detail" class="col-sm-3 col-form-label">
-                                Detail
-                            </label>
-                            <div class="col-sm-9">
-                                <div class="quill-textarea"></div>
-                                <textarea style="display: none"  name="detail"
-                                          id="detail"></textarea>
-                                @include('alert::field', ['field'=>'detail', 'tag'=>''])
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="icon" class="col-sm-3 col-form-label">
-                                Icon Class
-                            </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="icon"
-                                       id="icon" placeholder="Enter Icon Class e.g fa fa-bandcamp">
-                                @include('alert::field', ['field'=>'icon', 'tag'=>''])
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-success mr-2">Submit</button>
-                        {{--<a href="{{route('admin.index')}}" class="btn btn-light">Cancel</a>--}}
-                    </form>
+                <div class="card-footer">
+                    <a href="{{route('resume.interest.create')}}" class="btn btn-success">
+                        <i class="ion ion-md-add-circle"></i>
+                        Add New
+                    </a>
                 </div>
             </div>
         </div>
@@ -61,27 +76,3 @@
         </div>
     </div>
 @endsection
-
-@push('footer')
-<script>
-    window.onload = function(){
-
-        var quill = new Quill('.quill-textarea', {
-            placeholder: 'Enter Detail',
-            theme: 'snow',
-            modules: {
-                toolbar: [
-                    ['bold', 'italic', 'underline', 'strike'],
-                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                    [{ 'indent': '-1'}, { 'indent': '+1' }]
-                ]
-            }
-        });
-
-        quill.on('text-change', function(delta, oldDelta, source) {
-            console.log(quill.container.firstChild.innerHTML)
-            $('#detail').val(quill.container.firstChild.innerHTML);
-        });
-    }
-</script>
-@endpush

@@ -245,14 +245,17 @@ Route::group([], function()
             Route::post('/', 'InterestController@store')
                 ->name('store');
 
-            Route::put('/update', 'InterestController@update')
-                ->name('update');
-
             Route::get('/create', 'InterestController@create')
                 ->name('create');
 
-            Route::get('/edit', 'InterestController@edit')
+            Route::put('/update/{interest}', 'InterestController@update')
+                ->name('update');
+
+            Route::get('/edit/{interest}', 'InterestController@edit')
                 ->name('edit');
+
+            Route::get('/delete/{interest}', 'InterestController@destroy')
+                ->name('destroy');
         });
 
         Route::name('contact.')->prefix('contact')->group(function ()

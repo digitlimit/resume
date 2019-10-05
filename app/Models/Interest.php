@@ -11,7 +11,7 @@ class Interest extends Model
      *
      * @var string
      */
-    protected $table = 'skills';
+    protected $table = 'interests';
 
     /**
      * The database primary key value.

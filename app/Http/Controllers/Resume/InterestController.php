@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Resume;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Interest\StoreRequest;
+use App\Http\Requests\Interest\UpdateRequest;
+use App\Http\Controllers\Controller;
+use App\Service\Interest;
+use Alert;
 
 class InterestController extends Controller
 {
@@ -16,29 +19,51 @@ class InterestController extends Controller
     public function index()
     {
         return view('resume.interest.index', [
-            'page_title' => 'Interest'
+            'page_title' => 'Interests',
+            'interests' => Interest::paginate($this->authProfile()->id)
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        //if user already have interest
+//        if($this->authInterests()){
+//            return redirect()
+//                ->route('resume.interest.edit');
+//        }
+
+        return view('resume.interest.create', [
+            'page_title' => 'Add Interest',
+            'interest' => ''
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Interest\StoreRequest  $request
+     * @param  \App\Http\Requests\Interest\StoreRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreRequest $request)
     {
-        dd(request()->all(), 'in controller');
+        try{
+            if(Interest::create($request->all(), $this->authProfile()->id)) {
+                Alert::form('Interest successfully Added', 'Congratulations')
+                    ->success()
+                    ->closable();
+            }
+        }catch(\Exception $e){
+            Alert::form($e->getMessage(), 'Opps')
+                ->error()
+                ->closable();
+        }
+
+        return redirect()
+            ->route('resume.interest.index');
     }
 
     /**
@@ -54,27 +79,56 @@ class InterestController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
      * @param  int  $id
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        //if user does not have interest
+        if(!$interest = $this->authInterests($id)){
+            return redirect()
+                ->route('resume.interest.index');
+        }
+
+        return view('resume.interest.edit', [
+            'page_title' => 'Edit Interest',
+            'interest' => $interest
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\Interest\UpdateRequest  $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
-        //
-    }
+        try{
+            $interest = $request->only([
+                'title',
+                'icon',
+                'detail'
+            ]);
 
+            if(Interest::update($interest, $this->authProfile()->id, $id)) {
+                Alert::form('Interest successfully updated', 'Congratulations')
+                    ->success()
+                    ->closable();
+            }
+        }catch(\Exception $e){
+            Alert::form($e->getMessage(), 'Opps')
+                ->error()
+                ->closable();
+        }
+
+        return redirect()
+            ->route('resume.interest.edit', [
+                'interest' => $id
+            ]);
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -83,6 +137,19 @@ class InterestController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try{
+            if(Interest::destroy($this->authProfile()->id, $id)) {
+                Alert::form('Interest successfully Deleted', 'Congratulations')
+                    ->success()
+                    ->closable();
+            }
+        }catch(\Exception $e){
+            Alert::form($e->getMessage(), 'Opps')
+                ->error()
+                ->closable();
+        }
+
+        return redirect()
+            ->route('resume.interest.index');
     }
 }
