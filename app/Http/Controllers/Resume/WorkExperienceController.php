@@ -84,39 +84,44 @@ class WorkExperienceController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id=null)
+    public function edit(Request $request, $id)
     {
         //if user does not have contact
-        if(!$this->authContact()){
+        if(!$work_experience = $this->authWorkExperiences($id)){
             return redirect()
-                ->route('resume.contact.create');
+                ->route('resume.work_experience.index');
         }
 
-        return view('resume.contact.edit', [
+        return view('resume.work_experience.edit', [
             'page_title' => 'Edit Contact',
-            'contact' => $this->authContact()
+            'work_experience' => $work_experience
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\Contact\UpdateRequest  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\WorkExperience\UpdateRequest  $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request, $id=null)
+    public function update(UpdateRequest $request, $id)
     {
         try{
-            $contact = $request->only([
-                'address_1',
-                'address_2',
-                'phone_number',
-                'mobile_number',
-                'email'
+            $work_experience = $request->only([
+                'job_title',
+                'job_description',
+                'start_month',
+                'start_year',
+                'end_month',
+                'end_year',
+                'company_name',
+                'company_info',
+                'company_address',
+                'icon'
             ]);
 
-            if(WorkExperience::update($contact, $this->authProfile()->id)) {
+            if(WorkExperience::update($work_experience, $this->authProfile()->id, $id)) {
                 Alert::form('Work Experience successfully updated', 'Congratulations')
                     ->success()
                     ->closable();
@@ -128,7 +133,9 @@ class WorkExperienceController extends Controller
         }
 
         return redirect()
-            ->route('resume.contact.edit');
+            ->route('resume.work_experience.edit', [
+                'work_experience' => $id
+            ]);
     }
     /**
      * Remove the specified resource from storage.

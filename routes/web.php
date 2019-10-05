@@ -116,14 +116,17 @@ Route::group([], function()
             Route::post('/', 'WorkExperienceController@store')
                 ->name('store');
 
-            Route::put('/update', 'WorkExperienceController@update')
+            Route::put('/update/{work_experience}', 'WorkExperienceController@update')
                 ->name('update');
 
             Route::get('/create', 'WorkExperienceController@create')
                 ->name('create');
 
-            Route::get('/edit', 'WorkExperienceController@edit')
+            Route::get('/edit/{work_experience}', 'WorkExperienceController@edit')
                 ->name('edit');
+
+            Route::get('/delete/{work_experience}', 'WorkExperienceController@destroy')
+                ->name('destroy');
         });
 
         Route::name('education.')->prefix('education')->middleware([])->group(function ()

@@ -7,7 +7,9 @@
         <div class="col-8 stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{route('resume.work_experience.update')}}" method="post">
+                    <form action="{{route('resume.work_experience.update',[
+                        'work_experience' => $work_experience
+                    ])}}" method="post">
 
                         @csrf
 

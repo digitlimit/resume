@@ -54,11 +54,19 @@ trait UserHelperTrait{
      *
      * @return null
      */
-    public function authWorkExperiences()
+    public function authWorkExperiences($id=null)
     {
         $profile = $this->authProfile();
 
-        return $profile ? $profile->WorkExperiences : null;
+        if(!$profile){
+            return null;
+        }
+
+        if($id && $profile){
+            return $profile->work_experiences()->find($id);
+        }
+
+        return $profile->work_experiences;
     }
 
 

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{asset('assets/vendors/iconfonts/ionicons/css/ionicons.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/iconfonts/typicons/src/font/typicons.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/vendors/font-awesome/css/fontawesome.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/css/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/css/vendor.bundle.addons.css')}}">
 
@@ -27,6 +28,16 @@
         }
         .help-block{
             margin-bottom: 0;
+        }
+        .ion{
+            color: white;
+            padding: 0 !important;
+        }
+        table .btn{
+            float: right;
+            margin-right: 5px;
+            padding:5px !important;
+            padding-left:8px !important;
         }
     </style>
 
@@ -61,6 +72,7 @@
 
 <script src="{{asset('assets/vendors/js/vendor.bundle.base.js')}}"></script>
 <script src="{{asset('assets/vendors/js/vendor.bundle.addons.js')}}"></script>
+{{--<script src="{{asset('assets/vendors/font-awesome/js/fontawesome.js')}}"></script>--}}
 <script src="{{asset('assets/js/shared/off-canvas.js')}}"></script>
 <script src="{{asset('assets/js/shared/misc.js')}}"></script>
 <script src="{{asset('assets/js/demo_1/dashboard.js')}}"></script>

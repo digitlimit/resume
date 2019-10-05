@@ -40,7 +40,7 @@ class WorkExperience
     }
 
 
-    public static function update(array $work_experiences, $profile_id)
+    public static function update(array $updated_work_experience, $profile_id, $id)
     {
         //ensure profile exists
         if(! $profile = Profile::find($profile_id)){
@@ -48,13 +48,10 @@ class WorkExperience
             throw new Exception("Profile with ID '$profile_id' not found");
         }
 
-        //create work_experiences
-        $work_experiences = $profile->work_experiences()->update($work_experiences);
+        if(!$work_experience = $profile->work_experiences()->find($id)){
+            throw new Exception("Work Experience with ID '$id' not found");
+        }
 
-        //failure
-        if(!$work_experiences) return false;
-
-        //perform other tasks like send email
-        return true;
+        return $work_experience->update($updated_work_experience);
     }
 }
