@@ -5,6 +5,22 @@ use Exception;
 
 class WorkExperience
 {
+    public static function all()
+    {
+        return WorkExperience::all();
+    }
+
+    public static function paginate($profile_id, $per_page=15)
+    {
+        //ensure profile exists
+        if(! $profile = Profile::find($profile_id)){
+            //todo localize
+            throw new Exception("Profile with ID '$profile_id' not found");
+        }
+
+        return $profile->work_experiences()->paginate($per_page);
+    }
+
     public static function create(array $work_experiences, $profile_id)
     {
         //ensure profile exists

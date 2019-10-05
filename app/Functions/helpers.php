@@ -53,3 +53,16 @@ if(!function_exists('active_url'))
         return request()->route()->named($route_name) ? $status : '';
     }
 }
+
+
+if(!function_exists('selected_option'))
+{
+    function selected_option($value, $option, $selected='selected')
+    {
+        if($value == $option){
+            return $selected ? $selected : true;
+        }else{
+            return $selected ? '' : false;
+        }
+    }
+}

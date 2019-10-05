@@ -49,6 +49,19 @@ trait UserHelperTrait{
     }
 
 
+    /**
+     * Return current authenticated user's contact
+     *
+     * @return null
+     */
+    public function authWorkExperiences()
+    {
+        $profile = $this->authProfile();
+
+        return $profile ? $profile->WorkExperiences : null;
+    }
+
+
 //    /**s
 //     * Return current authenticated user's contact
 //     *
