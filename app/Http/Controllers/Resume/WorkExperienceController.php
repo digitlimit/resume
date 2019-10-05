@@ -31,7 +31,7 @@ class WorkExperienceController extends Controller
     public function create()
     {
 
-        //if user already have contact
+        //if user already have work experience
 //        if($this->authWorkExperiences()){
 //            return redirect()
 //                ->route('resume.work_experience.edit');
@@ -86,14 +86,14 @@ class WorkExperienceController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        //if user does not have contact
+        //if user does not have work experience
         if(!$work_experience = $this->authWorkExperiences($id)){
             return redirect()
                 ->route('resume.work_experience.index');
         }
 
         return view('resume.work_experience.edit', [
-            'page_title' => 'Edit Contact',
+            'page_title' => 'Edit Work Experience',
             'work_experience' => $work_experience
         ]);
     }

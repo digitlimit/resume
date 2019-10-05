@@ -70,7 +70,7 @@ class SummaryController extends Controller
      */
     public function edit($id=null)
     {
-        //if user does not have contact
+        //if user does not have summary
         if(!$summary = $this->authSummary()){
             return redirect()
                 ->route('resume.summary.create');
@@ -92,13 +92,13 @@ class SummaryController extends Controller
     public function update(UpdateRequest $request, $id=null)
     {
         try{
-            $contact = $request->only([
+            $summary = $request->only([
                 "title" => 'required|string',
                 "icon" => 'nullable|string',
                 "detail" => 'required|string'
             ]);
 
-            if(Summary::update($contact, $this->authProfile()->id)) {
+            if(Summary::update($summary, $this->authProfile()->id)) {
                 Alert::form('Summary successfully updated', 'Congratulations')
                     ->success()
                     ->closable();

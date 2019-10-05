@@ -31,7 +31,7 @@ class SkillController extends Controller
     public function create()
     {
 
-        //if user already have contact
+        //if user already have skill
 //        if($this->authSkills()){
 //            return redirect()
 //                ->route('resume.skill.edit');
@@ -86,14 +86,14 @@ class SkillController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        //if user does not have contact
+        //if user does not have skill
         if(!$skill = $this->authSkills($id)){
             return redirect()
                 ->route('resume.skill.index');
         }
 
         return view('resume.skill.edit', [
-            'page_title' => 'Edit Contact',
+            'page_title' => 'Edit Skill',
             'skill' => $skill
         ]);
     }

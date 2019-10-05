@@ -31,7 +31,7 @@ class EducationController extends Controller
     public function create()
     {
 
-        //if user already have contact
+        //if user already have education
 //        if($this->authEducations()){
 //            return redirect()
 //                ->route('resume.education.edit');
@@ -86,14 +86,14 @@ class EducationController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        //if user does not have contact
+        //if user does not have education
         if(!$education = $this->authEducations($id)){
             return redirect()
                 ->route('resume.education.index');
         }
 
         return view('resume.education.edit', [
-            'page_title' => 'Edit Contact',
+            'page_title' => 'Edit Education',
             'education' => $education
         ]);
     }

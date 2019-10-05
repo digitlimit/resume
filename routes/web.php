@@ -227,8 +227,14 @@ Route::group([], function()
             Route::get('/create', 'PortfolioController@create')
                 ->name('create');
 
-            Route::get('/edit', 'PortfolioController@edit')
+            Route::put('/update/{portfolio}', 'PortfolioController@update')
+                ->name('update');
+
+            Route::get('/edit/{portfolio}', 'PortfolioController@edit')
                 ->name('edit');
+
+            Route::get('/delete/{portfolio}', 'PortfolioController@destroy')
+                ->name('destroy');
         });
 
         Route::name('interest.')->prefix('interest')->middleware([])->group(function ()

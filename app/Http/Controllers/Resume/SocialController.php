@@ -86,14 +86,14 @@ class SocialController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        //if user does not have contact
+        //if user does not have social
         if(!$social = $this->authSocials($id)){
             return redirect()
                 ->route('resume.social.index');
         }
 
         return view('resume.social.edit', [
-            'page_title' => 'Edit Contact',
+            'page_title' => 'Edit Social',
             'social' => $social
         ]);
     }

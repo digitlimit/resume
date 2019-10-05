@@ -93,7 +93,7 @@ class CoreValueController extends Controller
         }
 
         return view('resume.core_value.edit', [
-            'page_title' => 'Edit Contact',
+            'page_title' => 'Edit Core value',
             'core_value' => $core_value
         ]);
     }

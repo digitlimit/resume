@@ -150,4 +150,24 @@ trait UserHelperTrait{
 
         return $profile->core_values;
     }
+
+    /**
+     * Return current authenticated user's contact
+     *
+     * @return null
+     */
+    public function authPortfolios($id=null)
+    {
+        $profile = $this->authProfile();
+
+        if(!$profile){
+            return null;
+        }
+
+        if($id && $profile){
+            return $profile->portfolios()->find($id);
+        }
+
+        return $profile->portfolios;
+    }
 }
