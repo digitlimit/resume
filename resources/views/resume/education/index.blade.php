@@ -4,119 +4,71 @@
     @include('admin.common.partials.page_title')
 
     <div class="row">
-        <div class="col-8 stretch-card">
+
+        <div class="col-lg-8 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    {{--<h4 class="card-title">Horizontal Form</h4>--}}
 
-                    <form action="{{route('resume.education.store')}}" method="post">
+                    @include('alert::form')
 
-                        @csrf
+                    @if($educations->count())
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>
+                                    <div class="form-check form-check-flat">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input">
+                                            Degree
+                                        </label>
+                                    </div>
+                                </th>
+                                <th> School </th>
+                                <th> </th>
+                            </tr>
+                            </thead>
+                            <tbody>
 
-                        <div class="form-group row">
-                            <label for="degree" class="col-sm-3 col-form-label">
-                                Degree
-                            </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="degree" id="degree" placeholder="Enter Degree">
-                                @include('common.partials.alert', ['field'=>'degree', 'tag'=>''])
-                            </div>
-                        </div>
+                            @foreach($educations as $education)
+                                <tr>
+                                    <th>
+                                        <div class="form-check form-check-flat">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input">
+                                                {{$education->degree}}
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <td>{{$education->school_name}}</td>
+                                    <td>
+                                        <a href="{{route('resume.education.destroy', [
+                                        'education' => $education->id
+                                    ])}}"
+                                           class="btn btn-danger btn-sm">
+                                            <i class="ion ion-md-trash"></i>
+                                        </a>
+                                        <a href="{{route('resume.education.edit', [
+                                        'education' => $education->id
+                                    ])}}"
+                                           class="btn btn-success btn-sm">
+                                            <i class="ion ion-md-paper"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
 
-                        <div class="form-group row">
-                            <label for="gpa" class="col-sm-3 col-form-label">
-                                GPA
-                            </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="gpa" id="gpa" placeholder="Enter GPA">
-                                @include('common.partials.alert', ['field'=>'gpa', 'tag'=>''])
-                            </div>
-                        </div>
+                            </tbody>
+                        </table>
+                    @else
+                        There is nothing here
+                    @endif
+                </div>
 
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">
-                                Start Date
-                            </label>
-                            <div class="col-sm-5">
-                                <select name="start_month" id="start_month" class="form-control">
-                                    <option>Month</option>
-                                    @foreach(trans('options.months') as $name => $value)
-                                        <option value="{{$value}}">{{$name}}</option>
-                                    @endforeach
-                                </select>
-                                @include('common.partials.alert', ['field'=>'start_month', 'tag'=>''])
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="number" maxlength="4" pattern="\d*"
-                                       class="form-control" name="start_year" id="start_year" placeholder="Year">
-                                @include('common.partials.alert', ['field'=>'start_year', 'tag'=>''])
-                            </div>
-                        </div>
-
-
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">
-                                End Date
-                            </label>
-                            <div class="col-sm-5">
-                                <select name="end_month" id="end_month" class="form-control">
-                                    <option>Month</option>
-                                    @foreach(trans('options.months') as $name => $value)
-                                        <option value="{{$value}}">{{$name}}</option>
-                                    @endforeach
-                                </select>
-                                @include('common.partials.alert', ['field'=>'end_month', 'tag'=>''])
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="number" maxlength="4" pattern="\d*"
-                                       class="form-control" name="end_year" id="end_year" placeholder="Year">
-                                @include('common.partials.alert', ['field'=>'end_year', 'tag'=>''])
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="school_name" class="col-sm-3 col-form-label">
-                                School Name
-                            </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="school_name" id="school_name" placeholder="Enter School Name">
-                                @include('common.partials.alert', ['field'=>'school_name', 'tag'=>''])
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="school_info" class="col-sm-3 col-form-label">
-                                School Info
-                            </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="school_info" id="school_info" placeholder="Enter School Info">
-                                @include('common.partials.alert', ['field'=>'school_info', 'tag'=>''])
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="school_address" class="col-sm-3 col-form-label">
-                                School Address
-                            </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="school_address" id="school_address" placeholder="Enter School Address">
-                                @include('common.partials.alert', ['field'=>'school_address', 'tag'=>''])
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="icon" class="col-sm-3 col-form-label">
-                                Icon Class
-                            </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="icon" id="icon" placeholder="Enter Icon Class e.g fa fa-bandcamp">
-                                @include('common.partials.alert', ['field'=>'icon', 'tag'=>''])
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-success mr-2">Submit</button>
-{{--                        <a href="{{route('admin.index')}}" class="btn btn-light">Cancel</a>--}}
-                    </form>
+                <div class="card-footer">
+                    <a href="{{route('resume.education.create')}}" class="btn btn-success">
+                        <i class="ion ion-md-add-circle"></i>
+                        Add New
+                    </a>
                 </div>
             </div>
         </div>

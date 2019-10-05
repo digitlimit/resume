@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\CoreValue;
+namespace App\Http\Requests\Skill;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Traits\FormRequestTrait;
 
-class StoreRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     use FormRequestTrait;
 
@@ -21,15 +21,16 @@ class StoreRequest extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
-     *
      * @return array
      */
     public function rules()
     {
         return [
             'title' => 'required|string',
-            'detail'  => 'required|string',
-            'icon'  => 'required|string',
+            'detail' => 'required|string',
+            'percentage' => 'numeric|string',
+            'years' => 'required|string',
+            'icon' => 'required|string'
         ];
     }
 }

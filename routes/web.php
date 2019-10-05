@@ -137,14 +137,17 @@ Route::group([], function()
             Route::post('/', 'EducationController@store')
                 ->name('store');
 
-            Route::put('/update', 'EducationController@update')
-                ->name('update');
-
             Route::get('/create', 'EducationController@create')
                 ->name('create');
 
-            Route::get('/edit', 'EducationController@edit')
+            Route::put('/update/{education}', 'EducationController@update')
+                ->name('update');
+
+            Route::get('/edit/{education}', 'EducationController@edit')
                 ->name('edit');
+
+            Route::get('/delete/{education}', 'EducationController@destroy')
+                ->name('destroy');
         });
 
         Route::name('skill.')->prefix('skill')->middleware([])->group(function ()
@@ -155,14 +158,17 @@ Route::group([], function()
             Route::post('/', 'SkillController@store')
                 ->name('store');
 
-            Route::put('/update', 'SkillController@update')
-                ->name('update');
-
             Route::get('/create', 'SkillController@create')
                 ->name('create');
 
-            Route::get('/edit', 'SkillController@edit')
+            Route::put('/update/{skill}', 'SkillController@update')
+                ->name('update');
+
+            Route::get('/edit/{skill}', 'SkillController@edit')
                 ->name('edit');
+
+            Route::get('/delete/{skill}', 'SkillController@destroy')
+                ->name('destroy');
         });
 
         Route::name('core_value.')->prefix('core_value')->middleware([])->group(function ()
@@ -173,14 +179,17 @@ Route::group([], function()
             Route::post('/', 'CoreValueController@store')
                 ->name('store');
 
-            Route::put('/update', 'CoreValueController@update')
-                ->name('update');
-
             Route::get('/create', 'CoreValueController@create')
                 ->name('create');
 
-            Route::get('/edit', 'CoreValueController@edit')
+            Route::put('/update/{core_value}', 'CoreValueController@update')
+                ->name('update');
+
+            Route::get('/edit/{core_value}', 'CoreValueController@edit')
                 ->name('edit');
+
+            Route::get('/delete/{core_value}', 'CoreValueController@destroy')
+                ->name('destroy');
         });
 
         Route::name('social.')->prefix('social')->middleware([])->group(function ()
@@ -191,14 +200,17 @@ Route::group([], function()
             Route::post('/', 'SocialController@store')
                 ->name('store');
 
-            Route::put('/update', 'SocialController@update')
-                ->name('update');
-
             Route::get('/create', 'SocialController@create')
                 ->name('create');
 
-            Route::get('/edit', 'SocialController@edit')
+            Route::put('/update/{social}', 'SocialController@update')
+                ->name('update');
+
+            Route::get('/edit/{social}', 'SocialController@edit')
                 ->name('edit');
+
+            Route::get('/delete/{social}', 'SocialController@destroy')
+                ->name('destroy');
         });
 
         Route::name('portfolio.')->prefix('portfolio')->middleware([])->group(function ()

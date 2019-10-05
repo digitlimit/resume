@@ -11,53 +11,57 @@
 
                     @include('alert::form')
 
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>
-                                <div class="form-check form-check-flat">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input">
-                                        Job Title
-                                    </label>
-                                </div>
-                            </th>
-                            <th> Company </th>
-                            <th> </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        @foreach($work_experiences as $work_experience)
+                    @if($work_experiences->count())
+                        <table class="table table-striped">
+                            <thead>
                             <tr>
                                 <th>
                                     <div class="form-check form-check-flat">
                                         <label class="form-check-label">
                                             <input type="checkbox" class="form-check-input">
-                                            {{$work_experience->job_title}}
+                                            Job Title
                                         </label>
                                     </div>
                                 </th>
-                                <td>{{$work_experience->company_name}}</td>
-                                <td>
-                                    <a href="{{route('resume.work_experience.destroy', [
-                                        'work_experience' => $work_experience->id
-                                    ])}}"
-                                            class="btn btn-danger btn-sm">
-                                        <i class="ion ion-md-trash"></i>
-                                    </a>
-                                    <a href="{{route('resume.work_experience.edit', [
-                                        'work_experience' => $work_experience->id
-                                    ])}}"
-                                       class="btn btn-success btn-sm">
-                                        <i class="ion ion-md-paper"></i>
-                                    </a>
-                                </td>
+                                <th> Company </th>
+                                <th> </th>
                             </tr>
-                        @endforeach
+                            </thead>
+                            <tbody>
 
-                        </tbody>
-                    </table>
+                            @foreach($work_experiences as $work_experience)
+                                <tr>
+                                    <th>
+                                        <div class="form-check form-check-flat">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input">
+                                                {{$work_experience->job_title}}
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <td>{{$work_experience->company_name}}</td>
+                                    <td>
+                                        <a href="{{route('resume.work_experience.destroy', [
+                                        'work_experience' => $work_experience->id
+                                    ])}}"
+                                           class="btn btn-danger btn-sm">
+                                            <i class="ion ion-md-trash"></i>
+                                        </a>
+                                        <a href="{{route('resume.work_experience.edit', [
+                                        'work_experience' => $work_experience->id
+                                    ])}}"
+                                           class="btn btn-success btn-sm">
+                                            <i class="ion ion-md-paper"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+
+                            </tbody>
+                        </table>
+                    @else
+                        There is nothing here
+                    @endif
                 </div>
 
                 <div class="card-footer">

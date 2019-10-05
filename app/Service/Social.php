@@ -5,7 +5,12 @@ use Exception;
 
 class Social
 {
-    public static function create(array $social, $profile_id)
+    public static function all()
+    {
+        return Social::all();
+    }
+
+    public static function paginate($profile_id, $per_page=15)
     {
         //ensure profile exists
         if(! $profile = Profile::find($profile_id)){
@@ -13,18 +18,29 @@ class Social
             throw new Exception("Profile with ID '$profile_id' not found");
         }
 
-        //create social
-        $social = $profile->social()->create($social);
+        return $profile->socials()->paginate($per_page);
+    }
+
+    public static function create(array $socials, $profile_id)
+    {
+        //ensure profile exists
+        if(! $profile = Profile::find($profile_id)){
+            //todo localize
+            throw new Exception("Profile with ID '$profile_id' not found");
+        }
+
+        //create socials
+        $socials = $profile->socials()->create($socials);
 
         //failure
-        if(!$social) return false;
+        if(!$socials) return false;
 
         //perform other tasks like send email
         return true;
     }
 
 
-    public static function update(array $social, $profile_id)
+    public static function update(array $updated_social, $profile_id, $id)
     {
         //ensure profile exists
         if(! $profile = Profile::find($profile_id)){
@@ -32,13 +48,28 @@ class Social
             throw new Exception("Profile with ID '$profile_id' not found");
         }
 
-        //create social
-        $social = $profile->social()->update($social);
+        if(!$social = $profile->socials()->find($id)){
+            throw new Exception("Work Experience with ID '$id' not found");
+        }
 
-        //failure
-        if(!$social) return false;
+        return $social->update($updated_social);
+    }
 
-        //perform other tasks like send email
+
+    public static function destroy($profile_id, $id)
+    {
+        //ensure profile exists
+        if(! $profile = Profile::find($profile_id)){
+            //todo localize
+            throw new Exception("Profile with ID '$profile_id' not found");
+        }
+
+        if(!$social = $profile->socials()->find($id)){
+            throw new Exception("Work Experience with ID '$id' not found");
+        }
+
+        $social->delete();
+
         return true;
     }
 }

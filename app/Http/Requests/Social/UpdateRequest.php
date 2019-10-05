@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\CoreValue;
+namespace App\Http\Requests\Social;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Traits\FormRequestTrait;
 
-class StoreRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     use FormRequestTrait;
 
@@ -27,9 +27,9 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string',
-            'detail'  => 'required|string',
-            'icon'  => 'required|string',
+            "name" => 'required|string',
+            "url" => 'required|string',
+            "icon" => 'nullable|string'
         ];
     }
 }

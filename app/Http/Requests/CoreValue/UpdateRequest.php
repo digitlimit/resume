@@ -5,7 +5,7 @@ namespace App\Http\Requests\CoreValue;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Traits\FormRequestTrait;
 
-class StoreRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     use FormRequestTrait;
 

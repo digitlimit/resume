@@ -145,6 +145,19 @@ class WorkExperienceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try{
+            if(WorkExperience::destroy($this->authProfile()->id, $id)) {
+                Alert::form('Work Experience successfully Deleted', 'Congratulations')
+                    ->success()
+                    ->closable();
+            }
+        }catch(\Exception $e){
+            Alert::form($e->getMessage(), 'Opps')
+                ->error()
+                ->closable();
+        }
+
+        return redirect()
+            ->route('resume.work_experience.index');
     }
 }

@@ -54,4 +54,22 @@ class WorkExperience
 
         return $work_experience->update($updated_work_experience);
     }
+
+
+    public static function destroy($profile_id, $id)
+    {
+        //ensure profile exists
+        if(! $profile = Profile::find($profile_id)){
+            //todo localize
+            throw new Exception("Profile with ID '$profile_id' not found");
+        }
+
+        if(!$work_experience = $profile->work_experiences()->find($id)){
+            throw new Exception("Work Experience with ID '$id' not found");
+        }
+
+        $work_experience->delete();
+
+        return true;
+    }
 }
