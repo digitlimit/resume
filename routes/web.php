@@ -285,10 +285,16 @@ Route::group([], function()
         Route::post('/', 'UserController@store')
             ->name('store');
 
-        Route::put('/', 'UserController@update')
+        Route::get('/create', 'UserController@create')
+            ->name('create');
+
+        Route::put('/update/{user}', 'UserController@update')
             ->name('update');
 
-        Route::delete('/', 'UserController@destroy')
+        Route::get('/edit/{user}', 'UserController@edit')
+            ->name('edit');
+
+        Route::get('/delete/{user}', 'UserController@destroy')
             ->name('destroy');
     });
 

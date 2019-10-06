@@ -30,13 +30,6 @@ class EducationController extends Controller
      */
     public function create()
     {
-
-        //if user already have education
-//        if($this->authEducations()){
-//            return redirect()
-//                ->route('resume.education.edit');
-//        }
-
         return view('resume.education.create', [
             'page_title' => 'Add Education',
             'education' => ''
