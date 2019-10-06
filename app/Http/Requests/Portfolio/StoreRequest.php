@@ -30,7 +30,7 @@ class StoreRequest extends FormRequest
             'title' => 'required|string',
             'detail' => 'required|string',
             'url' => 'required|string',
-            'icon' => 'required|string',
+            'icon' => 'nullable|string',
         ];
     }
 }

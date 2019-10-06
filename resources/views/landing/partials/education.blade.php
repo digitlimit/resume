@@ -5,32 +5,17 @@
                 <div class="section-title"><h2>Education</h2></div>
             </div>
         </div>
-        <!--.row-->
+
         <div class="row">
             <div class="col-md-12">
-                <div class="content-item">
-                    <small>2010 - 2012</small>
-                    <h3>MA Product Design</h3>
-                    <h4>University of California</h4>
-
-                    <p>United Kingdom, London</p>
-                </div>
-                <!-- .experience-item -->
-                <div class="content-item">
-                    <small>2007 - 2010</small>
-                    <h3>Business marketing course</h3>
-                    <h4>Royal Academy of Business</h4>
-
-                    <p>United Kingdom, London</p>
-                </div>
-                <!-- .experience-item -->
-                <div class="content-item">
-                    <small>2002 - 2006</small>
-                    <h3>BA (Hons) Design</h3>
-                    <h4>University of Michigan</h4>
-
-                    <p>United Kingdom, London</p>
-                </div>
+                @foreach($educations as $education)
+                    <div class="content-item">
+                        <small>{{$education->start_year}} - {{$education->end_year}}</small>
+                        <h3>{{$education->degree}}</h3>
+                        <h4>{{$education->school_name}}</h4>
+                        <p>{{$education->school_address}}</p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

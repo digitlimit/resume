@@ -36,7 +36,7 @@ class StoreRequest extends FormRequest
             "company_name" => 'required|string',
             "company_info" => 'required|string',
             "company_address" => 'required|string',
-            "icon" => 'required|string'
+            "icon" => 'nullable|string'
         ];
     }
 }

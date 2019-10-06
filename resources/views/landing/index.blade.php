@@ -37,19 +37,29 @@
 
         <div class="right-col-block blocks">
 
-            @include('landing.partials.intro')
+            @includeWhen($profile->summary, 'landing.partials.summary', [
+                'summary' => $profile->summary
+            ])
 
-            @include('landing.partials.expertise')
+            @includeWhen($profile->skills->count(), 'landing.partials.skill', [
+                'skills' => $profile->skills
+            ])
 
-            @include('landing.partials.skill')
+            @includeWhen($profile->work_experiences->count(), 'landing.partials.experience', [
+                'experiences' => $profile->work_experiences
+            ])
 
-            @include('landing.partials.experience')
+            @includeWhen($profile->educations->count(), 'landing.partials.education', [
+                'educations' => $profile->educations
+            ])
 
-            @include('landing.partials.education')
+            @includeWhen($profile->interests->count(), 'landing.partials.interest', [
+                'interests' => $profile->interests
+            ])
 
-            @include('landing.partials.interest')
-
-            @include('landing.partials.portfolio')
+            @includeWhen($profile->portfolios->count(), 'landing.partials.portfolio', [
+               'portfolios' => $profile->portfolios
+            ])
 
             @include('landing.partials.contact')
 
