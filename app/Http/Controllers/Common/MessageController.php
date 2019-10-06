@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Common;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\Message\PostComposeRequest;
+use App\Http\Requests\Message\PostReplyRequest;
+use App\Service\Message;
 use App\Http\Controllers\Controller;
+use Alert;
 
 class MessageController extends Controller
 {
@@ -15,63 +18,57 @@ class MessageController extends Controller
     public function index()
     {
         return view('common.message.index', [
-            'page_title' => 'Messages'
+            'page_title' => 'Messages',
+            'messages' => Message::paginate($this->authUser()->id)
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function getReply()
     {
-        //
+
+    }
+
+    public function postReply()
+    {
+
+    }
+
+    public function getCompose()
+    {
+
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param PostComposeRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function postCompose(PostComposeRequest $request)
     {
-        //
-    }
+        try{
+            $message = $request->only([
+                'name',
+                'email',
+                'subject',
+                'message'
+            ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+            //TODO: who is message going to?
+            //TODO: for now goes to default user_id = 1, admin
+            $user_id = 1;
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+            if(Message::compose($message, $user_id)) {
+                Alert::form('Message successfully sent', 'Congratulations')
+                    ->success()
+                    ->closable();
+            }
+        }catch(\Exception $e){
+            Alert::form($e->getMessage(), 'Opps')
+                ->error()
+                ->closable();
+        }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        return redirect()
+            ->route('landing.index');
     }
 
     /**
@@ -82,6 +79,19 @@ class MessageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try{
+            if(Message::destroy($this->authProfile()->id, $id)) {
+                Alert::form('Message successfully Deleted', 'Congratulations')
+                    ->success()
+                    ->closable();
+            }
+        }catch(\Exception $e){
+            Alert::form($e->getMessage(), 'Opps')
+                ->error()
+                ->closable();
+        }
+
+        return redirect()
+            ->route('common.message.index');
     }
 }

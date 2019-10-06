@@ -52,13 +52,19 @@ Route::group([], function()
             Route::get('/', 'MessageController@index')
                 ->name('index');
 
-            Route::post('/', 'MessageController@store')
-                ->name('store');
+            Route::get('/compose', 'MessageController@getCompose')
+                ->name('getCompose');
 
-            Route::put('/', 'MessageController@update')
-                ->name('update');
+            Route::post('/compose', 'MessageController@postCompose')
+                ->name('postCompose');
 
-            Route::delete('/', 'MessageController@destroy')
+            Route::get('/reply/{message}', 'MessageController@getReply')
+                ->name('getReply');
+
+            Route::post('/reply/{message}', 'MessageController@postReply')
+                ->name('postReply');
+
+            Route::get('/delete/{message}', 'MessageController@destroy')
                 ->name('destroy');
         });
 

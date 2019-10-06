@@ -27,13 +27,10 @@ class Message extends Model
      */
     protected $fillable = [
         'user_id',
-
         'name',
         'email',
-
         'subject',
         'message',
-
         'ip_address',
         'country',
         'other_info'

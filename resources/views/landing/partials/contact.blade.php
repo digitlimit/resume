@@ -1,42 +1,28 @@
-<div class="row">
-    <div class="col-md-12">
-        <div class="section-title">
-            <h2>Contact</h2>
+<section class="section-contact section-wrapper gray-bg">
+    <div class="container-fluid">
+
+        @if($profile->contact)
+            @include('landing.partials.contact-details', [
+                'contact' => $profile->contact
+            ])
+        @endif
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="feedback-form">
+                    <h2>Get in touch</h2>
+
+                    <form id="contactForm" action="{{route('common.message.getCompose')}}" method="POST">
+
+                        @csrf
+
+                        @include('alert::form')
+
+                        @include('landing.partials.contact-form')
+
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
-<div class="row">
-    <div class="col-md-12">
-
-        @if(optional($contact)->address_1)
-            <address>
-                <strong>Address</strong><br>
-                {{optional($contact)->address_1}}<br>
-                {{optional($contact)->address_2}}
-            </address>
-        @endif
-
-        @if(optional($contact)->phone_number)
-            <address>
-                <strong>Phone Number</strong><br>
-                {{optional($contact)->phone_number}}
-            </address>
-        @endif
-
-        @if(optional($contact)->mobile_number)
-            <address>
-                <strong>Mobile Number</strong><br>
-                {{optional($contact)->mobile_number}}
-            </address>
-        @endif
-
-        @if(optional($contact)->email)
-            <address>
-                <strong>Email</strong><br>
-                <a href="mailto:#">{{optional($contact)->email}}</a>
-            </address>
-        @endif
-
-    </div>
-</div>
+</section>

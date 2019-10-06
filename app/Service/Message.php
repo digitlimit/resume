@@ -1,18 +1,11 @@
 <?php namespace App\Service;
 
-use App\Models\Message as Model;
 use App\Models\User;
 use Exception;
 
 class Message
 {
-
-    public static function default()
-    {
-        return Model::find(1);
-    }
-
-    public static function create(array $message, $user_id)
+    public static function paginate($user_id, $per_page=15)
     {
         //ensure user exists
         if(! $user = User::find($user_id)){
@@ -20,18 +13,10 @@ class Message
             throw new Exception("User with ID '$user_id' not found");
         }
 
-        //create Message
-        $message = $user->message()->create($message);
-
-        //failure
-        if(!$message) return false;
-
-        //perform other tasks like send email
-        return true;
+        return $user->messages()->paginate($per_page);
     }
 
-
-    public static function update(array $message, $user_id)
+    public static function compose(array $messages, $user_id)
     {
         //ensure user exists
         if(! $user = User::find($user_id)){
@@ -39,13 +24,36 @@ class Message
             throw new Exception("User with ID '$user_id' not found");
         }
 
-        //create Message
-        $message = $user->message()->update($message);
+        $messages['ip_address'] = request()->getClientIp();
 
-        //failure
-        if(!$message) return false;
+//        'name',
+//        'email',
+//        'subject',
+//        'message',
+//        'ip_address',
+//        'country',
+//        'other_info'
 
-        //perform other tasks like send email
+        //create messages
+        return $user->messages()->create($messages);
+    }
+
+    public static function destroy($user_id, $id)
+    {
+        //TODO: who is deleting? check permissions and owner
+
+        //ensure user exists
+        if(! $user = User::find($user_id)){
+            //todo localize
+            throw new Exception("User with ID '$user_id' not found");
+        }
+
+        if(!$message = $user->messages()->find($id)){
+            throw new Exception("Work Experience with ID '$id' not found");
+        }
+
+        $message->delete();
+
         return true;
     }
 }
