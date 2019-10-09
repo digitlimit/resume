@@ -25,7 +25,7 @@ return [
                 'photo' => [
                     'disk' => 'public',
                     'path' => 'images/profile',
-                    'default' => 'assets/images/profile-photo-default.jpg'
+                    'default' => 'img/profile-photo-default.jpg'
                 ]
             ]
         ]

@@ -152,8 +152,8 @@ class Profile extends Model
     /**
      * Get all of the profile images.
      */
-    public function images()
+    public function image()
     {
-        return $this->morphMany(Image::class, 'imageable');
+        return $this->morphOne(Image::class, 'imageable');
     }
 }

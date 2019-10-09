@@ -1,4 +1,5 @@
-{{--@alertHasNoSuccess--}}
+@inject('imageHelper', 'App\Helpers\Image')
+
 <div class="form-group row">
     <label for="title" class="col-sm-3 col-form-label">
         Title
@@ -66,7 +67,12 @@
     </label>
     <div class="col-sm-9">
 
-        <img id="photo-preview" style="display: none" class="img-fluid" id="blah" src="" />
+        <?php
+            $photo = $me->profile->image ? $me->profile->image->name : '';
+        ?>
+
+        <img id="photo-preview" style="display: {{$photo ? 'block' : 'none'}}"
+             class="img-fluid" src="{{$imageHelper->profile($photo)}}" />
 
         <div class="input-group">
             <div class="custom-file">

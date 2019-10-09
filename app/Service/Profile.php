@@ -1,10 +1,12 @@
 <?php namespace App\Service;
 
+use App\Helpers\Helper;
 use App\Models\Profile as Model;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\UploadedFile;
 use App\Helpers\Upload;
+use Illuminate\Support\Facades\Storage;
 
 class Profile
 {
@@ -22,10 +24,8 @@ class Profile
             throw new Exception("User with ID '$user_id' not found");
         }
 
-        $photo = isset($updated_profile['photo']) ? $updated_profile['photo'] : null;
-        unset($updated_profile['photo']);
-
-        //create Profile
+        $photo = isset($profile['photo']) ? $profile['photo'] : null;
+        unset($profile['photo']);
 
         //create Profile
         $profile = $user->profile()->create($profile);
@@ -35,7 +35,7 @@ class Profile
 
         if($photo && $photo instanceof UploadedFile && $filename = Upload::profilePhoto($photo))
         {
-            $user->profile->images()->create([
+            $user->profile->image()->create([
                 'name' => $filename,
                 'default' => true
             ]);
@@ -67,7 +67,12 @@ class Profile
 
         if($photo && $photo instanceof UploadedFile && $filename = Upload::profilePhoto($photo))
         {
-            $user->profile->images()->create([
+            if($image = $user->profile->image){
+                //delete file from disk
+                Helper::deleteProfilePhotoFile($image->name);
+            }
+
+            $user->profile->image()->update([
                'name' => $filename,
                'default' => true
            ]);
