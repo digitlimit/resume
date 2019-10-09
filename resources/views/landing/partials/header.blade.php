@@ -1,3 +1,4 @@
+@inject('imageHelper', 'App\Helpers\Image')
 <header class="header">
     <div class="content text-center">
 
@@ -11,5 +12,11 @@
         ])
     </div>
 
-    <div class="profile-img"></div>
+    <?php
+        $photo = $profile->image ? $profile->image->name : '';
+    ?>
+
+    <div class="profile-img"
+         style="background-image: url({{$imageHelper->profile($photo)}})">
+    </div>
 </header>
