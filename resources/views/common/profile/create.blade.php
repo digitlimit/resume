@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <form action="{{route('common.profile.store')}}" method="post">
+                    <form enctype="multipart/form-data" action="{{route('common.profile.store')}}" method="post">
 
                         @csrf
 

@@ -108,7 +108,8 @@ class ProfileController extends Controller
                 'job_title',
                 'first_name',
                 'last_name',
-                'other_names'
+                'other_names',
+                'photo'
             ]);
 
             if(Profile::update($profile, $request->user()->id)) {

@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <form action="{{route('common.profile.update')}}" method="post">
+                    <form enctype="multipart/form-data" action="{{route('common.profile.update')}}" method="post">
 
                         @csrf
 

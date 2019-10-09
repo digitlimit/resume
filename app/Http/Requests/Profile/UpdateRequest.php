@@ -33,7 +33,8 @@ class UpdateRequest extends FormRequest
             "job_title" => 'required|name',
             "first_name" => 'required|name',
             "last_name" => 'required|name',
-            "other_names" => 'nullable|name'
+            "other_names" => 'nullable|name',
+            "photo" => 'required|image:png,jpeg'
         ];
     }
 
