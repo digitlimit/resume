@@ -4,7 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Emeka</title>
+
+    @if(isset($page_tile))
+        <title>{{$page_title}}</title>
+    @else
+        <title>{{optional($profile)->title ? optional($profile)->title : 'Resume'}}</title>
+    @endif
+
     <link href="favicon.png" rel=icon>
     <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">

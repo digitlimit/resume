@@ -4,7 +4,12 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Star Admin</title>
+
+    @if(isset($page_tile))
+        <title>{{$page_title}}</title>
+    @else
+        <title>{{optional($me)->profile ? optional($me)->profile->title : 'Resume'}}</title>
+    @endif
 
     <link rel="stylesheet" href="{{asset('assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/iconfonts/ionicons/css/ionicons.css')}}">
