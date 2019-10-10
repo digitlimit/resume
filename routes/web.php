@@ -66,6 +66,9 @@ Route::group([], function()
 
             Route::get('/delete/{message}', 'MessageController@destroy')
                 ->name('destroy');
+
+            Route::get('/message/{message}', 'MessageController@getMessage')
+                ->name('getMessage');
         });
 
         Route::name('profile.')->prefix('profile')->middleware(['auth'])->group(function ()

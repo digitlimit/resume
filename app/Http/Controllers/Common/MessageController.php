@@ -38,6 +38,15 @@ class MessageController extends Controller
 
     }
 
+    public function getMessage($message)
+    {
+        return view('common.message.message', [
+            'page_title' => 'Message',
+            'message' => Message::find($this->authUser()->id, $message)
+        ]);
+    }
+
+
     /**
      * @param PostComposeRequest $request
      * @return \Illuminate\Http\RedirectResponse

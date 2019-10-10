@@ -65,12 +65,12 @@
                 <span class="menu-title">Messages</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">
-                <i class="menu-icon typcn typcn-document-text"></i>
-                <span class="menu-title">Images</span>
-            </a>
-        </li>
+        {{--<li class="nav-item">--}}
+            {{--<a class="nav-link" href="">--}}
+                {{--<i class="menu-icon typcn typcn-document-text"></i>--}}
+                {{--<span class="menu-title">Images</span>--}}
+            {{--</a>--}}
+        {{--</li>--}}
         <li class="nav-item">
             <a class="nav-link" href="{{route('user.index')}}">
                 <i class="menu-icon typcn typcn-document-text"></i>
