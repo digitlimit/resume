@@ -4,10 +4,9 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-
-
                     <h5 class="modal-title" id="exampleModalCenterTitle">
                         @if(Alert::icon()) <i class="{{Alert::icon()}}"></i> @endif
+                            {{Alert::title()}}
                     </h5>
 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -16,7 +15,7 @@
                 </div>
 
                 <div class="modal-body">
-                    ...
+                   {{Alert::message()}}
                 </div>
                 <div class="modal-footer">
 

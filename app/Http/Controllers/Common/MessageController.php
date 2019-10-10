@@ -57,7 +57,7 @@ class MessageController extends Controller
             $user_id = 1;
 
             if(Message::compose($message, $user_id)) {
-                Alert::form('Message successfully sent', 'Congratulations')
+                Alert::modal('Message successfully sent', 'Congratulations')
                     ->success()
                     ->closable();
             }

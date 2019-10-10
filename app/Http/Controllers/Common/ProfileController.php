@@ -137,4 +137,21 @@ class ProfileController extends Controller
     {
         //
     }
+
+    /**
+     * Log user out
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function signout(){
+
+        auth()->logout();
+
+        Alert::form('Signout was done!', 'Cool :)')
+            ->success()
+            ->closable();
+
+        return redirect()
+            ->route('landing.index');
+    }
 }

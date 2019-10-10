@@ -16,7 +16,7 @@ class CreateContactsTable extends Migration
         Schema::create('contacts', function (Blueprint $table)
         {
             $table->bigIncrements('id');
-            $table->bigInteger('profile_id');
+            $table->bigInteger('profile_id')->unique();
 
             $table->string('address_1')->nullable(); //portfolio or profile
             $table->string('address_2')->nullable(); //portfolio or profile

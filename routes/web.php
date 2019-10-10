@@ -87,6 +87,9 @@ Route::group([], function()
 
             Route::delete('/', 'ProfileController@destroy')
                 ->name('destroy');
+
+            Route::get('/signout', 'ProfileController@signout')
+                ->name('signout');
         });
     });
 

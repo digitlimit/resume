@@ -34,7 +34,7 @@ class UpdateRequest extends FormRequest
             "first_name" => 'required|name',
             "last_name" => 'required|name',
             "other_names" => 'nullable|name',
-            "photo" => 'required|image:png,jpeg'
+            "photo" => 'nullable|image:png,jpeg'
         ];
     }
 

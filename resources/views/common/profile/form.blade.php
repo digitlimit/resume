@@ -68,7 +68,7 @@
     <div class="col-sm-9">
 
         <?php
-            $photo = $me->profile->image ? $me->profile->image->name : '';
+            $photo = optional($me->profile)->image ? optional($me->profile)->image->name : '';
         ?>
 
         <img id="photo-preview" style="display: {{$photo ? 'block' : 'none'}}"

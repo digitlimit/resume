@@ -1,18 +1,18 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{route($me->profile ? 'common.profile.edit' : 'common.profile.create')}}">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link"
-               href="{{route($me->profile ? 'common.profile.edit' : 'common.profile.create')}}">
-                <i class="menu-icon typcn typcn-document-text"></i>
-                <span class="menu-title">Profile</span>
-            </a>
-        </li>
+        {{--<li class="nav-item">--}}
+            {{--<a class="nav-link"--}}
+               {{--href="{{route($me->profile ? 'common.profile.edit' : 'common.profile.create')}}">--}}
+                {{--<i class="menu-icon typcn typcn-document-text"></i>--}}
+                {{--<span class="menu-title">Profile</span>--}}
+            {{--</a>--}}
+        {{--</li>--}}
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
                aria-controls="ui-basic">

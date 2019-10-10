@@ -37,6 +37,8 @@
 
         <div class="right-col-block blocks">
 
+            @include('alert::form')
+
             @includeWhen($profile->summary, 'landing.partials.summary', [
                 'summary' => $profile->summary
             ])
@@ -67,6 +69,9 @@
 
         </div>
     </div>
+
+    @include('alert::modal')
+
 </div>
 
 <script src="js/jquery-2.1.4.min.js"></script>
