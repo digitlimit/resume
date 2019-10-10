@@ -42,13 +42,21 @@
                 </div>
 
                 <div class="card-footer">
-                    <a href="{{route('common.message.getReply', ['message' => $message->id])}}" class="btn btn-success">
-                        <i class="ion ion-md-repeat"></i> Reply
-                    </a>
-
-                    <a href="{{route('common.message.destroy', ['message' => $message->id])}}" class="btn btn-danger">
-                        <i class="ion ion-md-trash"></i> Delete
-                    </a>
+                   <div class="row">
+                       <div class="col-9">
+                           <a href="{{route('common.message.getReply', ['message' => $message->id])}}" class="btn btn-success">
+                               <i class="ion ion-md-repeat"></i> Reply
+                           </a>
+                           <a href="{{route('common.message.destroy', ['message' => $message->id])}}" class="btn btn-danger">
+                               <i class="ion ion-md-trash"></i> Delete
+                           </a>
+                       </div>
+                       <div class="col-3">
+                           <a href="{{route('common.message.index', ['message' => $message->id])}}" class="btn btn-info">
+                               <i class="ion ion-md-list-box"></i> Messages
+                           </a>
+                       </div>
+                   </div>
                 </div>
             </div>
         </div>
