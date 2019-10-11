@@ -5,16 +5,17 @@
         @if($profile)
             <h1>{{$profile->title}}</h1>
             <p class="lead">{{$profile->job_title}}</p>
-        @endif
 
-        @includeWhen($profile->socials->count(), 'landing.partials.social-icons', [
-            'socials' => $profile->socials
-        ])
+            @includeWhen($profile->socials->count(), 'landing.partials.social-icons', [
+                'socials' => $profile->socials
+            ])
+        @endif
+        
     </div>
 
-    <?php
+    @php
         $photo = $profile->image ? $profile->image->name : '';
-    ?>
+    @endphp
 
     <div class="profile-img"
          style="background-image: url({{$imageHelper->profile($photo)}})">
