@@ -49,24 +49,29 @@
                 'summary' => optional($profile)->summary
             ])
 
-            @includeWhen(optional($profile)->skills, 'landing.partials.skill', [
-                'skills' => optional($profile)->skills
+            @php $skills = optional($profile)->skills @endphp
+            @includeWhen($skills && $skills->count(), 'landing.partials.skill', [
+                'skills' => $skills
             ])
 
-            @includeWhen(optional($profile)->work_experiences, 'landing.partials.experience', [
-                'experiences' => optional($profile)->work_experiences
+            @php $work_experiences = optional($profile)->work_experiences @endphp
+            @includeWhen($work_experiences && $work_experiences->count(), 'landing.partials.skill', [
+                'work_experiences' => $work_experiences
             ])
 
-            @includeWhen(optional($profile)->educations, 'landing.partials.education', [
-                'educations' => optional($profile)->educations
+            @php $educations = optional($profile)->educations @endphp
+            @includeWhen($educations && $educations->count(), 'landing.partials.skill', [
+                'educations' => $educations
             ])
 
-            @includeWhen(optional($profile)->interests, 'landing.partials.interest', [
-                'interests' => optional($profile)->interests
+            @php $interests = optional($profile)->interests @endphp
+            @includeWhen($interests && $interests->count(), 'landing.partials.skill', [
+                'interests' => $interests
             ])
 
-            @includeWhen(optional($profile)->portfolios, 'landing.partials.portfolio', [
-               'portfolios' => optional($profile)->portfolios
+            @php $portfolios = optional($profile)->portfolios @endphp
+            @includeWhen($portfolios && $portfolios->count(), 'landing.partials.skill', [
+                'portfolios' => $portfolios
             ])
 
             @include('landing.partials.contact')
