@@ -1,11 +1,9 @@
 <section class="section-contact section-wrapper gray-bg">
     <div class="container-fluid">
 
-        @if($profile->contact)
-            @include('landing.partials.contact-details', [
-                'contact' => $profile->contact
-            ])
-        @endif
+        @includeWhen(optional($profile)->contact, 'landing.partials.contact-details', [
+             'contact' => optional($profile)->contact
+        ])
 
         <div class="row">
             <div class="col-md-12">
