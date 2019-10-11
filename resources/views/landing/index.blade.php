@@ -49,23 +49,23 @@
                 'summary' => optional($profile)->summary
             ])
 
-            @includeWhen(optional($profile)->skills->count(), 'landing.partials.skill', [
+            @includeWhen(count(optional($profile)->skills), 'landing.partials.skill', [
                 'skills' => optional($profile)->skills
             ])
 
-            @includeWhen(optional($profile)->work_experiences->count(), 'landing.partials.experience', [
+            @includeWhen(count(optional($profile)->work_experiences), 'landing.partials.experience', [
                 'experiences' => optional($profile)->work_experiences
             ])
 
-            @includeWhen(optional($profile)->educations->count(), 'landing.partials.education', [
+            @includeWhen(count(optional($profile)->educations), 'landing.partials.education', [
                 'educations' => optional($profile)->educations
             ])
 
-            @includeWhen(optional($profile)->interests->count(), 'landing.partials.interest', [
+            @includeWhen(count(optional($profile)->interests), 'landing.partials.interest', [
                 'interests' => optional($profile)->interests
             ])
 
-            @includeWhen(optional($profile)->portfolios->count(), 'landing.partials.portfolio', [
+            @includeWhen(count(optional($profile)->portfolios), 'landing.partials.portfolio', [
                'portfolios' => optional($profile)->portfolios
             ])
 
