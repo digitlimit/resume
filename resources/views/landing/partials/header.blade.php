@@ -5,16 +5,15 @@
         @if($profile)
             <h1>{{$profile->title}}</h1>
             <p class="lead">{{$profile->job_title}}</p>
-
-            @includeWhen($profile->socials->count(), 'landing.partials.social-icons', [
-                'socials' => $profile->socials
-            ])
         @endif
 
+            @includeWhen(optional($profile)->socials->count(), 'landing.partials.social-icons', [
+                'socials' => optional($profile)->socials
+            ])
     </div>
 
     @php
-        $photo = isset($profile) && $profile->image ? $profile->image->name : '';
+        $photo = optional($profile)->image ? optional($profile)->image->name : '';
     @endphp
 
     <div class="profile-img"

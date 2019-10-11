@@ -45,28 +45,28 @@
 
             @include('alert::form')
 
-            @includeWhen($profile->summary, 'landing.partials.summary', [
-                'summary' => $profile->summary
+            @includeWhen(optional($profile)->summary, 'landing.partials.summary', [
+                'summary' => optional($profile)->summary
             ])
 
-            @includeWhen($profile->skills->count(), 'landing.partials.skill', [
-                'skills' => $profile->skills
+            @includeWhen(optional($profile)->skills->count(), 'landing.partials.skill', [
+                'skills' => optional($profile)->skills
             ])
 
-            @includeWhen($profile->work_experiences->count(), 'landing.partials.experience', [
-                'experiences' => $profile->work_experiences
+            @includeWhen(optional($profile)->work_experiences->count(), 'landing.partials.experience', [
+                'experiences' => optional($profile)->work_experiences
             ])
 
-            @includeWhen($profile->educations->count(), 'landing.partials.education', [
-                'educations' => $profile->educations
+            @includeWhen(optional($profile)->educations->count(), 'landing.partials.education', [
+                'educations' => optional($profile)->educations
             ])
 
-            @includeWhen($profile->interests->count(), 'landing.partials.interest', [
-                'interests' => $profile->interests
+            @includeWhen(optional($profile)->interests->count(), 'landing.partials.interest', [
+                'interests' => optional($profile)->interests
             ])
 
-            @includeWhen($profile->portfolios->count(), 'landing.partials.portfolio', [
-               'portfolios' => $profile->portfolios
+            @includeWhen(optional($profile)->portfolios->count(), 'landing.partials.portfolio', [
+               'portfolios' => optional($profile)->portfolios
             ])
 
             @include('landing.partials.contact')
