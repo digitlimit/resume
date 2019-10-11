@@ -10,11 +10,11 @@
                 'socials' => $profile->socials
             ])
         @endif
-        
+
     </div>
 
     @php
-        $photo = $profile->image ? $profile->image->name : '';
+        $photo = isset($profile) && $profile->image ? $profile->image->name : '';
     @endphp
 
     <div class="profile-img"
