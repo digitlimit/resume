@@ -7,7 +7,7 @@
             <p class="lead">{{$profile->job_title}}</p>
         @endif
 
-            @includeWhen(optional($profile)->socials->count(), 'landing.partials.social-icons', [
+            @includeWhen(optional($profile)->socials, 'landing.partials.social-icons', [
                 'socials' => optional($profile)->socials
             ])
     </div>
