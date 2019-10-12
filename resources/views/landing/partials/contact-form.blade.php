@@ -44,7 +44,7 @@
 
 @push('header')
 {{--<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.key') }}"></script>--}}
-{{--<script src="https://www.google.com/recaptcha/api.js" async defer></script>--}}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 {{--<script>--}}
    {{--grecaptcha.ready(function() {--}}
