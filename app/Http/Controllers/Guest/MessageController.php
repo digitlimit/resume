@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Guest;
 
-use App\Http\Requests\Message\PostComposeRequest;
+use App\Http\Requests\Guest\PostMessageRequest;
 use App\Service\Message;
 use App\Http\Controllers\Controller;
 use Alert;
@@ -10,10 +10,10 @@ use Alert;
 class MessageController extends Controller
 {
     /**
-     * @param PostComposeRequest $request
+     * @param PostMessageRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postMessage(PostComposeRequest $request)
+    public function postMessage(PostMessageRequest $request)
     {
         try{
             $message = $request->only([

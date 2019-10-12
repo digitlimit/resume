@@ -31,4 +31,28 @@
     @include('alert::field', ['field'=>'message', 'tag'=>''])
 </div>
 
+<div class="form-group">
+    <div class="g-recaptcha"
+         data-sitekey="{{config('captcha.v2.key')}}"></div>
+    @include('alert::field', ['field'=>config('captcha.v2.field'), 'tag'=>''])
+</div>
+
 <button type="submit" class="btn btn-primary">Submit</button>
+
+{{--<input type="hidden" id="{{config('services.recaptcha.field')}}"--}}
+       {{--name="{{config('capt.recaptcha.field')}}">--}}
+
+@push('header')
+{{--<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.key') }}"></script>--}}
+{{--<script src="https://www.google.com/recaptcha/api.js" async defer></script>--}}
+
+{{--<script>--}}
+   {{--grecaptcha.ready(function() {--}}
+        {{--grecaptcha.execute('{{ config('services.recaptcha.key') }}', {action: 'homepage'})--}}
+                {{--.then(function(token) {--}}
+                    {{--$('#{{config('services.recaptcha.field')}}')--}}
+                            {{--.val(token);--}}
+                {{--});--}}
+    {{--});--}}
+{{--</script>--}}
+@endpush
