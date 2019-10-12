@@ -1,6 +1,7 @@
 <?php namespace App\Service;
 
 use App\Models\User;
+use Stevebauman\Location\Facades\Location;
 use Exception;
 
 class Message
@@ -35,7 +36,12 @@ class Message
             throw new Exception("User with ID '$user_id' not found");
         }
 
-        $messages['ip_address'] = request()->getClientIp();
+        $ip = request()->getClientIp();
+        $location = Location::get();
+
+        $messages['ip_address'] = $ip;
+        $messages['country'] =  optional($location)->countryName;
+
 
 //        'name',
 //        'email',
