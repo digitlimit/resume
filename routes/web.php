@@ -35,7 +35,10 @@ Route::group([], function()
 
         Route::post('password/change',   'PasswordController@postChangePassword')
             ->name('postChangePassword');
-//
+
+        Route::post('/message', 'MessageController@postMessage')
+            ->name('postMessage');
+
 //        Route::get('verify/{code}/{email}',   'EmailController@verify')
 //            ->name('email.verify');
 //

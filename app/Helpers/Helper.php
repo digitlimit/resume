@@ -4,6 +4,12 @@ use Illuminate\Support\Facades\Storage;
 
 class Helper
 {
+    /**
+     * Delete profile photo file
+     *
+     * @param $filename
+     * @return bool
+     */
     public static function deleteProfilePhotoFile($filename)
     {
         $directory_path = config('resume.assets.images.profile.photo.path');

@@ -10,7 +10,7 @@
                 <div class="feedback-form">
                     <h2>Get in touch</h2>
 
-                    <form id="contactForm" action="{{route('common.message.getCompose')}}" method="POST">
+                    <form id="contactForm" action="{{route('guest.postMessage')}}" method="POST">
 
                         @csrf
 

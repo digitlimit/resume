@@ -57,6 +57,14 @@ if(!function_exists('active_url'))
 
 if(!function_exists('selected_option'))
 {
+    /**
+     * Mark an option as selected
+     *
+     * @param $value
+     * @param $option
+     * @param string $selected
+     * @return bool|string
+     */
     function selected_option($value, $option, $selected='selected')
     {
         if($value == $option){

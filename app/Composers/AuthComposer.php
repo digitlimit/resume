@@ -12,11 +12,6 @@ class AuthComposer
 {
     protected $users;
 
-    public function __construct()
-    {
-
-    }
-
     /**
      * Binds data to the view
      *
