@@ -1,3 +1,5 @@
+@inject('imageHelper', 'App\Helpers\Image')
+
 <div class="form-group row">
     <label for="title" class="col-sm-3 col-form-label">
         Title
@@ -49,6 +51,32 @@
     </div>
 </div>
 
+<div class="form-group row">
+    <label for="other_names" class="col-sm-3 col-form-label">
+        Profile Photo
+    </label>
+    <div class="col-sm-9">
+
+        <?php
+        $photo = optional($me->profile)->image ? optional($me->profile)->image->name : '';
+        ?>
+
+        <img id="photo-preview" style="display: {{$photo ? 'block' : 'none'}}"
+             class="img-fluid" src="{{$imageHelper->profile($photo)}}" />
+
+        <div class="input-group">
+            <div class="custom-file">
+                <label class="custom-file-label" for="photo">
+                    <input type="file" class="custom-file-input" name="photo" id="photo">
+                </label>
+            </div>
+        </div>
+
+        @include('alert::field', ['field'=>'photo', 'tag'=>''])
+    </div>
+</div>
+
+
 <button type="submit" class="btn btn-success mr-2">Submit</button>
 {{--<a href="{{route('admin.index')}}" class="btn btn-light">Cancel</a>--}}
 
@@ -71,6 +99,25 @@
         quill.on('text-change', function(delta, oldDelta, source) {
             console.log(quill.container.firstChild.innerHTML)
             $('#detail').val(quill.container.firstChild.innerHTML);
+        });
+
+
+
+        $('#photo').change(function()
+        {
+            if($(this)[0] && $(this)[0].files && $(this)[0].files[0])
+            {
+                var photo =  $(this)[0].files[0];
+
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#photo-preview').show();
+                    $('#photo-preview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(photo);
+            }
         });
     }
 </script>
