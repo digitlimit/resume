@@ -1,4 +1,4 @@
-<?php $messages = optional($me)->messages; ?>
+<?php $messages = optional($me)->messages->where('read', false); ?>
 
 <li class="nav-item dropdown">
 

@@ -33,7 +33,9 @@
                                 <tr>
                                     <th>
                                         <div class="form-check form-check-flat">
-                                            <label class="form-check-label">
+
+                                            <label style="{{$message->read ? 'font-weight: lighter;' : ''}}"
+                                                   class="form-check-label">
                                                 <input type="checkbox" class="form-check-input">
                                                 <a href="{{route('common.message.getMessage', ['message' => $message->id])}}">
                                                     {{Str::limit($message->subject, 35)}}

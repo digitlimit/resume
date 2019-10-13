@@ -17,6 +17,19 @@ class Message
         return $user->messages()->find($message_id);
     }
 
+    public static function unreadMessages($user_id, $per_page=5)
+    {
+        //ensure user exists
+        if(! $user = User::find($user_id)){
+            //todo localize
+            throw new Exception("User with ID '$user_id' not found");
+        }
+
+        return $user->messages()
+            ->where('read', false)
+            ->paginate($per_page);
+    }
+
     public static function paginate($user_id, $per_page=15)
     {
         //ensure user exists

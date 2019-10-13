@@ -27,6 +27,9 @@ class CreateMessagesTable extends Migration
             $table->string('country')->nullable();
             $table->string('other_info')->nullable();
 
+            $table->boolean('read')->default(false);
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

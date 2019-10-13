@@ -44,6 +44,8 @@
 
             @include('landing.partials.contact')
 
+            @include('landing.partials.github-contribution-activities')
+
             @include('landing.partials.footer')
 
         </div>

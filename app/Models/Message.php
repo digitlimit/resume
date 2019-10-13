@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Message extends Model
 {
+    use SoftDeletes;
+
     /**
      * The database table used by the model.
      *
@@ -33,7 +36,8 @@ class Message extends Model
         'message',
         'ip_address',
         'country',
-        'other_info'
+        'other_info',
+        'read'
     ];
 
     /**
@@ -59,5 +63,15 @@ class Message extends Model
     public function profile()
     {
         return $this->belongsTo(Profile::class);
+    }
+
+    public function scopeMarkAsRead()
+    {
+        $this->update(['read' => true]);
+    }
+
+    public function scopeMarkAsUnread()
+    {
+        $this->update(['read' => false]);
     }
 }
