@@ -96,6 +96,9 @@ Route::group([], function()
 
             Route::get('/signout', 'ProfileController@signout')
                 ->name('signout');
+
+            Route::get('/place', 'ProfileController@q')
+                ->name('q');
         });
     });
 

@@ -101,8 +101,6 @@
             $('#detail').val(quill.container.firstChild.innerHTML);
         });
 
-
-
         $('#photo').change(function()
         {
             if($(this)[0] && $(this)[0].files && $(this)[0].files[0])

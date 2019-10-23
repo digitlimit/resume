@@ -8,6 +8,10 @@ use App\Service\Profile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Alert;
+use Illuminate\Support\Str;
+use Place;
+use App\Exports\PlaceExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProfileController extends Controller
 {
@@ -19,6 +23,14 @@ class ProfileController extends Controller
     public function index()
     {
 
+    }
+
+    public function q()
+    {
+//        $filename  = ucwords(request()->input('query'))
+//            . ".xlsx";
+//
+//        return Excel::download(new PlaceExport(), $filename);
     }
 
     /**

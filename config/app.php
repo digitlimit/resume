@@ -166,7 +166,8 @@ return [
          * Package Service Providers...
          */
         Digitlimit\Alert\AlertServiceProvider::class,
-
+        Digitlimit\Place\PlaceServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -227,7 +228,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Alert' => Digitlimit\Alert\Facades\Alert::class
+        'Alert' => Digitlimit\Alert\Facades\Alert::class,
+        'Place' => Digitlimit\Place\Facades\Place::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 
