@@ -27,10 +27,10 @@ class ProfileController extends Controller
 
     public function q()
     {
-//        $filename  = ucwords(request()->input('query'))
-//            . ".xlsx";
-//
-//        return Excel::download(new PlaceExport(), $filename);
+        $filename  = ucwords(request()->input('query'))
+            . ".xlsx";
+
+        return Excel::download(new PlaceExport(), $filename);
     }
 
     /**

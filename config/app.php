@@ -177,6 +177,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Stevebauman\Location\LocationServiceProvider::class,
+        App\Providers\HerePlaceServiceProvider::class,
+        App\Providers\AzurePlaceServiceProvider::class
 
     ],
 
