@@ -203,6 +203,8 @@ class Azure extends AbstractProvider implements PlaceContract
                 'query' => $this->getQuery(),
                 'countrySet' => 'NG',
                 'limit' => 100,
+                'lon' => 3.90591,
+                'lat' => 7.37756,
                 'ofs' => $ofs
             ])
         ]);

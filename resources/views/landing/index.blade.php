@@ -18,13 +18,13 @@
             ])
 
             @php $skills = optional($profile)->skills @endphp
-            @includeWhen($skills && $skills->count(), 'landing.partials.skill', [
+            @includeWhen(count($skills), 'landing.partials.skill', [
                 'skills' => $skills
             ])
 
-            @php $work_experiences = optional($profile)->work_experiences @endphp
-            @includeWhen($work_experiences && $work_experiences->count(), 'landing.partials.skill', [
-                'work_experiences' => $work_experiences
+            @php $experiences = optional($profile)->work_experiences @endphp
+            @includeWhen(count($experiences), 'landing.partials.experience', [
+                'experiences' => $experiences
             ])
 
             @php $educations = optional($profile)->educations @endphp

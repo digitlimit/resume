@@ -19,6 +19,7 @@ class CreateWorkExperiencesTable extends Migration
             $table->bigInteger('profile_id');
 
             $table->string('icon')->nullable();
+            $table->boolean('current')->default(false);
 
             $table->string('job_title');
             $table->longText('job_description')->nullable();

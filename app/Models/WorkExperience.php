@@ -29,6 +29,7 @@ class WorkExperience extends Model
         'profile_id',
 
         'icon',
+        'current',
 
         'job_title',
         'job_description',

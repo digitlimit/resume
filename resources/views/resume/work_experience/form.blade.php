@@ -16,11 +16,11 @@
     </label>
     <div class="col-sm-9">
         <div class="quill-textarea">
-            {{old('job_description', optional($work_experience)->job_description)}}
+            {!! old('job_description', optional($work_experience)->job_description) !!}
         </div>
           <textarea style="display: none"
                     name="job_description" id="job_description">
-              {{old('job_description', optional($work_experience)->job_description)}}
+              {!! old('job_description', optional($work_experience)->job_description) !!}
           </textarea>
         @include('alert::field', ['field'=>'job_description', 'tag'=>''])
     </div>
@@ -124,6 +124,23 @@
                value="{{old('icon', optional($work_experience)->icon)}}"
                id="icon" placeholder="Enter Icon Class e.g fa fa-bandcamp">
         @include('alert::field', ['field'=>'icon', 'tag'=>''])
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="current" class="col-sm-3 col-form-label">
+        Current
+    </label>
+    <div class="col-sm-9">
+        <div class="form-check form-check-flat" style="margin-bottom: 2px; margin-top: 2px;">
+            <label class="form-check-label">
+                <input type="checkbox" name="current" id="current"
+                {{old('current', optional($work_experience)->current) ? 'checked="checked"' : ''}}
+                class="form-check-input">
+                Current
+            </label>
+        </div>
+        @include('alert::field', ['field'=>'current', 'tag'=>''])
     </div>
 </div>
 

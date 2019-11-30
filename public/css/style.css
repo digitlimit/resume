@@ -569,3 +569,14 @@ button:focus,
     text-align : center;
     top        : 65%;
     }
+
+.job-description-list ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.job-description-list li::before {
+    content: "•"; color: #5c4cff;
+    display: inline-block; width: 1em;
+    margin-left: -1em
+}

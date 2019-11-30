@@ -51,8 +51,11 @@ class WorkExperienceController extends Controller
      */
     public function store(StoreRequest $request)
     {
+        $work_experience = $request->all();
+        $work_experience['current'] = $request->has('current');
+
         try{
-            if(WorkExperience::create($request->all(), $this->authProfile()->id)) {
+            if(WorkExperience::create($work_experience, $this->authProfile()->id)) {
                 Alert::form('Work Experience successfully Added', 'Congratulations')
                     ->success()
                     ->closable();
@@ -120,6 +123,8 @@ class WorkExperienceController extends Controller
                 'company_address',
                 'icon'
             ]);
+
+            $work_experience['current'] = $request->has('current');
 
             if(WorkExperience::update($work_experience, $this->authProfile()->id, $id)) {
                 Alert::form('Work Experience successfully updated', 'Congratulations')
