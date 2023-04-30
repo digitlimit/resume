@@ -1,2 +1,2 @@
-# emekambah.com
-My professional profile page
+# Resume
+An easy to use profile page
