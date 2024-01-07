@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "86f86d0ace7ad1116e73c72cdde17fd1",
+    "content-hash": "fee852930aed950ae3bc37458bb19832",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -308,6 +308,81 @@
                 "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/v3.0.2"
             },
             "time": "2022-10-27T11:44:00+00:00"
+        },
+        {
+            "name": "digitlimit/alert",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digitlimit/alert.git",
+                "reference": "dda7c1697cb9a772e0b43784c83510229cc7da8f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/digitlimit/alert/zipball/dda7c1697cb9a772e0b43784c83510229cc7da8f",
+                "reference": "dda7c1697cb9a772e0b43784c83510229cc7da8f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/contracts": "^7.20|^8.19|^9.0|^10.0",
+                "illuminate/support": "^7.20|^8.19|^9.0|^10.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "^7.3",
+                "laravel/framework": "^7.20|^8.19|^9.0|^10.0",
+                "nunomaduro/collision": "^7.5",
+                "orchestra/testbench": "^8.5",
+                "pestphp/pest": "^2.5",
+                "phpunit/phpunit": "^10.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Digitlimit\\Alert\\AlertServiceProvider"
+                    ],
+                    "aliases": {
+                        "Alert": "Digitlimit\\Alert\\Facades\\Alert"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Helpers.php"
+                ],
+                "psr-4": {
+                    "Digitlimit\\Alert\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Emeka Mbah",
+                    "email": "frankemeks77@yahoo.com",
+                    "homepage": "https://emekambah.medium.com"
+                }
+            ],
+            "description": "An easy way of flashing messages in Laravel Application",
+            "homepage": "https://github.com/digitlimit/alert",
+            "keywords": [
+                "error bags",
+                "errors",
+                "flash",
+                "laravel",
+                "messages",
+                "validation",
+                "views"
+            ],
+            "support": {
+                "issues": "https://github.com/digitlimit/alert/issues",
+                "source": "https://github.com/digitlimit/alert/tree/v2.0.0"
+            },
+            "time": "2023-05-21T10:42:37+00:00"
         },
         {
             "name": "doctrine/inflector",
