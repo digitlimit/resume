@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Interest\StoreRequest;
 use App\Http\Requests\Interest\UpdateRequest;
 use App\Http\Controllers\Controller;
-use App\Service\Interest;
-use Alert;
+use App\Services\Interest;
+use Digitlimit\Alert\Facades\Alert;
 
 class InterestController extends Controller
 {

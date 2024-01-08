@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Education\StoreRequest;
 use App\Http\Requests\Education\UpdateRequest;
 use App\Http\Controllers\Controller;
-use App\Service\Education;
-use Alert;
+use App\Services\Education;
+use Digitlimit\Alert\Facades\Alert;
 
 class EducationController extends Controller
 {

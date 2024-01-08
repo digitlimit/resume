@@ -6,7 +6,7 @@
         <input type="text" class="form-control" name="title"
                value="{{old('title', optional($skill)->title)}}"
                id="title" placeholder="Enter Title">
-        @include('alert::field', ['field'=>'title', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'title', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -21,7 +21,7 @@
         <textarea style="display: none" id="detail" name="detail">
             {{old('detail', optional($skill)->detail)}}
         </textarea>
-        @include('alert::field', ['field'=>'detail', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'detail', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -34,7 +34,7 @@
                value="{{old('percentage', optional($skill)->percentage)}}"
                class="form-control" name="percentage"
                id="percentage" placeholder="Enter Percentage">
-        @include('alert::field', ['field'=>'percentage', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'percentage', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -47,7 +47,7 @@
                value="{{old('years', optional($skill)->years)}}"
                class="form-control" name="years"
                id="years" placeholder="Enter Years">
-        @include('alert::field', ['field'=>'years', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'years', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -60,7 +60,7 @@
                value="{{old('icon', optional($skill)->icon)}}"
                class="form-control" name="icon"
                id="icon" placeholder="Enter Icon Class e.g fa fa-bandcamp">
-        @include('alert::field', ['field'=>'icon', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'icon', 'tag'=>''])--}}
     </div>
 </div>
 

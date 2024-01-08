@@ -15,7 +15,7 @@
 
                         @method('PUT')
 
-                        @include('alert::form')
+{{--                        @include('alert::form')--}}
 
                         @include('user.form')
 

@@ -2,9 +2,11 @@
 
 namespace App\Http\Requests\Profile;
 
-use Alert;
+use App\Rules\Name;
+use Digitlimit\Alert\Facades\Alert;
 use App\Traits\FormRequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\RedirectResponse;
 
 class StoreRequest extends FormRequest
 {
@@ -28,23 +30,23 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|name',
-            'job_title' => 'required|name',
-            'first_name' => 'required|name',
-            'last_name' => 'required|name',
-            'other_names' => 'nullable|name',
+            'title' => ['required', new Name],
+            'job_title' => ['required', new Name],
+            'first_name' => ['required', new Name],
+            'last_name' => ['required', new Name],
+            'other_names' => ['required', new Name],
             'photo' => 'required|image:png,jpeg',
         ];
     }
 
     /**
-     * Return failed authorization response object
+     * Return a failed authorization response object
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    protected function failedAuthorizationResponse()
+    protected function failedAuthorizationResponse(): RedirectResponse
     {
-        Alert::form('Unauthorized Access', 'Opps')
+        Alert::message('Unauthorized Access', 'Opps')
             ->error();
 
         return redirect()->route('common.profile.edit');

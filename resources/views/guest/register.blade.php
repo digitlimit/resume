@@ -28,7 +28,7 @@
 
                             @csrf
 
-                            @include('alert::form')
+{{--                            @include('alert::form')--}}
 
                             <div class="form-group">
                                 <div class="input-group">

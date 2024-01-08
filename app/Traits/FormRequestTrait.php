@@ -41,7 +41,8 @@ trait FormRequestTrait
      */
     protected function failedValidation(Validator $validator): void
     {
-        Alert::form('Some errors occurred!', 'Opps')
+        Alert::message('Some errors occurred!')
+            ->title('Error')
             ->error();
 
         $response = redirect()

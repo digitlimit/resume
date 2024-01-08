@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Portfolio\StoreRequest;
 use App\Http\Requests\Portfolio\UpdateRequest;
 use App\Http\Controllers\Controller;
-use App\Service\Portfolio;
-use Alert;
+use App\Services\Portfolio;
+use Digitlimit\Alert\Facades\Alert;
 
 class PortfolioController extends Controller
 {

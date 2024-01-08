@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    @include('alert::form')
+{{--                    @include('alert::form')--}}
 
                     <h4 class="card-title">{{$message->subject}}</h4>
                     <p class="card-description">

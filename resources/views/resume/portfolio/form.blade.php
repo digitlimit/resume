@@ -8,7 +8,7 @@
         <input  value="{{old('title', optional($portfolio)->title)}}"
                 type="text" class="form-control" name="title"
                id="title" placeholder="Enter Title">
-        @include('alert::field', ['field'=>'title', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'title', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -23,7 +23,7 @@
         <textarea style="display: none" id="detail" name="detail">
             {{old('detail', optional($portfolio)->detail)}}
         </textarea>
-        @include('alert::field', ['field'=>'detail', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'detail', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -35,7 +35,7 @@
         <input value="{{old('url', optional($portfolio)->url)}}"
                 type="text" class="form-control" name="url"
                id="url" placeholder="Enter URL">
-        @include('alert::field', ['field'=>'url', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'url', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -47,7 +47,7 @@
         <input value="{{old('icon', optional($portfolio)->icon)}}"
                 type="text" class="form-control" name="icon"
                id="icon" placeholder="Enter Icon Class e.g fa fa-bandcamp">
-        @include('alert::field', ['field'=>'icon', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'icon', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -72,7 +72,7 @@
             </div>
         </div>
 
-        @include('alert::field', ['field'=>'photo', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'photo', 'tag'=>''])--}}
     </div>
 </div>
 

@@ -6,7 +6,7 @@
         <input type="text" class="form-control" name="title"
                value="{{old('title', optional($summary)->title)}}"
                id="title" placeholder="Enter Title">
-        @include('alert::field', ['field'=>'title', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'title', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -18,7 +18,7 @@
         <input type="text" class="form-control" name="icon"
                value="{{old('icon', optional($summary)->icon)}}"
                id="icon" placeholder="Enter Icon Class e.g fa fa-bandcamp">
-        @include('alert::field', ['field'=>'icon', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'icon', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -31,7 +31,7 @@
             {{old('detail', optional($summary)->detail)}}
         </div>
         <textarea style="display: none" id="detail" name="detail"></textarea>
-        @include('alert::field', ['field'=>'detail', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'detail', 'tag'=>''])--}}
     </div>
 </div>
 

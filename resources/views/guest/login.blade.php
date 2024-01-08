@@ -29,7 +29,7 @@
 
                             @csrf
 
-                            @include('alert::form')
+{{--                            @include('alert::form')--}}
 
                             <div class="form-group">
                                 <label class="label">Username</label>

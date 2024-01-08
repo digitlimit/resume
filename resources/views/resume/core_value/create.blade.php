@@ -11,7 +11,7 @@
 
                         @csrf
 
-                        @include('alert::form')
+{{--                        @include('alert::form')--}}
 
                         @include('resume.core_value.form')
 

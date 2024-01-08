@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Guest;
 
 use App\Rules\Recaptcha;
+use App\Rules\Name;
 use App\Traits\FormRequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -28,9 +29,9 @@ class PostMessageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|name',
+            'name' => ['required', new Name],
             'email' => 'required|email',
-            'subject' => 'required|name',
+            'subject' => ['required', new Name],
             'message' => 'required|string',
             config('captcha.v2.field') => ['required', new Recaptcha],
         ];

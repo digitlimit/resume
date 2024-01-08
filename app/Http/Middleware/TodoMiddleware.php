@@ -18,7 +18,6 @@ class TodoMiddleware
     public function handle(Request $request, Closure $next): mixed
     {
         if (auth()->check()) {
-
             //current user
             $user = auth()->user();
 
@@ -26,9 +25,9 @@ class TodoMiddleware
             //have not already done so
             if(!$user->profile){
 
-                Alert::form('To continue, kindly create a profile', 'Todo')
+                Alert::message('To continue, kindly create a profile')
                     ->info()
-                    ->closable();
+                    ->flash();
 
                 return redirect()
                     ->route('common.profile.create');

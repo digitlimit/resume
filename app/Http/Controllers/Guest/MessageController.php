@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Requests\Guest\PostMessageRequest;
-use App\Service\Message;
+use App\Services\Message;
 use App\Http\Controllers\Controller;
-use Alert;
+use Digitlimit\Alert\Facades\Alert;
 
 class MessageController extends Controller
 {

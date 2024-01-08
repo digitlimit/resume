@@ -95,7 +95,9 @@
 
     <div class="container-fluid page-body-wrapper">
 
-        @include('admin.common.partials.sidebar')
+        @auth
+            @include('admin.common.partials.sidebar')
+        @endauth
 
         <div class="main-panel">
 
@@ -110,7 +112,7 @@
 
     </div>
 
-    @include('alert::modal')
+{{--    @include('alert::modal')--}}
 </div>
 
 

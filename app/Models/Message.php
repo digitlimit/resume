@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Message extends Model
@@ -24,54 +26,59 @@ class Message extends Model
     protected $primaryKey = 'id';
 
     /**
-     * Attributes that should be mass-assignable.
+     * Attributes that should not be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'user_id',
-        'name',
-        'email',
-        'subject',
-        'message',
-        'ip_address',
-        'country',
-        'other_info',
-        'read'
-    ];
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
-    protected $dates = [];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [];
-
+    protected $guarded = ['id'];
 
     /**
      * Summary belongs to a Profile
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
-    public function profile()
+    public function profile(): BelongsTo
     {
         return $this->belongsTo(Profile::class);
     }
 
-    public function scopeMarkAsRead()
+    /**
+     * Scope a query to only read messages.
+     *
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeRead(Builder $query): Builder
     {
+        return $query->where('read', true);
+    }
+
+    /**
+     * Scope a query to only unread messages.
+     *
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeUnread(Builder $query): Builder
+    {
+        return $query->where('read', false);
+    }
+
+    public function markAsRead(): void
+    {
+        if ($this->id) {
+            return;
+        }
+
         $this->update(['read' => true]);
     }
 
-    public function scopeMarkAsUnread()
+    public function markAsUnread(): void
     {
+        if ($this->id) {
+            return;
+        }
+
         $this->update(['read' => false]);
     }
 }

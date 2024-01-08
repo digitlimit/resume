@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    @include('alert::form')
+{{--                    @include('alert::form')--}}
 
                     @if($work_experiences->count())
                         <table class="table table-striped">

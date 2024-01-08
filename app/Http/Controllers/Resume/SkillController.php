@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Skill\StoreRequest;
 use App\Http\Requests\Skill\UpdateRequest;
 use App\Http\Controllers\Controller;
-use App\Service\Skill;
-use Alert;
+use App\Services\Skill;
+use Digitlimit\Alert\Facades\Alert;
 
 class SkillController extends Controller
 {

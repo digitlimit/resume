@@ -6,8 +6,8 @@ use App\Http\Requests\Contact\UpdateRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Contact\StoreRequest;
-use App\Service\Contact;
-use Alert;
+use App\Services\Contact;
+use Digitlimit\Alert\Facades\Alert;
 
 class ContactController extends Controller
 {

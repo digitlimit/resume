@@ -4,16 +4,22 @@ namespace App\Http\Controllers\Common;
 
 use App\Http\Requests\Message\PostComposeRequest;
 use App\Http\Requests\Message\PostReplyRequest;
-use App\Service\Message;
+use App\Services\Message;
 use App\Http\Controllers\Controller;
-use Alert;
+use Digitlimit\Alert\Facades\Alert;
+use Exception;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\Response;
 
 class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
+     * @throws Exception
      */
     public function index()
     {
@@ -74,8 +80,8 @@ class MessageController extends Controller
                     ->success()
                     ->closable();
             }
-        }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+        }catch(Exception $e){
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
                 ->closable();
         }
@@ -88,20 +94,21 @@ class MessageController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {
         try{
             if(Message::destroy($this->authProfile()->id, $id)) {
-                Alert::form('Message successfully Deleted', 'Congratulations')
+                Alert::message('Message successfully Deleted', 'Congratulations')
                     ->success()
                     ->closable();
             }
-        }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+        }catch(Exception $e){
+            Alert::message($e->getMessage())
+                ->title('Oops')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()

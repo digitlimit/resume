@@ -1,8 +1,6 @@
-<?php $messages = optional($me)->messages->where('read', false); ?>
-
 <li class="nav-item dropdown">
 
-    <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-toggle="dropdown">
+    <a class="nav-link count-indicator" id="notificationDropdown" href="javascript:void(0);" data-toggle="dropdown">
         <i class="mdi mdi-email-outline"></i>
         <span class="count bg-success">{{$messages->count()}}</span>
     </a>

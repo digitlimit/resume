@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Message;
 
+use App\Rules\Name;
 use App\Traits\FormRequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -27,9 +28,9 @@ class PostReplyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|name',
+            'name' => ['required', new Name],
             'email' => 'required|email',
-            'subject' => 'required|name',
+            'subject' => ['required', new Name],
             'message' => 'required|string',
         ];
     }

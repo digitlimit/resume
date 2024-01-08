@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\WorkExperience\StoreRequest;
 use App\Http\Requests\WorkExperience\UpdateRequest;
 use App\Http\Controllers\Controller;
-use App\Service\WorkExperience;
-use Alert;
+use App\Services\WorkExperience;
+use Digitlimit\Alert\Facades\Alert;
 
 class WorkExperienceController extends Controller
 {

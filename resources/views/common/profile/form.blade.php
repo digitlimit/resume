@@ -6,10 +6,10 @@
     </label>
     <div class="col-sm-9">
         <input type="text"
-               value="{{old('title', optional($me->profile)->title)}}"
+               value="{{old('title', $me?->profile->title)}}"
                class="form-control" name="title"
                id="title" placeholder="Enter Title">
-        @include('alert::field', ['field'=>'title', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'title', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -19,9 +19,9 @@
     </label>
     <div class="col-sm-9">
         <input type="text" class="form-control" name="job_title"
-               value="{{old('job_title', optional($me->profile)->job_title)}}"
+               value="{{old('job_title', $me?->profile->job_title)}}"
                id="job_title" placeholder="Enter Job Title">
-        @include('alert::field', ['field'=>'job_title', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'job_title', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -31,9 +31,9 @@
     </label>
     <div class="col-sm-9">
         <input type="text" class="form-control" name="first_name"
-               value="{{old('first_name', optional($me->profile)->first_name)}}"
+               value="{{old('first_name', $me?->profile->first_name)}}"
                id="first_name" placeholder="Enter First Name">
-        @include('alert::field', ['field'=>'first_name', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'first_name', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -43,9 +43,9 @@
     </label>
     <div class="col-sm-9">
         <input type="text" class="form-control" name="last_name"
-               value="{{old('last_name', optional($me->profile)->last_name)}}"
+               value="{{old('last_name', $me?->profile->last_name)}}"
                id="last_name" placeholder="Enter Last Name">
-        @include('alert::field', ['field'=>'last_name', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'last_name', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -55,9 +55,9 @@
     </label>
     <div class="col-sm-9">
         <input type="text" class="form-control" name="other_names"
-               value="{{old('other_names', optional($me->profile)->other_names)}}"
+               value="{{old('other_names', $me?->profile->other_names)}}"
                id="other_names" placeholder="Enter Other names">
-        @include('alert::field', ['field'=>'other_names', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'other_names', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -68,7 +68,7 @@
     <div class="col-sm-9">
 
         <?php
-            $photo = optional($me->profile)->image ? optional($me->profile)->image->name : '';
+            $photo = $me?->profile->image ? $me?->profile->image->name : '';
         ?>
 
         <img id="photo-preview" style="display: {{$photo ? 'block' : 'none'}}"
@@ -82,7 +82,7 @@
             </div>
         </div>
 
-        @include('alert::field', ['field'=>'photo', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'photo', 'tag'=>''])--}}
     </div>
 </div>
 

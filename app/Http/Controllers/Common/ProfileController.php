@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Common;
 
 use App\Http\Requests\Profile\StoreRequest;
 use App\Http\Requests\Profile\UpdateRequest;
-use App\Service\Profile;
+use App\Services\Profile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Alert;
+use Digitlimit\Alert\Facades\Alert;
 use Illuminate\Support\Str;
 use Place;
 use App\Exports\PlaceExport;

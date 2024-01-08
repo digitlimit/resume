@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\StoreRequest;
 use App\Http\Requests\User\UpdateRequest;
-use App\Service\User;
-use Alert;
+use App\Services\User;
+use Digitlimit\Alert\Facades\Alert;
 
 class UserController extends Controller
 {

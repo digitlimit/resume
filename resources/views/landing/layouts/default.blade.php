@@ -67,7 +67,7 @@
 
     @yield('content')
 
-    @include('alert::modal')
+{{--    @include('alert::modal')--}}
 
 </div>
 

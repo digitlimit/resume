@@ -12,7 +12,7 @@
 
                         @csrf
 
-                        @include('alert::form')
+{{--                        @include('alert::form')--}}
 
                         @include('common.profile.form')
                     </form>

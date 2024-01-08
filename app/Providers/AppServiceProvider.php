@@ -21,6 +21,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::share('me', Auth::user());
+        $user = Auth::user();
+
+        View::share('me', $user);
+        View::share('messages', $user?->readMessages()->get());
     }
+
 }

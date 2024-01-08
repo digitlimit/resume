@@ -6,7 +6,7 @@
         <input type="text" class="form-control" name="job_title" id="job_title"
                value="{{old('job_title', optional($work_experience)->job_title)}}"
                placeholder="Enter Job Title">
-        @include('alert::field', ['field'=>'job_title', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'job_title', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -22,7 +22,7 @@
                     name="job_description" id="job_description">
               {!! old('job_description', optional($work_experience)->job_description) !!}
           </textarea>
-        @include('alert::field', ['field'=>'job_description', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'job_description', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -43,13 +43,13 @@
             @endforeach
         </select>
 
-        @include('alert::field', ['field'=>'start_month', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'start_month', 'tag'=>''])--}}
     </div>
     <div class="col-sm-4">
         <input type="text" class="form-control" name="start_year"
                value="{{old('start_year', optional($work_experience)->start_year)}}"
                id="start_year" placeholder="Year">
-        @include('alert::field', ['field'=>'start_year', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'start_year', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -68,14 +68,14 @@
             @endforeach
         </select>
 
-        @include('alert::field', ['field'=>'end_month', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'end_month', 'tag'=>''])--}}
     </div>
 
     <div class="col-sm-4">
         <input type="text" class="form-control" name="end_year"
                value="{{old('end_year', optional($work_experience)->end_year)}}"
                id="end_year" placeholder="Year">
-        @include('alert::field', ['field'=>'end_year', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'end_year', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -87,7 +87,7 @@
         <input type="text" class="form-control" name="company_name"
                value="{{old('company_name', optional($work_experience)->company_name)}}"
                id="company_name" placeholder="Enter Company Name">
-        @include('alert::field', ['field'=>'company_name', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'company_name', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -99,7 +99,7 @@
         <input type="text" class="form-control" name="company_info"
                value="{{old('company_info', optional($work_experience)->company_info)}}"
                id="company_info" placeholder="Enter Company Info">
-        @include('alert::field', ['field'=>'company_info', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'company_info', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -111,7 +111,7 @@
         <input type="text" class="form-control" name="company_address"
                value="{{old('company_address', optional($work_experience)->company_address)}}"
                id="company_address" placeholder="Enter Company Address">
-        @include('alert::field', ['field'=>'company_address', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'company_address', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -123,7 +123,7 @@
         <input type="text" class="form-control" name="icon"
                value="{{old('icon', optional($work_experience)->icon)}}"
                id="icon" placeholder="Enter Icon Class e.g fa fa-bandcamp">
-        @include('alert::field', ['field'=>'icon', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'icon', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -140,7 +140,7 @@
                 Current
             </label>
         </div>
-        @include('alert::field', ['field'=>'current', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'current', 'tag'=>''])--}}
     </div>
 </div>
 

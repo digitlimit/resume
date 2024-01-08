@@ -11,19 +11,19 @@
 
         <div class="right-col-block blocks">
 
-            @include('alert::form')
+{{--            @include('alert::form')--}}
 
             @includeWhen(optional($profile)->summary, 'landing.partials.summary', [
                 'summary' => optional($profile)->summary
             ])
 
             @php $skills = optional($profile)->skills @endphp
-            @includeWhen(count($skills), 'landing.partials.skill', [
+            @includeWhen($skills, 'landing.partials.skill', [
                 'skills' => $skills
             ])
 
             @php $experiences = optional($profile)->work_experiences @endphp
-            @includeWhen(count($experiences), 'landing.partials.experience', [
+            @includeWhen($experiences, 'landing.partials.experience', [
                 'experiences' => $experiences
             ])
 

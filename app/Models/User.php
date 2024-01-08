@@ -81,4 +81,14 @@ class User extends Authenticatable
     {
         return $this->hasmany(Message::class);
     }
+
+    /**
+     * User unread messages
+     *
+     * @return HasMany
+     */
+    public function readMessages(): HasMany
+    {
+        return $this->messages()->read();
+    }
 }

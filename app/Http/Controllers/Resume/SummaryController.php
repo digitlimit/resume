@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Resume;
 use App\Http\Requests\Summary\UpdateRequest;
 use App\Http\Requests\Summary\StoreRequest;
 use App\Http\Controllers\Controller;
-use App\Service\Summary;
-use Alert;
+use App\Services\Summary;
+use Digitlimit\Alert\Facades\Alert;
 
 class SummaryController extends Controller
 {

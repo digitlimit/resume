@@ -14,7 +14,7 @@
 
                         @csrf
 
-                        @include('alert::form')
+{{--                        @include('alert::form')--}}
 
                         @include('landing.partials.contact-form')
 

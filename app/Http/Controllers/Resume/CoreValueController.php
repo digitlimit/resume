@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CoreValue\StoreRequest;
 use App\Http\Requests\CoreValue\UpdateRequest;
 use App\Http\Controllers\Controller;
-use App\Service\CoreValue;
-use Alert;
+use App\Services\CoreValue;
+use Digitlimit\Alert\Facades\Alert;
 
 class CoreValueController extends Controller
 {

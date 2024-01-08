@@ -7,7 +7,7 @@
                value="{{old('name', optional($social)->name)}}"
                class="form-control" name="name"
                id="name" placeholder="Enter Name">
-        @include('alert::field', ['field'=>'name', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'name', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -19,7 +19,7 @@
         <input  value="{{old('url', optional($social)->url)}}"
                 type="text" class="form-control" name="url"
                id="url" placeholder="Enter URL">
-        @include('alert::field', ['field'=>'url', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'url', 'tag'=>''])--}}
     </div>
 </div>
 
@@ -31,7 +31,7 @@
         <input  value="{{old('icon', optional($social)->icon)}}"
                 type="text" class="form-control" name="icon"
                id="icon" placeholder="Enter Icon Class e.g fa fa-bandcamp">
-        @include('alert::field', ['field'=>'icon', 'tag'=>''])
+{{--        @include('alert::field', ['field'=>'icon', 'tag'=>''])--}}
     </div>
 </div>
 

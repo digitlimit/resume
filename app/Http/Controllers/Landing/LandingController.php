@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Landing;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Service\Profile;
+use App\Services\Profile;
 
 class LandingController extends Controller
 {

@@ -41,7 +41,9 @@ class PostLoginRequest extends FormRequest
      */
     protected function failedValidation(Validator $validator)
     {
-        Alert::form('Invalid Email/Password', 'Opps')
+        Alert::message(trans('auth.failed'))
+            ->title('Opps')
+            ->tag('auth')
             ->error();
 
         $response = redirect()

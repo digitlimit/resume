@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Social\StoreRequest;
 use App\Http\Requests\Social\UpdateRequest;
 use App\Http\Controllers\Controller;
-use App\Service\Social;
-use Alert;
+use App\Services\Social;
+use Digitlimit\Alert\Facades\Alert;
 
 class SocialController extends Controller
 {

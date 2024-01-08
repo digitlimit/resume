@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Guest\PostLoginRequest;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use App\Models\User;
-
-use Alert;
+use Digitlimit\Alert\Facades\Alert;
+use Illuminate\Http\Response;
 
 class LoginController extends Controller
 {
@@ -53,7 +53,7 @@ class LoginController extends Controller
      * Handle a login request to the application.
      *
      * @param  \App\Http\Requests\Guest\PostLoginRequest $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
+     * @return RedirectResponse|Response
      */
     public function postLogin(PostLoginRequest $request)
     {
@@ -99,8 +99,8 @@ class LoginController extends Controller
     /**
      * Get the failed login response instance.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @return RedirectResponse
      */
     protected function sendFailedLoginResponse(Request $request)
     {
@@ -112,41 +112,27 @@ class LoginController extends Controller
             ]);
         }
 
-        Alert::form(trans('auth.failed'))
+        Alert::message(trans('auth.failed'))
+            ->tag('auth')
             ->error();
 
         return redirect()->back()
             ->withInput($request->only($this->username(), 'remember'));
     }
 
-
-
     /**
      * Send the response after the user was authenticated.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse
      */
-    protected function sendLoginResponse(Request $request)
+    protected function sendLoginResponse(Request $request): RedirectResponse
     {
         $request->session()->regenerate();
-
         $this->clearLoginAttempts($request);
 
-        //TODO: determine user role, depends on Entrust Role package
-
-//        $user = $request->user();
-//
-//        $route = route('profile.dashboard.getIndex');
-//
-//        if($user->isAdmins())
-//        {
-//            $route = route('admin.dashboard.getIndex');
-//        }else{
-//            $route = route('member.dashboard.getIndex');
-//        }
-
-        Alert::form('Login was done', 'Congratulations')
+        Alert::message('Login was done')
+            ->title('Congratulations')
             ->success();
 
         //TODO: redirect to resume index
