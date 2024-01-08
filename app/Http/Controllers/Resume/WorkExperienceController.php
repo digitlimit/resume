@@ -56,14 +56,14 @@ class WorkExperienceController extends Controller
 
         try{
             if(WorkExperience::create($work_experience, $this->authProfile()->id)) {
-                Alert::form('Work Experience successfully Added', 'Congratulations')
+                Alert::message('Work Experience successfully Added', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()
@@ -127,14 +127,14 @@ class WorkExperienceController extends Controller
             $work_experience['current'] = $request->has('current');
 
             if(WorkExperience::update($work_experience, $this->authProfile()->id, $id)) {
-                Alert::form('Work Experience successfully updated', 'Congratulations')
+                Alert::message('Work Experience successfully updated', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()
@@ -152,14 +152,14 @@ class WorkExperienceController extends Controller
     {
         try{
             if(WorkExperience::destroy($this->authProfile()->id, $id)) {
-                Alert::form('Work Experience successfully Deleted', 'Congratulations')
+                Alert::message('Work Experience successfully Deleted', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()

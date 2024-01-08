@@ -52,14 +52,14 @@ class InterestController extends Controller
     {
         try{
             if(Interest::create($request->all(), $this->authProfile()->id)) {
-                Alert::form('Interest successfully Added', 'Congratulations')
+                Alert::message('Interest successfully Added', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()
@@ -114,14 +114,14 @@ class InterestController extends Controller
             ]);
 
             if(Interest::update($interest, $this->authProfile()->id, $id)) {
-                Alert::form('Interest successfully updated', 'Congratulations')
+                Alert::message('Interest successfully updated', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()
@@ -139,14 +139,14 @@ class InterestController extends Controller
     {
         try{
             if(Interest::destroy($this->authProfile()->id, $id)) {
-                Alert::form('Interest successfully Deleted', 'Congratulations')
+                Alert::message('Interest successfully Deleted', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()

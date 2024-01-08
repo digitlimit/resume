@@ -53,14 +53,14 @@ class CoreValueController extends Controller
     {
         try{
             if(CoreValue::create($request->all(), $this->authProfile()->id)) {
-                Alert::form('CoreValue successfully Added', 'Congratulations')
+                Alert::message('CoreValue successfully Added', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()
@@ -115,14 +115,14 @@ class CoreValueController extends Controller
             ]);
 
             if(CoreValue::update($core_value, $this->authProfile()->id, $id)) {
-                Alert::form('CoreValue successfully updated', 'Congratulations')
+                Alert::message('CoreValue successfully updated', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()
@@ -140,14 +140,14 @@ class CoreValueController extends Controller
     {
         try{
             if(CoreValue::destroy($this->authProfile()->id, $id)) {
-                Alert::form('Core Value successfully Deleted', 'Congratulations')
+                Alert::message('Core Value successfully Deleted', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()

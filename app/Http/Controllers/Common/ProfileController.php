@@ -1,49 +1,38 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Common;
 
 use App\Http\Requests\Profile\StoreRequest;
 use App\Http\Requests\Profile\UpdateRequest;
 use App\Services\Profile;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Digitlimit\Alert\Facades\Alert;
-use Illuminate\Support\Str;
-use Place;
-use App\Exports\PlaceExport;
-use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Http\Response;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index(Request $request): RedirectResponse
     {
+        if($request->user()->profile){
+            return redirect()->route('common.profile.edit');
+        }
 
-    }
-
-    public function q()
-    {
-        $filename  = ucwords(request()->input('query'))
-            . ".xlsx";
-
-        return Excel::download(new PlaceExport(), $filename);
+        return redirect()->route('common.profile.create');
     }
 
     /**
      * Show the form for creating a new resource.
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse|View
      */
-    public function create(Request $request)
+    public function create(Request $request): RedirectResponse|View
     {
-        //if user already have profile
         if($request->user()->profile){
-            return redirect()
-                ->route('common.profile.edit');
+            return redirect()->route('common.profile.edit');
         }
 
         return view('common.profile.create', [
@@ -54,32 +43,33 @@ class ProfileController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Profile\StoreRequest $request
-     * @return \Illuminate\Http\Response
+     * @param StoreRequest $request
+     * @return RedirectResponse
      */
-    public function store(StoreRequest $request)
+    public function store(StoreRequest $request): RedirectResponse
     {
         try{
-            if(Profile::create($request->all(), $request->user()->id)) {
-                Alert::form('Profile successfully created', 'Congratulations')
+            $profile = Profile::create($request->validated(), $request->user()->id);
+
+            if ($profile) {
+                Alert::message('Profile successfully created', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
-        return redirect()
-            ->route('common.profile.edit');
+        return redirect()->route('common.profile.edit');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
@@ -89,8 +79,8 @@ class ProfileController extends Controller
     /**
      * Show the form for editing the specified resource.
      * @param  int  $id
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function edit(Request $request, $id=null)
     {
@@ -110,7 +100,7 @@ class ProfileController extends Controller
      *
      * @param  \App\Http\Requests\Profile\UpdateRequest  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(UpdateRequest $request, $id=null)
     {
@@ -125,14 +115,14 @@ class ProfileController extends Controller
             ]);
 
             if(Profile::update($profile, $request->user()->id)) {
-                Alert::form('Profile successfully updated', 'Congratulations')
+                Alert::message('Profile successfully updated', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()
@@ -143,7 +133,7 @@ class ProfileController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {
@@ -153,15 +143,15 @@ class ProfileController extends Controller
     /**
      * Log user out
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function signout(){
 
         auth()->logout();
 
-        Alert::form('Signout was done!', 'Cool :)')
+        Alert::message('Signout was done!', 'Cool :)')
             ->success()
-            ->closable();
+            ->flash();
 
         return redirect()
             ->route('landing.index');

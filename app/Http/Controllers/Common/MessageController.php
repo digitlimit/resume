@@ -78,12 +78,12 @@ class MessageController extends Controller
             if(Message::compose($message, $user_id)) {
                 Alert::modal('Message successfully sent', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(Exception $e){
             Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()
@@ -102,7 +102,7 @@ class MessageController extends Controller
             if(Message::destroy($this->authProfile()->id, $id)) {
                 Alert::message('Message successfully Deleted', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(Exception $e){
             Alert::message($e->getMessage())

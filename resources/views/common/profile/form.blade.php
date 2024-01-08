@@ -6,10 +6,11 @@
     </label>
     <div class="col-sm-9">
         <input type="text"
-               value="{{old('title', $me?->profile->title)}}"
-               class="form-control" name="title"
-               id="title" placeholder="Enter Title">
-{{--        @include('alert::field', ['field'=>'title', 'tag'=>''])--}}
+           value="{{old('title', $me?->profile->title)}}"
+           class="form-control" name="title"
+           id="title" placeholder="Enter Title"
+        >
+        <x-alert-field name="title" />
     </div>
 </div>
 
@@ -18,10 +19,14 @@
         Job Title
     </label>
     <div class="col-sm-9">
-        <input type="text" class="form-control" name="job_title"
-               value="{{old('job_title', $me?->profile->job_title)}}"
-               id="job_title" placeholder="Enter Job Title">
-{{--        @include('alert::field', ['field'=>'job_title', 'tag'=>''])--}}
+        <input
+            type="text"
+            class="form-control"
+            name="job_title"
+            value="{{old('job_title', $me?->profile->job_title)}}"
+            id="job_title" placeholder="Enter Job Title"
+        >
+        <x-alert-field name="job_title" />
     </div>
 </div>
 
@@ -30,10 +35,15 @@
         First Name
     </label>
     <div class="col-sm-9">
-        <input type="text" class="form-control" name="first_name"
-               value="{{old('first_name', $me?->profile->first_name)}}"
-               id="first_name" placeholder="Enter First Name">
-{{--        @include('alert::field', ['field'=>'first_name', 'tag'=>''])--}}
+        <input
+            type="text"
+            class="form-control"
+            name="first_name"
+            value="{{old('first_name', $me?->profile->first_name)}}"
+            id="first_name"
+            placeholder="Enter First Name"
+        >
+        <x-alert-field name="first_name" />
     </div>
 </div>
 
@@ -42,10 +52,15 @@
         Last Name
     </label>
     <div class="col-sm-9">
-        <input type="text" class="form-control" name="last_name"
-               value="{{old('last_name', $me?->profile->last_name)}}"
-               id="last_name" placeholder="Enter Last Name">
-{{--        @include('alert::field', ['field'=>'last_name', 'tag'=>''])--}}
+        <input
+            type="text"
+            class="form-control"
+            name="last_name"
+            value="{{old('last_name', $me?->profile->last_name)}}"
+            id="last_name"
+            placeholder="Enter Last Name"
+        >
+        <x-alert-field name="last_name" />
     </div>
 </div>
 
@@ -54,10 +69,15 @@
         Other names
     </label>
     <div class="col-sm-9">
-        <input type="text" class="form-control" name="other_names"
-               value="{{old('other_names', $me?->profile->other_names)}}"
-               id="other_names" placeholder="Enter Other names">
-{{--        @include('alert::field', ['field'=>'other_names', 'tag'=>''])--}}
+        <input
+            type="text"
+            class="form-control"
+            name="other_names"
+            value="{{old('other_names', $me?->profile->other_names)}}"
+            id="other_names"
+            placeholder="Enter Other names"
+        >
+        <x-alert-field name="other_names" />
     </div>
 </div>
 
@@ -82,13 +102,11 @@
             </div>
         </div>
 
-{{--        @include('alert::field', ['field'=>'photo', 'tag'=>''])--}}
+        <x-alert-field name="photo" />
     </div>
 </div>
 
 <button type="submit" class="btn btn-success mr-2">Submit</button>
-{{--                        <a href="{{route('admin.index')}}" class="btn btn-light">Cancel</a>--}}
-{{--@endAlertHasNoSuccess--}}
 
 @push('footer')
 <script>

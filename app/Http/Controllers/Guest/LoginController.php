@@ -66,7 +66,7 @@ class LoginController extends Controller
 //        //return errors to view if any
 //        if($validator->fails()){
 //
-//            Alert::form('Invalid Email/Password','Opps')
+//            Alert::message('Invalid Email/Password','Opps')
 //                ->error();
 //
 //            return redirect()

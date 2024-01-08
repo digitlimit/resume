@@ -2,21 +2,26 @@
 
 namespace App\Http\Controllers\User;
 
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\StoreRequest;
 use App\Http\Requests\User\UpdateRequest;
 use App\Services\User;
 use Digitlimit\Alert\Facades\Alert;
+use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
         return view('user.index', [
             'page_title' => 'Users',
@@ -27,9 +32,9 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function create()
+    public function create(): View
     {
         return view('user.create', [
             'page_title' => 'Add User',
@@ -40,32 +45,31 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\User\StoreRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param StoreRequest $request
+     * @return RedirectResponse
      */
-    public function store(StoreRequest $request)
+    public function store(StoreRequest $request): RedirectResponse
     {
         try{
             if(User::create($request->all())) {
-                Alert::form('User successfully Added', 'Congratulations')
+                Alert::message('User successfully Added', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
-        return redirect()
-            ->route('user.index');
+        return redirect()->route('user.index');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function show($id)
     {
@@ -75,10 +79,10 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Foundation\Application|Application|Factory|View
      */
-    public function edit($id)
+    public function edit($id): Application|Factory|View|\Illuminate\Foundation\Application
     {
         try{
             return view('user.edit', [
@@ -86,20 +90,22 @@ class UserController extends Controller
                 'user' => User::findOrFail($id)
             ]);
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
+
+        return redirect()->route('user.index');
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\User\UpdateRequest  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param UpdateRequest $request
+     * @param int $id
+     * @return RedirectResponse
      */
-    public function update(UpdateRequest $request, $id)
+    public function update(UpdateRequest $request, int $id): RedirectResponse
     {
         try{
             $user = $request->only([
@@ -108,43 +114,41 @@ class UserController extends Controller
             ]);
 
             if(User::update($user, $id)) {
-                Alert::form('User successfully updated', 'Congratulations')
+                Alert::message('User successfully updated', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
-        return redirect()
-            ->route('user.edit', [
-                'user' => $id
-            ]);
+        return redirect()->route('user.edit', [
+            'user' => $id,
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(int $id): RedirectResponse
     {
         try{
             if(User::destroy($id)) {
-                Alert::form('User successfully Deleted', 'Congratulations')
+                Alert::message('User successfully Deleted', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
-        return redirect()
-            ->route('user.index');
+        return redirect()->route('user.index');
     }
 }

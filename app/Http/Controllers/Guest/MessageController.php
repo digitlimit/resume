@@ -30,12 +30,12 @@ class MessageController extends Controller
             if(Message::compose($message, $user_id)) {
                 Alert::modal('Message successfully sent', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()

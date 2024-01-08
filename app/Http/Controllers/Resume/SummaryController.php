@@ -48,14 +48,14 @@ class SummaryController extends Controller
     {
         try{
             if(Summary::create($request->all(), $this->authProfile()->id)) {
-                Alert::form('Summary successfully created', 'Congratulations')
+                Alert::message('Summary successfully created', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()
@@ -99,14 +99,14 @@ class SummaryController extends Controller
             ]);
 
             if(Summary::update($summary, $this->authProfile()->id)) {
-                Alert::form('Summary successfully updated', 'Congratulations')
+                Alert::message('Summary successfully updated', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()

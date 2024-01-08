@@ -51,4 +51,20 @@ class StoreRequest extends FormRequest
 
         return redirect()->route('common.profile.edit');
     }
+
+    /**
+     * Return a failed validation response object
+     *
+     * @param array $errors
+     * @return RedirectResponse
+     */
+    protected function failedValidationResponse(array $errors): RedirectResponse
+    {
+        Alert::message('Please correct the errors below', 'Opps')
+            ->error()
+            ->details($errors)
+            ->flash();
+
+        return redirect()->route('common.profile.create');
+    }
 }

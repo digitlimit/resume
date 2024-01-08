@@ -51,14 +51,14 @@ class ContactController extends Controller
     {
         try{
             if(Contact::create($request->all(), $this->authProfile()->id)) {
-                Alert::form('Contact successfully created', 'Congratulations')
+                Alert::message('Contact successfully created', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()
@@ -115,14 +115,14 @@ class ContactController extends Controller
             ]);
 
             if(Contact::update($contact, $this->authProfile()->id)) {
-                Alert::form('Contact successfully updated', 'Congratulations')
+                Alert::message('Contact successfully updated', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()

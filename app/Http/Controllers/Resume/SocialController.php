@@ -53,14 +53,14 @@ class SocialController extends Controller
     {
         try{
             if(Social::create($request->all(), $this->authProfile()->id)) {
-                Alert::form('Social successfully Added', 'Congratulations')
+                Alert::message('Social successfully Added', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()
@@ -115,14 +115,14 @@ class SocialController extends Controller
             ]);
 
             if(Social::update($social, $this->authProfile()->id, $id)) {
-                Alert::form('Social successfully updated', 'Congratulations')
+                Alert::message('Social successfully updated', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()
@@ -140,14 +140,14 @@ class SocialController extends Controller
     {
         try{
             if(Social::destroy($this->authProfile()->id, $id)) {
-                Alert::form('Social successfully Deleted', 'Congratulations')
+                Alert::message('Social successfully Deleted', 'Congratulations')
                     ->success()
-                    ->closable();
+                    ->flash();
             }
         }catch(\Exception $e){
-            Alert::form($e->getMessage(), 'Opps')
+            Alert::message($e->getMessage(), 'Opps')
                 ->error()
-                ->closable();
+                ->flash();
         }
 
         return redirect()
