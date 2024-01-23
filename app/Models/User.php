@@ -12,9 +12,12 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Str;
 use App\Traits\UserHelperTrait;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     use HasApiTokens;
     use HasFactory;
@@ -90,5 +93,22 @@ class User extends Authenticatable
     public function readMessages(): HasMany
     {
         return $this->messages()->read();
+    }
+
+    /**
+     * User unread messages
+     *
+     * @param Panel $panel
+     * @return bool
+     */
+    public function canAccessPanel(Panel $panel): bool
+    {
+        $domain = config('app.domain') ?? config('app.url');
+
+        if (Str::isUrl($domain)) {
+            $domain = parse_url($domain, PHP_URL_HOST);
+        }
+
+        return str_ends_with($this->email, $domain); // && $this->hasVerifiedEmail();
     }
 }
