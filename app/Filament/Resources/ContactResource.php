@@ -37,7 +37,7 @@ class ContactResource extends Resource
                 Forms\Components\TextInput::make('address_2')
                     ->placeholder('Enter address 2'),
                 Forms\Components\Select::make('profile_id')
-                    ->relationship('profile', 'profile')
+                    ->relationship('profile', 'first_name')
                     ->required(),
             ]);
     }
