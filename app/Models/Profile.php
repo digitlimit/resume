@@ -65,11 +65,11 @@ class Profile extends Model
     /**
      * Contact
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function contact()
+    public function contacts()
     {
-        return $this->hasOne(Contact::class);
+        return $this->hasMany(Contact::class);
     }
 
     /**
